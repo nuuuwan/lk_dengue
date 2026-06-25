@@ -46,7 +46,7 @@ class ReadMe:
     def get_lines_for_deaths() -> list[str]:
         Deaths.by_district()
         lines = [
-            "## Deaths",
+            "## Deaths in 2026",
             "",
             f"![]({Deaths.chart_by_district()})",
             "",
