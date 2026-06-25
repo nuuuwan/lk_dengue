@@ -46,14 +46,14 @@ class ReadMe:
     def get_lines_for_chart(
         Doc,
         get_file_from_latest,
-        metric_key,
+        get_metric,
         metric_label,
         metric_color,
     ) -> list[str]:
         image_path = Chart.chart_metric_by_region(
             Doc=Doc,
             get_file_from_latest=get_file_from_latest,
-            metric_key=metric_key,
+            get_metric=get_metric,
             metric_label=metric_label,
             metric_color=metric_color,
         )
@@ -72,28 +72,28 @@ class ReadMe:
         for (
             Doc,
             get_file_from_latest,
-            metric_key,
+            get_metric,
             metric_label,
             metric_color,
         ) in [
             (
                 NDCUWeekly,
                 lambda latest: latest.cases_by_district_file,
-                "n_this_year_this_week",
+                lambda d: int(d["n_this_year_this_week"]),
                 "Cases this week",
                 "orange",
             ),
             (
                 NDCUWeekly,
                 lambda latest: latest.deaths_by_district_file,
-                "n_deaths",
+                lambda d: int(d["n_deaths"]),
                 "Cumulative Deaths in 2026",
                 "darkred",
             ),
             (
                 NDCUDaily,
                 lambda latest: latest.district_data_file,
-                "n_cases",
+                lambda d: int(d["n_cases"]),
                 "Cumulative Cases in 2026",
                 "darkorange",
             ),
@@ -101,7 +101,7 @@ class ReadMe:
             yield from ReadMe.get_lines_for_chart(
                 Doc=Doc,
                 get_file_from_latest=get_file_from_latest,
-                metric_key=metric_key,
+                get_metric=get_metric,
                 metric_label=metric_label,
                 metric_color=metric_color,
             )

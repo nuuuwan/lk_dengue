@@ -18,13 +18,13 @@ class Chart:
     def chart_metric_by_region(
         Doc,
         get_file_from_latest,
-        metric_key,
+        get_metric,
         metric_label,
         metric_color,
         force=True,
     ):
         metric_id = metric_label.lower().replace(" ", "-")
-        data = DataGetter.generic(Doc, get_file_from_latest, metric_key)
+        data = DataGetter.generic(Doc, get_file_from_latest, get_metric)
         date_str = data["date_str"]
         id_to_metric = data["id_to_metric"]
 
