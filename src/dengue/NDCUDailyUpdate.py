@@ -1,4 +1,4 @@
-from dengue.NDCUDoc import NDCUDoc
+from dengue.ndcu_doc.NDCUDoc import NDCUDoc
 from utils_future import Log, TimeFormat
 
 log = Log("NDCUDailyUpdate")
