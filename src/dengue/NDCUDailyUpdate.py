@@ -22,3 +22,6 @@ class NDCUDailyUpdate(NDCUDoc):
                 )
                 return date_str
         raise ValueError("Could not find date_str")
+
+    def build_custom_tables(self):
+        pass
