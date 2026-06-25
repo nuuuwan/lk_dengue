@@ -11,7 +11,7 @@ class NDCUDocRawTablesMixin:
         os.makedirs(dir_tables, exist_ok=True)
         return dir_tables
 
-    def build_raw_tables(self, force=True):
+    def build_raw_tables(self, force=False):
         dir_tables = self.dir_tables()
         if os.path.exists(dir_tables) and not force:
             log.debug(f"{dir_tables} exists")
