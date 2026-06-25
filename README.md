@@ -2,10 +2,9 @@
 
 ![Last Updated](https://img.shields.io/badge/last_updated-2026--06--25-green)
 
-## Deaths
+## Deaths in 2026
 
-![](images/deaths_by_district_2026-06-14.png)
-
+![](images/deaths_by_region_2026-06-14.png)
 
 ## Appendix: Source Reports
 
