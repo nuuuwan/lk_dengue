@@ -1,6 +1,10 @@
 from dengue.ndcu_doc.NDCUDoc import NDCUDoc
 from dengue.ndcu_weekly_update.NDCUWeeklyUpdateCasesByDistrictDataMixin import \
     NDCUWeeklyUpdateCasesByDistrictDataMixin
+from dengue.ndcu_weekly_update.NDCUWeeklyUpdateDeathsByAgeAndSexDataMixin import \
+    NDCUWeeklyUpdateDeathsByAgeAndSexDataMixin
+from dengue.ndcu_weekly_update.NDCUWeeklyUpdateDeathsByDistrictDataMixin import \
+    NDCUWeeklyUpdateDeathsByDistrictDataMixin
 from dengue.ndcu_weekly_update.NDCUWeeklyUpdateHighRiskMOHAreasDataMixin import \
     NDCUWeeklyUpdateHighRiskMOHAreasDataMixin
 from dengue.ndcu_weekly_update.NDCUWeeklyUpdateSentinelHospitalsDataMixin import \
@@ -15,6 +19,8 @@ class NDCUWeeklyUpdate(
     NDCUWeeklyUpdateCasesByDistrictDataMixin,
     NDCUWeeklyUpdateHighRiskMOHAreasDataMixin,
     NDCUWeeklyUpdateSentinelHospitalsDataMixin,
+    NDCUWeeklyUpdateDeathsByAgeAndSexDataMixin,
+    NDCUWeeklyUpdateDeathsByDistrictDataMixin,
 ):
 
     @classmethod

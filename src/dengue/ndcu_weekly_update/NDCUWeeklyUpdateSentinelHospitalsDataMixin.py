@@ -28,7 +28,6 @@ class NDCUWeeklyUpdateSentinelHospitalsDataMixin:
 
         for line in content.splitlines():
             tokens = line.split("\t")
-            print(len(tokens), tokens)
             if len(tokens) != 4:
                 continue
             hospital_name = tokens[0].strip().replace("*", "")
