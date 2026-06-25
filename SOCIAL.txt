@@ -1,0 +1,14 @@
+#Dengue in #SriLanka 🇱🇰
+
+I scraped some datasets from the National Dengue Control Unit. 
+
+Includes data on cases, deaths, MOH regions and hospitals, & some visualisations. 
+
+Updated daily. 
+
+Let me know what other charts & data you'd like to see.
+
+REPO: https://github.com/nuuuwan/lk_dengue
+
+
+
