@@ -1,7 +1,7 @@
 import os
 
 import matplotlib.pyplot as plt
-from matplotlib.colors import LinearSegmentedColormap
+from matplotlib.colors import LinearSegmentedColormap, Normalize
 
 from dengue.analysis.DataGetter import DataGetter
 from utils_future import File, GeoUtils, Log, RegionUtils
@@ -20,7 +20,8 @@ class Chart:
         get_file_from_latest,
         get_metric,
         metric_label,
-        metric_color,
+        positive_color,
+        negative_color,
         force=True,
     ):
         metric_id = metric_label.lower().replace(" ", "-")
@@ -46,23 +47,55 @@ class Chart:
         gdf["metric"] = gdf["id"].map(id_to_metric).fillna(0).astype(int)
         gdf["metric_per_100k"] = gdf["id"].map(id_to_metric_per100k)
 
-        cmap = LinearSegmentedColormap.from_list(
-            "custom", ["white", metric_color]
-        )
+        metric_values = [
+            v for v in id_to_metric_per100k.values() if v is not None
+        ]
+        max_val = max(metric_values, default=1) or 1
+        min_val = min(metric_values, default=-1) or -1
+
+        has_positive = max_val > 0
+        has_negative = min_val < 0
+
+        if has_positive and has_negative:
+            zero_frac = (-min_val) / (max_val - min_val)
+            cmap = LinearSegmentedColormap.from_list(
+                "custom",
+                [
+                    (0.0, negative_color),
+                    (zero_frac, "white"),
+                    (1.0, positive_color),
+                ],
+            )
+            norm = Normalize(vmin=min_val, vmax=max_val)
+        elif has_positive:
+            cmap = LinearSegmentedColormap.from_list(
+                "custom", ["white", positive_color]
+            )
+            norm = Normalize(vmin=0, vmax=max_val)
+        else:
+            cmap = LinearSegmentedColormap.from_list(
+                "custom", [negative_color, "white"]
+            )
+            norm = Normalize(vmin=min_val, vmax=0)
 
         fig, ax = plt.subplots(1, 1, figsize=Chart.FIG_SIZE)
         gdf.plot(
             column="metric_per_100k",
             ax=ax,
             cmap=cmap,
+            norm=norm,
             edgecolor="grey",
             linewidth=0.5,
-            legend=True,
-            legend_kwds={
-                "label": f"{metric_label} per 100,000 people",
-                "shrink": 0.6,
-            },
             missing_kwds={"color": "lightgrey", "label": "No data"},
+        )
+
+        sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
+        sm.set_array([])
+        plt.colorbar(
+            sm,
+            ax=ax,
+            shrink=0.6,
+            label=f"{metric_label} per 100,000 people",
         )
 
         for _, row in gdf.iterrows():

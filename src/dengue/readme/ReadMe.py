@@ -48,14 +48,16 @@ class ReadMe:
         get_file_from_latest,
         get_metric,
         metric_label,
-        metric_color,
+        positive_color,
+        negative_color,
     ) -> list[str]:
         image_path = Chart.chart_metric_by_region(
             Doc=Doc,
             get_file_from_latest=get_file_from_latest,
             get_metric=get_metric,
             metric_label=metric_label,
-            metric_color=metric_color,
+            positive_color=positive_color,
+            negative_color=negative_color,
         )
         lines = [
             f"## {metric_label}",
@@ -74,7 +76,8 @@ class ReadMe:
             get_file_from_latest,
             get_metric,
             metric_label,
-            metric_color,
+            positive_color,
+            negative_color,
         ) in [
             (
                 NDCUWeekly,
@@ -82,6 +85,7 @@ class ReadMe:
                 lambda d: int(d["n_this_year_this_week"]),
                 "Cases this week",
                 "orange",
+                "white",
             ),
             (
                 NDCUWeekly,
@@ -92,6 +96,7 @@ class ReadMe:
                 ),
                 "Additional Cases this week (compared to Last Week)",
                 "orange",
+                "green",
             ),
             (
                 NDCUWeekly,
@@ -99,6 +104,7 @@ class ReadMe:
                 lambda d: int(d["n_deaths"]),
                 "Cumulative Deaths in 2026",
                 "darkred",
+                "white",
             ),
             (
                 NDCUDaily,
@@ -106,6 +112,7 @@ class ReadMe:
                 lambda d: int(d["n_cases"]),
                 "Cumulative Cases in 2026",
                 "darkorange",
+                "white",
             ),
         ]:
             yield from ReadMe.get_lines_for_chart(
@@ -113,7 +120,8 @@ class ReadMe:
                 get_file_from_latest=get_file_from_latest,
                 get_metric=get_metric,
                 metric_label=metric_label,
-                metric_color=metric_color,
+                positive_color=positive_color,
+                negative_color=negative_color,
             )
 
     @staticmethod
