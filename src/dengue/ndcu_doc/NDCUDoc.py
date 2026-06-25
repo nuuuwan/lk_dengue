@@ -3,7 +3,7 @@ from dengue.ndcu_doc.NDCUDocBuilderMixin import NDCUDocBuilderMixin
 from dengue.ndcu_doc.NDCUDocLoaderMixin import NDCUDocLoaderMixin
 from dengue.ndcu_doc.NDCUDocMetadataMixin import NDCUDocMetadataMixin
 from dengue.ndcu_doc.NDCUDocPDFMixin import NDCUDocPDFMixin
-from dengue.ndcu_doc.NDCUDocTablesMixin import NDCUDocTablesMixin
+from dengue.ndcu_doc.NDCUDocRawTablesMixin import NDCUDocRawTablesMixin
 
 
 class NDCUDoc(
@@ -14,6 +14,6 @@ class NDCUDoc(
     #
     NDCUDocMetadataMixin,
     NDCUDocPDFMixin,
-    NDCUDocTablesMixin,
+    NDCUDocRawTablesMixin,
 ):
     pass

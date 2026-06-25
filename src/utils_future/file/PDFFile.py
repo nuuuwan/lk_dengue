@@ -16,7 +16,7 @@ class PDFFile(File):
             lines.extend(line for line in text.splitlines() if line.strip())
         return lines
 
-    def build_tables(self, dir_tables: str) -> list[str]:
+    def build_raw_tables(self, dir_tables: str) -> list[str]:
         os.makedirs(dir_tables, exist_ok=True)
         tables = camelot.read_pdf(
             self.path,
