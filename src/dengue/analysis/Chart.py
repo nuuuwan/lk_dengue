@@ -3,8 +3,10 @@ import os
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 
-from dengue.analysis.Deaths import log
-from utils_future import File, GeoUtils, RegionUtils
+from dengue.analysis.DataGetter import DataGetter
+from utils_future import File, GeoUtils, Log, RegionUtils
+
+log = Log("Chart")
 
 
 class Chart:
@@ -14,9 +16,18 @@ class Chart:
 
     @staticmethod
     def chart_metric_by_region(
-        date_str, id_to_metric, metric_label, metric_color, force=True
+        Doc,
+        get_file_from_latest,
+        metric_key,
+        metric_label,
+        metric_color,
+        force=True,
     ):
         metric_id = metric_label.lower().replace(" ", "-")
+        data = DataGetter.generic(Doc, get_file_from_latest, metric_key)
+        date_str = data["date_str"]
+        id_to_metric = data["id_to_metric"]
+
         image_path = os.path.join(
             Chart.DIR_IMAGES, f"{metric_id}_by_region_{date_str}.png"
         )
@@ -61,25 +72,41 @@ class Chart:
             centroid = row.geometry.centroid
             region_id = row["id"]
             name = id_to_name.get(region_id, region_id)
-            gap_y = 7000
-            ax.annotate(
-                name,
-                xy=(centroid.x, centroid.y + gap_y),
-                ha="center",
-                va="center",
-                fontsize=6,
-                color="black",
-            )
+            gap_y = 4000
             ax.annotate(
                 f"{metric}",
-                xy=(centroid.x, centroid.y),
+                xy=(centroid.x, centroid.y + gap_y),
                 ha="center",
                 va="center",
                 fontsize=12,
                 color="black",
             )
+            ax.annotate(
+                name,
+                xy=(centroid.x, centroid.y - gap_y),
+                ha="center",
+                va="center",
+                fontsize=6,
+                color="black",
+            )
 
-        ax.set_title(f"{metric_label} in 2026 (as of {date_str})")
+        ax.annotate(
+            metric_label,
+            xy=(0.5, 1.04),
+            xycoords="axes fraction",
+            ha="center",
+            va="bottom",
+            fontsize=18,
+        )
+        ax.annotate(
+            f"as of {date_str}",
+            xy=(0.5, 1.01),
+            xycoords="axes fraction",
+            ha="center",
+            va="bottom",
+            fontsize=12,
+            color="grey",
+        )
         ax.axis("off")
         plt.tight_layout()
 
