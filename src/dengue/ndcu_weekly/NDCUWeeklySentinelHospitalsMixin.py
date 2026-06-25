@@ -2,7 +2,7 @@ import os
 
 from utils_future import File, Log, Parse, TSVFile
 
-log = Log("NDCUWeeklyHighRiskMOHAreasMixin")
+log = Log("NDCUWeeklySentinelHospitalsMixin")
 
 
 class NDCUWeeklySentinelHospitalsMixin:
