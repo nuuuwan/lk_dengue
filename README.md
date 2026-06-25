@@ -4,7 +4,12 @@
 
 ## Deaths in 2026
 
-![](images/deaths_by_region_2026-06-14.png)
+![](images/deaths-in-2026_by_region_2026-06-14.png)
+
+
+## Cases in 2026
+
+![](images/cases-in-2026_by_region_2026-06-23.png)
 
 
 ## Appendix: Source Reports
