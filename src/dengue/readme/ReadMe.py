@@ -1,4 +1,4 @@
-from dengue.analysis import Chart
+from dengue.analysis import Chart, ChartMOH
 from dengue.ndcu_daily import NDCUDaily
 from dengue.ndcu_weekly import NDCUWeekly
 from utils_future import File, Log, Markdown, Time, TimeFormat
@@ -135,6 +135,25 @@ class ReadMe:
             )
 
     @staticmethod
+    def get_lines_for_chart_moh() -> list[str]:
+        image_path = ChartMOH.chart_metric_by_moh(
+            Doc=NDCUWeekly,
+            get_file_from_latest=(
+                lambda latest: latest.high_risk_moh_areas_file
+            ),
+            get_metric=lambda d: int(d["n_cases_this_week"]),
+            metric_label="Cases this week by MOH Region",
+            positive_color="orange",
+            negative_color="white",
+        )
+        return [
+            "## Cases this week by MOH Region",
+            "",
+            f"![Cases this week by MOH Region]({image_path})",
+            "",
+        ]
+
+    @staticmethod
     def get_lines_for_tables_moh_regions() -> list[str]:
         latest = NDCUWeekly.latest()
         lines = [
@@ -226,6 +245,7 @@ class ReadMe:
                 "",
             ]
             + list(ReadMe.get_lines_for_charts())
+            + ReadMe.get_lines_for_chart_moh()
             + ReadMe.get_lines_for_tables()
             + ReadMe.get_lines_for_source_reports()
             + ReadMe.get_lines_for_footer()

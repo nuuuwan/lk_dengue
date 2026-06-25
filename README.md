@@ -24,6 +24,10 @@ Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.g
 
 ![Cumulative Cases in 2026](images/cumulative-cases-in-2026_by_region.png)
 
+## Cases this week by MOH Region
+
+![Cases this week by MOH Region](images/cases-this-week-by-moh-region_by_moh.png)
+
 ## Cases by MOH Regions
 
 As of 2026-06-14

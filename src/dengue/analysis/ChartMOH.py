@@ -1,0 +1,186 @@
+import os
+
+import geopandas as gpd
+import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap, Normalize
+
+from utils_future import File, Log
+
+log = Log("ChartMOH")
+
+MOH_GEO_PATH = os.path.join("moh_data", "geo", "moh.topojson")
+
+
+class ChartMOH:
+    DIR_IMAGES = "images"
+    FIG_SIZE = (10, 10)
+    DPI = 300
+    N_TOP = 3
+
+    @staticmethod
+    def _get_moh_gdf():
+        gdf = gpd.read_file(MOH_GEO_PATH)
+        if gdf.crs is None:
+            gdf = gdf.set_crs(epsg=4326)
+        return gdf.to_crs(epsg=3857)
+
+    @staticmethod
+    def _build_name_to_metric(d_list, get_metric):
+        name_to_metric = {}
+        for d in d_list:
+            moh_name = d["moh_area_name"].upper()
+            n = get_metric(d)
+            if moh_name not in name_to_metric:
+                name_to_metric[moh_name] = 0
+            name_to_metric[moh_name] += n
+        return name_to_metric
+
+    @staticmethod
+    def chart_metric_by_moh(
+        Doc,
+        get_file_from_latest,
+        get_metric,
+        metric_label,
+        positive_color,
+        negative_color,
+        force=True,
+    ):
+        metric_id = metric_label.lower().replace(" ", "-")
+        latest = Doc.latest()
+        d_list = get_file_from_latest(latest).read()
+        date_str = latest.date_str
+
+        name_to_metric = ChartMOH._build_name_to_metric(d_list, get_metric)
+
+        image_path = os.path.join(
+            ChartMOH.DIR_IMAGES, f"{metric_id}_by_moh.png"
+        )
+        if os.path.exists(image_path) and not force:
+            return image_path
+
+        gdf = ChartMOH._get_moh_gdf()
+        # MOH_N is uppercase in the topojson; match using uppercase
+        # moh_area_name
+        gdf["metric"] = gdf["MOH_N"].map(name_to_metric).fillna(0).astype(int)
+
+        metric_values = [v for v in name_to_metric.values() if v is not None]
+        max_val = max(metric_values, default=1) or 1
+        min_val = min(metric_values, default=-1) or -1
+
+        has_positive = max_val > 0
+        has_negative = min_val < 0
+
+        if has_positive and has_negative:
+            zero_frac = (-min_val) / (max_val - min_val)
+            cmap = LinearSegmentedColormap.from_list(
+                "custom",
+                [
+                    (0.0, negative_color),
+                    (zero_frac, "white"),
+                    (1.0, positive_color),
+                ],
+            )
+            norm = Normalize(vmin=min_val, vmax=max_val)
+        elif has_positive:
+            cmap = LinearSegmentedColormap.from_list(
+                "custom", ["white", positive_color]
+            )
+            norm = Normalize(vmin=0, vmax=max_val)
+        else:
+            cmap = LinearSegmentedColormap.from_list(
+                "custom", [negative_color, "white"]
+            )
+            norm = Normalize(vmin=min_val, vmax=0)
+
+        fig, ax = plt.subplots(1, 1, figsize=ChartMOH.FIG_SIZE)
+        gdf.plot(
+            column="metric",
+            ax=ax,
+            cmap=cmap,
+            norm=norm,
+            edgecolor="grey",
+            linewidth=0.3,
+            missing_kwds={"color": "lightgrey", "label": "No data"},
+        )
+
+        sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
+        sm.set_array([])
+        plt.colorbar(
+            sm,
+            ax=ax,
+            shrink=0.6,
+            label=metric_label,
+        )
+
+        top_moh_rank = {
+            name: rank + 1
+            for rank, name in enumerate(
+                gdf.nlargest(ChartMOH.N_TOP, "metric")["MOH_N"].tolist()
+            )
+        }
+        for _, row in gdf.iterrows():
+            if row["MOH_N"] not in top_moh_rank:
+                continue
+            metric = int(row["metric"])
+            if metric == 0:
+                continue
+            centroid = row.geometry.centroid
+            rank = top_moh_rank[row["MOH_N"]]
+            moh_name = f"#{rank} {row['MOH_N'].title()}"
+            gap_y = 2400
+            ax.annotate(
+                (
+                    f"{metric}"
+                    if "Additional" not in metric_label
+                    else f"{metric:+}"
+                ),
+                xy=(centroid.x, centroid.y + gap_y),
+                ha="center",
+                va="center",
+                fontsize=8,
+                color="black",
+            )
+            ax.annotate(
+                moh_name,
+                xy=(centroid.x, centroid.y - gap_y),
+                ha="center",
+                va="center",
+                fontsize=6,
+                color="black",
+            )
+
+        ax.annotate(
+            metric_label,
+            xy=(0.5, 1.04),
+            xycoords="axes fraction",
+            ha="center",
+            va="bottom",
+            fontsize=18,
+        )
+        ax.annotate(
+            f"as of {date_str}",
+            xy=(0.5, 1.01),
+            xycoords="axes fraction",
+            ha="center",
+            va="bottom",
+            fontsize=12,
+            color="grey",
+        )
+        ax.annotate(
+            f"Source: {Doc.get_source_url()}",
+            xy=(0.5, 0.01),
+            xycoords="axes fraction",
+            ha="center",
+            va="bottom",
+            fontsize=12,
+            color="grey",
+        )
+        ax.axis("off")
+        plt.tight_layout()
+
+        os.makedirs(ChartMOH.DIR_IMAGES, exist_ok=True)
+
+        plt.savefig(image_path, dpi=ChartMOH.DPI)
+        plt.close("all")
+        log.info(f"Wrote  {File(image_path)}")
+        return image_path
