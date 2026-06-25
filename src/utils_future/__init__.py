@@ -8,6 +8,7 @@ from utils_future.file import (File, FileOrDirectory, JSONFile, PDFFile,
                                PDFFileCompressMixin, PDFTextMixin, TSVFile,
                                XSVFile)
 from utils_future.GeoUtils import GeoUtils
+from utils_future.Markdown import Markdown
 from utils_future.RegionUtils import RegionUtils
 from utils_future.time import (Time, TimeDelta, TimeFormat, TimeUnit,
                                TimeZoneOffset)
