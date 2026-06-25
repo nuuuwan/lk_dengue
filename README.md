@@ -1,6 +1,8 @@
 # Dengue in Sri Lanka 🇱🇰
 
-## Source Reports
+![Last Updated](https://img.shields.io/badge/last_updated-2026--06--25_13:10:24-green)
+
+## Appendix: Source Reports
 
 ### [National Dengue Control Unit - Daily Update](data/NDCUDaily)
 
@@ -9,3 +11,7 @@
 ### [National Dengue Control Unit - Weekly Update](data/NDCUWeekly)
 
 - [2026-06-14](data/NDCUWeekly/2026/2026-06/2026-06-14/original.pdf)
+
+![Maintainer](https://img.shields.io/badge/maintainer-nuuuwan-red)
+![MadeWith](https://img.shields.io/badge/made_with-python-blue)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
