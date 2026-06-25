@@ -95,7 +95,7 @@ class ReadMe:
                 ),
                 "Additional Cases this week (compared to last week)",
                 "orange",
-                "green",
+                "white",
             ),
             (
                 NDCUWeekly,
@@ -106,7 +106,7 @@ class ReadMe:
                 ),
                 "Additional Cases this week (compared to this week, last year)",
                 "orange",
-                "green",
+                "white",
             ),
             (
                 NDCUWeekly,
