@@ -1,1 +1,4 @@
 utils-nuuuwan
+pypdf
+selenium
+bs4
