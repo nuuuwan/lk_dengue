@@ -25,5 +25,5 @@ class NDCUDailyUpdate(NDCUDoc, NDCUDailyUpdateDistrictDataMixin):
                 return date_str
         raise ValueError("Could not find date_str")
 
-    def build_custom_data(self, force=False):
+    def build_custom_data(self, force=True):
         self._build_district_data(force)
