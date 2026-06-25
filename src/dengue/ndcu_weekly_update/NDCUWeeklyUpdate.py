@@ -1,12 +1,18 @@
 from dengue.ndcu_doc.NDCUDoc import NDCUDoc
 from dengue.ndcu_weekly_update.NDCUWeeklyUpdateCasesByDistrictDataMixin import \
     NDCUWeeklyUpdateCasesByDistrictDataMixin
+from dengue.ndcu_weekly_update.NDCUWeeklyUpdateHighRiskMOHAreasDataMixin import \
+    NDCUWeeklyUpdateHighRiskMOHAreasDataMixin
 from utils_future import Log, TimeFormat
 
 log = Log("NDCUWeeklyUpdate")
 
 
-class NDCUWeeklyUpdate(NDCUDoc, NDCUWeeklyUpdateCasesByDistrictDataMixin):
+class NDCUWeeklyUpdate(
+    NDCUDoc,
+    NDCUWeeklyUpdateCasesByDistrictDataMixin,
+    NDCUWeeklyUpdateHighRiskMOHAreasDataMixin,
+):
 
     @classmethod
     def _parse_date_str(cls, lines: list[str]) -> str:
@@ -24,3 +30,4 @@ class NDCUWeeklyUpdate(NDCUDoc, NDCUWeeklyUpdateCasesByDistrictDataMixin):
 
     def build_custom_data(self):
         self._build_cases_by_district_data()
+        self._build_high_risk_moh_areas_data()

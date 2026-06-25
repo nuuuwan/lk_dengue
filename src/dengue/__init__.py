@@ -7,5 +7,6 @@ from dengue.ndcu_doc import (NDCUDoc, NDCUDocBase, NDCUDocBuilderMixin,
                              NDCUDocLoaderMixin, NDCUDocMetadataMixin,
                              NDCUDocPDFMixin, NDCUDocRawTablesMixin)
 from dengue.ndcu_weekly_update import (
-    NDCUWeeklyUpdate, NDCUWeeklyUpdateCasesByDistrictDataMixin)
+    NDCUWeeklyUpdate, NDCUWeeklyUpdateCasesByDistrictDataMixin,
+    NDCUWeeklyUpdateHighRiskMOHAreasDataMixin)
 from dengue.NDCUScraper import NDCUScraper

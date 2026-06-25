@@ -50,4 +50,6 @@ class NDCUWeeklyUpdateCasesByDistrictDataMixin:
             data_list.append(data)
         data_list.sort(key=lambda x: x["district_id"])
         self.cases_by_district_file.write(data_list)
-        log.info(f"Wrote {self.cases_by_district_file}")
+        log.info(
+            f"Wrote {len(data_list)} rows to {self.cases_by_district_file}"
+        )

@@ -12,8 +12,16 @@ class NDCUDocRawTablesMixin:
         os.makedirs(dir_tables, exist_ok=True)
         return dir_tables
 
+    def _has_tables(self) -> bool:
+        if not os.path.exists(self.dir_tables):
+            return False
+        for file_name in os.listdir(self.dir_tables):
+            if file_name.endswith(".tsv"):
+                return True
+        return False
+
     def build_raw_tables(self, force=False):
-        if os.path.exists(self.dir_tables) and not force:
+        if self._has_tables() and not force:
             log.debug(f"{self.dir_tables} exists")
             return
         self.pdf_file.build_raw_tables(self.dir_tables)

@@ -25,6 +25,10 @@ class PDFFile(File):
             line_scale=40,
             strip_text="\n",
         )
+        tables = sorted(
+            tables,
+            key=lambda t: (t.page, -t._bbox[3], t._bbox[0]),
+        )
 
         tsv_paths = []
         for i, table in enumerate(tables):
