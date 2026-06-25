@@ -141,6 +141,54 @@ As of 2026-06-14
 | Puttalam | Madampe | 5 | 10 |
 | Ratnapura | Kahawatta | 12 | 10 |
 
+## Cases by Hospitals
+
+As of 2026-06-14
+
+| Hospital | Cases Last Week | Cases This Week |
+| --- | ---: | ---: |
+| TH-Matara | 133 | 166 |
+| NIID | 133 | 155 |
+| TH - Ratnapura | 51 | 122 |
+| DGH - Negombo | 50 | 106 |
+| TH - Colombo South | 70 | 104 |
+| NHSL | 60 | 93 |
+| TH - Colombo North | 68 | 84 |
+| NH - Galle | 48 | 65 |
+| NH - Kandy | 40 | 61 |
+| TH - Peradeniya | 42 | 54 |
+| BH - Panadura | 27 | 48 |
+| LRH | 34 | 43 |
+| TH - Kalutara | 22 | 43 |
+| DGH - Horana | 38 | 40 |
+| TH - Kurunegala | 30 | 40 |
+| DGH - Gampaha | 28 | 37 |
+| BH - Tangalle | 22 | 32 |
+| DGH-Avissawella | 27 | 32 |
+| BH - Kamburupitiya | 18 | 24 |
+| PGH - Badulla | 15 | 22 |
+| TH - Kuliyapitiya | 7 | 20 |
+| DGH - Chilaw | 6 | 18 |
+| BH - Balangoda | 10 | 15 |
+| BH - Gampola | 8 | 15 |
+| BH - Kahawatta | 16 | 14 |
+| BH - Minuwangoda | 10 | 13 |
+| DGH - Nawalapitiya | 10 | 13 |
+| DGH - Polonnaruwa | 7 | 13 |
+| BH - Wathupitiwala | 12 | 12 |
+| DGH - Embilipitiya | 7 | 12 |
+| DGH Hambantota | 8 | 11 |
+| BH - Warakapola | 7 | 10 |
+| BH - Balapitiya | 7 | 9 |
+| DGH - Ampara | 5 | 9 |
+| TH - Batticaloa | 10 | 8 |
+| DGH - Kegalle | 7 | 7 |
+| BH - Mawanella | 7 | 5 |
+| DGH - Matale | 6 | 5 |
+| DGH - Moneragala | 3 | 5 |
+| BH - Dambulla | 2 | 4 |
+| BH - Mirigama | 3 | 4 |
+
 ## Appendix: Source Reports
 
 ### [National Dengue Control Unit - Daily Update](data/NDCUDaily)
