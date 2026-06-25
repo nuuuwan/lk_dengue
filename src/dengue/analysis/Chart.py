@@ -107,6 +107,15 @@ class Chart:
             fontsize=12,
             color="grey",
         )
+        ax.annotate(
+            f"Source: {Doc.get_source_url()}",
+            xy=(0.5, 0.01),
+            xycoords="axes fraction",
+            ha="center",
+            va="bottom",
+            fontsize=12,
+            color="grey",
+        )
         ax.axis("off")
         plt.tight_layout()
 

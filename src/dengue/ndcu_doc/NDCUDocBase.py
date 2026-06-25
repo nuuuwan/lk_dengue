@@ -47,3 +47,7 @@ class NDCUDocBase(ABC):
     @abstractmethod
     def get_full_name(cls) -> str:
         pass
+
+    @classmethod
+    def get_source_url(cls) -> str:
+        return "https://www.dengue.health.gov.lk"
