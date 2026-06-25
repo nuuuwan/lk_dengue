@@ -15,7 +15,9 @@ class NDCUWeeklyUpdateHighRiskMOHAreasDataMixin:
         contents = []
         for file_name in sorted(os.listdir(self.dir_tables)):
             if file_name.endswith(".tsv"):
-                content = File(os.path.join(self.dir_tables, file_name)).read()
+                content = File(
+                    os.path.join(self.dir_tables, file_name)
+                ).read()
                 if "cases reported" in content.lower():
                     contents.append(content)
         return "\n".join(contents)
@@ -61,13 +63,14 @@ class NDCUWeeklyUpdateHighRiskMOHAreasDataMixin:
             n_cases_last_week = Parse.int(tokens[1])
             n_cases_this_week = Parse.int(tokens[2])
             data = dict(
-                district_id=RegionUtils.get_region_id_from_name(district_name),
+                district_id=RegionUtils.get_region_id_from_name(
+                    district_name
+                ),
                 district_name=district_name,
                 moh_area_name=moh_area_name,
                 n_cases_last_week=n_cases_last_week,
                 n_cases_this_week=n_cases_this_week,
             )
-            print(data)
             data_list.append(data)
 
         data_list.sort(
