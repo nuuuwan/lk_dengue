@@ -35,7 +35,7 @@ class ReadMe:
     @staticmethod
     def get_lines_for_source_reports() -> list[str]:
         lines = [
-            "## Appendix: Source Reports",
+            "## Appendix: Source Reports & Extracted Data",
             "",
         ]
         for doc_class in ReadMe.DOC_CLASS_LIST:

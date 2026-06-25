@@ -7,7 +7,7 @@ class NDCUDocReadMeMixin:
         ]
         docs = cls.list()
         for doc in docs:
-            lines.append(f"- [{doc.date_str}]({doc.pdf_file.path})")
+            lines.append(f"- [{doc.date_str}]({doc.dir_data})")
         if docs:
             lines.append("")
         return lines
