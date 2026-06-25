@@ -3,10 +3,10 @@ import os
 from utils_future import Log, TSVFile
 from utils_future.RegionUtils import RegionUtils
 
-log = Log("NDCUDailyUpdateDistrictDataMixin")
+log = Log("NDCUDailyDistrictMixin")
 
 
-class NDCUDailyUpdateDistrictDataMixin:
+class NDCUDailyDistrictMixin:
 
     @property
     def district_data_file(self) -> str:

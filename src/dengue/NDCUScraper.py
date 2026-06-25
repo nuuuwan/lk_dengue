@@ -1,5 +1,5 @@
-from dengue.ndcu_daily_update.NDCUDailyUpdate import NDCUDailyUpdate
-from dengue.ndcu_weekly_update.NDCUWeeklyUpdate import NDCUWeeklyUpdate
+from dengue.ndcu_daily.NDCUDaily import NDCUDaily
+from dengue.ndcu_weekly.NDCUWeekly import NDCUWeekly
 from utils_future import WWW, Log
 
 log = Log("NDCUScraper")
@@ -17,13 +17,9 @@ class NDCUScraper:
         weekly_update_links = [
             link for link in pdf_links if "weekly" in link["href"].lower()
         ]
-        NDCUWeeklyUpdate.from_pdf_url_hot(
-            pdf_url=weekly_update_links[0]["href"]
-        )
+        NDCUWeekly.from_pdf_url_hot(pdf_url=weekly_update_links[0]["href"])
 
         daily_update_links = [
             link for link in pdf_links if "daily" in link["href"].lower()
         ]
-        NDCUDailyUpdate.from_pdf_url_hot(
-            pdf_url=daily_update_links[0]["href"]
-        )
+        NDCUDaily.from_pdf_url_hot(pdf_url=daily_update_links[0]["href"])

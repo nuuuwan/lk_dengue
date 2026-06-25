@@ -2,10 +2,10 @@ import os
 
 from utils_future import File, Log, Parse, TSVFile
 
-log = Log("NDCUWeeklyUpdateHighRiskMOHAreasDataMixin")
+log = Log("NDCUWeeklyHighRiskMOHAreasMixin")
 
 
-class NDCUWeeklyUpdateSentinelHospitalsDataMixin:
+class NDCUWeeklySentinelHospitalsMixin:
 
     @property
     def sentinel_hospitals_file(self) -> str:

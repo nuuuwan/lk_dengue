@@ -2,10 +2,10 @@ import os
 
 from utils_future import File, Log, Parse, RegionUtils, TSVFile
 
-log = Log("NDCUWeeklyUpdateCasesByDistrictDataMixin")
+log = Log("NDCUWeeklyCasesByDistrictMixin")
 
 
-class NDCUWeeklyUpdateCasesByDistrictDataMixin:
+class NDCUWeeklyCasesByDistrictMixin:
     @property
     def cases_by_district_file(self) -> str:
         return TSVFile(os.path.join(self.dir_data, "cases_by_district.tsv"))

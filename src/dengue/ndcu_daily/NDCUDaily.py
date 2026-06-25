@@ -1,12 +1,11 @@
-from dengue.ndcu_daily_update.NDCUDailyUpdateDistrictDataMixin import \
-    NDCUDailyUpdateDistrictDataMixin
+from dengue.ndcu_daily.NDCUDailyDistrictMixin import NDCUDailyDistrictMixin
 from dengue.ndcu_doc.NDCUDoc import NDCUDoc
 from utils_future import Log, TimeFormat
 
-log = Log("NDCUDailyUpdate")
+log = Log("NDCUDaily")
 
 
-class NDCUDailyUpdate(NDCUDoc, NDCUDailyUpdateDistrictDataMixin):
+class NDCUDaily(NDCUDoc, NDCUDailyDistrictMixin):
 
     @classmethod
     def _parse_date_str(cls, lines: list[str]) -> str:
