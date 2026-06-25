@@ -1,48 +1,12 @@
 import os
 
 from utils_future import Log, TSVFile
+from utils_future.RegionUtils import RegionUtils
 
 log = Log("NDCUDailyUpdateDistrictDataMixin")
 
 
 class NDCUDailyUpdateDistrictDataMixin:
-    @staticmethod
-    def _get_district_id_from_name(district_name: str) -> str:
-        district_name = {
-            "Monaragala": "Moneragala",
-            "Nuwaraeliya": "Nuwara Eliya",
-        }.get(district_name, district_name)
-        return {
-            "Colombo": "LK-11",
-            "Gampaha": "LK-12",
-            "Kalutara": "LK-13",
-            "Kandy": "LK-21",
-            "Matale": "LK-22",
-            "Nuwara Eliya": "LK-23",
-            "Galle": "LK-31",
-            "Matara": "LK-32",
-            "Hambantota": "LK-33",
-            "Jaffna": "LK-41",
-            "Kilinochchi": "LK-42",
-            "Mannar": "LK-43",
-            "Vavuniya": "LK-44",
-            "Mullaitivu": "LK-45",
-            "Batticaloa": "LK-51",
-            "Ampara": "LK-52",
-            "Trincomalee": "LK-53",
-            "Kurunegala": "LK-61",
-            "Puttalam": "LK-62",
-            "Anuradhapura": "LK-71",
-            "Polonnaruwa": "LK-72",
-            "Badulla": "LK-81",
-            "Moneragala": "LK-82",
-            "Ratnapura": "LK-91",
-            "Kegalle": "LK-92",
-            #
-            "CMC": "LK-11-CMC",
-            "NIHS": "LK-13-NIHS",
-            "Kalmunai": "LK-52-Kalmunai",
-        }.get(district_name, district_name)
 
     @property
     def district_data_file(self) -> str:
@@ -79,7 +43,9 @@ class NDCUDailyUpdateDistrictDataMixin:
                 elif "cases" in k.lower():
                     n_cases = int(v)
             if district_name and n_cases is not None:
-                district_id = self._get_district_id_from_name(district_name)
+                district_id = RegionUtils.get_region_id_from_name(
+                    district_name
+                )
 
                 data = dict(
                     district_id=district_id,

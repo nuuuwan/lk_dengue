@@ -4,14 +4,16 @@ from dateutil import parser
 class Parse:
     @staticmethod
     def _clean_(x: str) -> str:
-        return x.strip().lower().replace(",", "")
+        x = x.strip().lower()
+        x = "".join(c for c in x if c.isnumeric() or c in ".-")
+        return x
 
     @staticmethod
     def int(x) -> int:
         try:
             return int(Parse._clean_(x))
         except ValueError:
-            return None
+            return 0
 
     @staticmethod
     def float(x) -> float:
