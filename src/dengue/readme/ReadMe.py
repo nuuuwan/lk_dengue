@@ -135,7 +135,7 @@ class ReadMe:
             )
 
     @staticmethod
-    def get_lines_for_tables() -> list[str]:
+    def get_lines_for_tables_moh_regions() -> list[str]:
         latest = NDCUWeekly.latest()
         lines = [
             "## Cases by MOH Regions",
@@ -169,6 +169,47 @@ class ReadMe:
 
         lines.append(Markdown.table(d_list))
         return lines
+
+    @staticmethod
+    def get_lines_for_tables_hospitals() -> list[str]:
+        latest = NDCUWeekly.latest()
+        lines = [
+            "## Cases by Hospitals",
+            "",
+            f"As of {latest.date_str}",
+            "",
+        ]
+
+        d_list = latest.sentinel_hospitals_file.read()
+
+        def ramap(d):
+            n_cases_last_week = int(d["n_cases_last_week"])
+            n_cases_this_week = int(d["n_cases_this_week"])
+
+            return {
+                "Hospital": d["hospital_name"],
+                "Cases Last Week": n_cases_last_week,
+                "Cases This Week": n_cases_this_week,
+            }
+
+        d_list = [ramap(d) for d in d_list]
+        d_list = [d for d in d_list if d["Cases This Week"] > 0]
+        d_list.sort(
+            key=lambda x: (
+                -x["Cases This Week"],
+                x["Hospital"],
+            )
+        )
+
+        lines.append(Markdown.table(d_list))
+        return lines
+
+    @staticmethod
+    def get_lines_for_tables() -> list[str]:
+        return (
+            ReadMe.get_lines_for_tables_moh_regions()
+            + ReadMe.get_lines_for_tables_hospitals()
+        )
 
     @staticmethod
     def build():
