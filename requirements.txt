@@ -3,3 +3,4 @@ pypdf
 selenium
 bs4
 camelot
+matplotlib
