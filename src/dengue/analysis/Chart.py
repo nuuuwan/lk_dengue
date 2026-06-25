@@ -14,11 +14,11 @@ class Chart:
 
     @staticmethod
     def chart_metric_by_region(
-        date_str, id_to_metric, metric_label, force=True
+        date_str, id_to_metric, metric_label, metric_color, force=True
     ):
-
+        metric_id = metric_label.lower().replace(" ", "-")
         image_path = os.path.join(
-            Chart.DIR_IMAGES, f"{metric_label}_by_region_{date_str}.png"
+            Chart.DIR_IMAGES, f"{metric_id}_by_region_{date_str}.png"
         )
         if os.path.exists(image_path) and not force:
             return image_path
@@ -36,7 +36,7 @@ class Chart:
         gdf["metric_per_100k"] = gdf["id"].map(id_to_metric_per100k)
 
         cmap = LinearSegmentedColormap.from_list(
-            "white_red", ["white", "darkred"]
+            "custom", ["white", metric_color]
         )
 
         fig, ax = plt.subplots(1, 1, figsize=Chart.FIG_SIZE)

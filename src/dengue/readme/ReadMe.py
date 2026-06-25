@@ -1,4 +1,4 @@
-from dengue.analysis import Chart, Deaths
+from dengue.analysis import Cases, Chart, Deaths
 from dengue.ndcu_daily import NDCUDaily
 from dengue.ndcu_weekly import NDCUWeekly
 from utils_future import File, Log, Time, TimeFormat
@@ -43,17 +43,37 @@ class ReadMe:
         return lines
 
     @staticmethod
-    def get_lines_for_deaths() -> list[str]:
+    def get_lines_for_deaths_in_2026() -> list[str]:
         deaths_by_district = Deaths.by_district()
-        deaths_by_district_image_path = Chart.chart_metric_by_region(
+        image_path = Chart.chart_metric_by_region(
             date_str=deaths_by_district["date_str"],
             id_to_metric=deaths_by_district["district_id_to_n_deaths"],
-            metric_label="deaths",
+            metric_label="Deaths in 2026",
+            metric_color="darkred",
         )
         lines = [
             "## Deaths in 2026",
             "",
-            f"![]({deaths_by_district_image_path})",
+            f"![]({image_path})",
+            "",
+        ]
+
+        lines.append("")
+        return lines
+
+    @staticmethod
+    def get_lines_for_cases_in_2026() -> list[str]:
+        cases_by_district = Cases.by_district()
+        image_path = Chart.chart_metric_by_region(
+            date_str=cases_by_district["date_str"],
+            id_to_metric=cases_by_district["district_id_to_n_cases"],
+            metric_label="Cases in 2026",
+            metric_color="darkorange",
+        )
+        lines = [
+            "## Cases in 2026",
+            "",
+            f"![]({image_path})",
             "",
         ]
 
@@ -65,7 +85,8 @@ class ReadMe:
         lines = (
             ["# Dengue in Sri Lanka 🇱🇰", ""]
             + ReadMe.get_lines_for_header()
-            + ReadMe.get_lines_for_deaths()
+            + ReadMe.get_lines_for_deaths_in_2026()
+            + ReadMe.get_lines_for_cases_in_2026()
             + ReadMe.get_lines_for_source_reports()
             + ReadMe.get_lines_for_footer()
         )
