@@ -25,6 +25,26 @@ class NDCUDailyDistrictMixin:
 
         return tables
 
+    @staticmethod
+    def __map_data(d: dict) -> dict:
+        district_name = None
+        n_cases = None
+        for k, v in d.items():
+            if "district" in k.lower():
+                district_name = v
+            elif "cases" in k.lower():
+                n_cases = int(v)
+        if not district_name or n_cases is None:
+            return None
+
+        district_id = RegionUtils.get_region_id_from_name(district_name)
+
+        return dict(
+            district_id=district_id,
+            district_name=district_name,
+            n_cases=n_cases,
+        )
+
     def _build_district_data(self, force):
         if self.district_data_file.exists and not force:
             log.debug(f"{self.district_data_file} exists")
@@ -35,23 +55,8 @@ class NDCUDailyDistrictMixin:
 
         data_list = []
         for d in tables[0] + tables[1]:
-            district_name = None
-            n_cases = None
-            for k, v in d.items():
-                if "district" in k.lower():
-                    district_name = v
-                elif "cases" in k.lower():
-                    n_cases = int(v)
-            if district_name and n_cases is not None:
-                district_id = RegionUtils.get_region_id_from_name(
-                    district_name
-                )
-
-                data = dict(
-                    district_id=district_id,
-                    district_name=district_name,
-                    n_cases=n_cases,
-                )
+            data = self.__map_data(d)
+            if data is not None:
                 data_list.append(data)
 
         data_list.sort(key=lambda x: x["district_id"])
