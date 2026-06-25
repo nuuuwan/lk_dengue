@@ -1,29 +1,14 @@
 import os
 
-from dengue.ndcu_doc.NDCUDoc import NDCUDoc
-from utils_future import Log, TimeFormat, TSVFile
+from utils_future import Log, TSVFile
 
-log = Log("NDCUDailyUpdate")
+log = Log("NDCUDailyUpdateDistrictDataMixin")
 
 
-class NDCUDailyUpdate(NDCUDoc):
-
-    @classmethod
-    def _parse_date_str(cls, lines: list[str]) -> str:
-        for line in lines:
-            if "as of" in line.lower():
-                date_str = (
-                    line.lower()
-                    .split("as of")[-1]
-                    .strip()
-                    .split(" ")[0]
-                    .strip()
-                )
-                date_str = TimeFormat.DATE.format(
-                    TimeFormat("%d.%m.%Y").parse(date_str)
-                )
-                return date_str
-        raise ValueError("Could not find date_str")
+class NDCUDailyUpdateDistrictDataMixin:
+    @property
+    def district_data_file(self) -> str:
+        return TSVFile(os.path.join(self.dir_data, "district_data.tsv"))
 
     def _get_district_raw_tables(self) -> list[list[dict]]:
         tables = []
@@ -37,10 +22,6 @@ class NDCUDailyUpdate(NDCUDoc):
                     tables.append(table)
 
         return tables
-
-    @property
-    def district_data_file(self) -> str:
-        return TSVFile(os.path.join(self.dir_data, "district_data.tsv"))
 
     def _build_district_data(self, force):
         if self.district_data_file.exists and not force:
@@ -70,6 +51,3 @@ class NDCUDailyUpdate(NDCUDoc):
         log.info(
             f"Wrote {len(data_list)} rows to {self.district_data_file.path}"
         )
-
-    def build_custom_data(self, force=False):
-        self._build_district_data(force)

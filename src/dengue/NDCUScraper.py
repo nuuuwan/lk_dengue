@@ -1,5 +1,5 @@
-from dengue.NDCUDailyUpdate import NDCUDailyUpdate
-from dengue.NDCUWeeklyUpdate import NDCUWeeklyUpdate
+from dengue.ndcu_daily_update.NDCUDailyUpdate import NDCUDailyUpdate
+from dengue.ndcu_weekly_update.NDCUWeeklyUpdate import NDCUWeeklyUpdate
 from utils_future import WWW, Log
 
 log = Log("NDCUScraper")
