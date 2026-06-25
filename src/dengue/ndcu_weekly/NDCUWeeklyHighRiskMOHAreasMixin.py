@@ -9,7 +9,9 @@ class NDCUWeeklyHighRiskMOHAreasMixin:
 
     @property
     def high_risk_moh_areas_file(self) -> str:
-        return TSVFile(os.path.join(self.dir_data, "high_risk_moh_areas.tsv"))
+        return TSVFile(
+            os.path.join(self.dir_custom_data, "high_risk_moh_areas.tsv")
+        )
 
     def _get_high_risk_moh_areas_raw_content(self):
         contents = []

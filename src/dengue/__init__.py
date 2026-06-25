@@ -3,8 +3,9 @@
 
 from dengue.ndcu_daily import NDCUDaily, NDCUDailyDistrictMixin
 from dengue.ndcu_doc import (NDCUDoc, NDCUDocBase, NDCUDocBuilderMixin,
-                             NDCUDocLoaderMixin, NDCUDocMetadataMixin,
-                             NDCUDocPDFMixin, NDCUDocRawTablesMixin)
+                             NDCUDocCustomDataMixin, NDCUDocLoaderMixin,
+                             NDCUDocMetadataMixin, NDCUDocPDFMixin,
+                             NDCUDocRawTablesMixin, NDCUDocReadMeMixin)
 from dengue.ndcu_weekly import (NDCUWeekly, NDCUWeeklyCasesByDistrictMixin,
                                 NDCUWeeklyDeathsByAgeAndSexMixin,
                                 NDCUWeeklyDeathsByDistrictMixin,

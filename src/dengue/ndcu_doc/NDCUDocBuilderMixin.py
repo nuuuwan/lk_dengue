@@ -1,10 +1,4 @@
-from abc import abstractmethod
-
-
 class NDCUDocBuilderMixin:
-    @abstractmethod
-    def build_custom_data(self):
-        pass
 
     def build(self, temp_pdf_file):
         self.build_metadata()

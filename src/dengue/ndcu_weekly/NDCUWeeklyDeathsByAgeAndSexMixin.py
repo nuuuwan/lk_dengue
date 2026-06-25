@@ -10,7 +10,7 @@ class NDCUWeeklyDeathsByAgeAndSexMixin:
     @property
     def deaths_by_age_and_sex_file(self) -> str:
         return TSVFile(
-            os.path.join(self.dir_data, "deaths_by_age_and_sex.tsv")
+            os.path.join(self.dir_custom_data, "deaths_by_age_and_sex.tsv")
         )
 
     def _get_deaths_by_age_and_sex_raw_content(self):

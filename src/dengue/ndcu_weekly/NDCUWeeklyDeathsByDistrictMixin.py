@@ -9,7 +9,9 @@ class NDCUWeeklyDeathsByDistrictMixin:
 
     @property
     def deaths_by_district_file(self) -> str:
-        return TSVFile(os.path.join(self.dir_data, "deaths_by_district.tsv"))
+        return TSVFile(
+            os.path.join(self.dir_custom_data, "deaths_by_district.tsv")
+        )
 
     def _get_deaths_by_district_raw_content(self):
         for file_name in sorted(os.listdir(self.dir_tables)):

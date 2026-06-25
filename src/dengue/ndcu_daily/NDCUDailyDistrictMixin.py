@@ -10,7 +10,9 @@ class NDCUDailyDistrictMixin:
 
     @property
     def district_data_file(self) -> str:
-        return TSVFile(os.path.join(self.dir_data, "district_data.tsv"))
+        return TSVFile(
+            os.path.join(self.dir_custom_data, "district_data.tsv")
+        )
 
     def _get_district_raw_tables(self) -> list[list[dict]]:
         tables = []

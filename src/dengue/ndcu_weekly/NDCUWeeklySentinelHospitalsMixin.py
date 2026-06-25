@@ -9,7 +9,9 @@ class NDCUWeeklySentinelHospitalsMixin:
 
     @property
     def sentinel_hospitals_file(self) -> str:
-        return TSVFile(os.path.join(self.dir_data, "sentinel_hospitals.tsv"))
+        return TSVFile(
+            os.path.join(self.dir_custom_data, "sentinel_hospitals.tsv")
+        )
 
     def _get_sentinel_hospitals_raw_content(self):
         contents = []

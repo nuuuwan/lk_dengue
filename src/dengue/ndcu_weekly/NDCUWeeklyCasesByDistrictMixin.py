@@ -8,7 +8,9 @@ log = Log("NDCUWeeklyCasesByDistrictMixin")
 class NDCUWeeklyCasesByDistrictMixin:
     @property
     def cases_by_district_file(self) -> str:
-        return TSVFile(os.path.join(self.dir_data, "cases_by_district.tsv"))
+        return TSVFile(
+            os.path.join(self.dir_custom_data, "cases_by_district.tsv")
+        )
 
     def _get_cases_by_district_raw_table(self):
         for file_name in os.listdir(self.dir_tables):
