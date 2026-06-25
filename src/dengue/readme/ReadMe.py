@@ -85,6 +85,16 @@ class ReadMe:
             ),
             (
                 NDCUWeekly,
+                lambda latest: latest.cases_by_district_file,
+                lambda d: (
+                    int(d["n_this_year_this_week"])
+                    - int(d["n_this_year_last_week"])
+                ),
+                "Additional Cases this week (compared to Last Week)",
+                "orange",
+            ),
+            (
+                NDCUWeekly,
                 lambda latest: latest.deaths_by_district_file,
                 lambda d: int(d["n_deaths"]),
                 "Cumulative Deaths in 2026",

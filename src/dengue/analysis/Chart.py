@@ -74,7 +74,11 @@ class Chart:
             name = id_to_name.get(region_id, region_id)
             gap_y = 4000
             ax.annotate(
-                f"{metric}",
+                (
+                    f"{metric}"
+                    if "Additional" not in metric_label
+                    else f"{metric:+}"
+                ),
                 xy=(centroid.x, centroid.y + gap_y),
                 ha="center",
                 va="center",
