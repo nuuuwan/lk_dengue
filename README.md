@@ -1,6 +1,11 @@
 # Dengue in Sri Lanka 🇱🇰
 
-![Last Updated](https://img.shields.io/badge/last_updated-2026--06--25_13:18:29-green)
+![Last Updated](https://img.shields.io/badge/last_updated-2026--06--25_13:45:50-green)
+
+## Deaths
+
+![](images/deaths_by_district_2026-06-14.png)
+
 
 ## Appendix: Source Reports
 
