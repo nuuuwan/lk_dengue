@@ -7,14 +7,14 @@
 ![](images/cases-this-week_by_region_2026-06-14.png)
 
 
-## Deaths in 2026
+## Cumulative Deaths in 2026
 
-![](images/deaths-in-2026_by_region_2026-06-14.png)
+![](images/cumulative-deaths-in-2026_by_region_2026-06-14.png)
 
 
-## Cases in 2026
+## Cumulative Cases in 2026
 
-![](images/cases-in-2026_by_region_2026-06-23.png)
+![](images/cumulative-cases-in-2026_by_region_2026-06-23.png)
 
 
 ## Appendix: Source Reports
