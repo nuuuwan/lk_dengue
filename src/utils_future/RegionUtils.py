@@ -1,10 +1,7 @@
 class RegionUtils:
+
     @staticmethod
-    def get_region_id_from_name(name: str) -> str:
-        name = {
-            "Monaragala": "Moneragala",
-            "Nuwaraeliya": "Nuwara Eliya",
-        }.get(name, name)
+    def get_region_name_to_id() -> dict[str, str]:
         return {
             "Colombo": "LK-11",
             "Gampaha": "LK-12",
@@ -36,7 +33,19 @@ class RegionUtils:
             "NIHS": "LK-13-NIHS",
             "NIHS Kalutara": "LK-13-NIHS",
             "Kalmunai": "LK-52-Kalmunai",
+        }
+
+    @staticmethod
+    def get_region_id_to_name() -> dict[str, str]:
+        return {v: k for k, v in RegionUtils.get_region_name_to_id().items()}
+
+    @staticmethod
+    def get_region_id_to_from_name(name: str):
+        name = {
+            "Monaragala": "Moneragala",
+            "Nuwaraeliya": "Nuwara Eliya",
         }.get(name, name)
+        return RegionUtils.get_region_name_to_id().get(name, name)
 
     @staticmethod
     def get_region_id_to_population():

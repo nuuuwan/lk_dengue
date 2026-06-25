@@ -39,7 +39,7 @@ class NDCUDailyDistrictMixin:
         if not district_name or n_cases is None:
             return None
 
-        district_id = RegionUtils.get_region_id_from_name(district_name)
+        district_id = RegionUtils.get_region_id_to_name(district_name)
 
         return dict(
             district_id=district_id,

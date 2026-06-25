@@ -38,7 +38,7 @@ class NDCUWeeklyCasesByDistrictMixin:
             cum_n_last_year = Parse.int(tokens[5])
             cum_n_this_year = Parse.int(tokens[6])
 
-            district_id = RegionUtils.get_region_id_from_name(district_name)
+            district_id = RegionUtils.get_region_id_to_name(district_name)
             data = dict(
                 district_id=district_id,
                 district_name=district_name,

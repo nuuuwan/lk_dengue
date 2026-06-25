@@ -17,28 +17,24 @@ class Deaths:
         latest_weekly = NDCUWeekly.latest()
         deaths_by_district = latest_weekly.deaths_by_district_file.read()
 
-        expanded = []
+        district_id_to_n_deaths = {}
         for d in deaths_by_district:
-            district_id = d["district_id"]
-            n_deaths = d["n_deaths"]
-            population = RegionUtils.get_region_id_to_population().get(
-                district_id, None
-            )
-            n_deaths_per_100K = (
-                int(n_deaths) / population * 100_000 if population else None
-            )
-            d["n_deaths_per_100K"] = n_deaths_per_100K
-            expanded.append(d)
+            district_id = d["district_id"][:5]
+            n_deaths = int(d["n_deaths"])
+            if district_id not in district_id_to_n_deaths:
+                district_id_to_n_deaths[district_id] = 0
+            district_id_to_n_deaths[district_id] += n_deaths
 
         return dict(
             date_str=latest_weekly.date_str,
-            deaths_by_district=expanded,
+            district_id_to_n_deaths=district_id_to_n_deaths,
         )
 
     @classmethod
     def chart_by_district(cls, force=True):
         data = cls.by_district()
         date_str = data["date_str"]
+        region_id_to_population = RegionUtils.get_region_id_to_population()
 
         image_path = os.path.join(
             cls.DIR_IMAGES, f"deaths_by_district_{date_str}.png"
@@ -46,18 +42,19 @@ class Deaths:
         if os.path.exists(image_path) and not force:
             return image_path
 
-        deaths_by_district = data["deaths_by_district"]
+        district_id_to_n_deaths = data["district_id_to_n_deaths"]
 
         deaths_lookup = {
-            d["district_id"]: int(d["n_deaths"]) for d in deaths_by_district
+            district_id: n_deaths
+            for district_id, n_deaths in district_id_to_n_deaths.items()
         }
-        name_lookup = {
-            d["district_id"]: d["district_name"] for d in deaths_by_district
-        }
+        name_lookup = RegionUtils.get_region_id_to_name()
         per_1000_lookup = {
-            d["district_id"]: d["n_deaths_per_100K"]
-            for d in deaths_by_district
-            if d["n_deaths_per_100K"] is not None
+            district_id: n_deaths
+            / region_id_to_population[district_id]
+            * 100_000
+            for district_id, n_deaths in district_id_to_n_deaths.items()
+            if n_deaths is not None
         }
 
         gdf = GeoUtils.get_all_gdf()
