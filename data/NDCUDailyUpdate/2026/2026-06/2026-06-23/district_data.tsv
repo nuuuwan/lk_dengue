@@ -1,29 +1,29 @@
-district_name	n_cases
-Jaffna	636
-Monaragala	607
-Badulla	573
-Matale	534
-Trincomalee	506
-NIHS	488
-Anuradhapura	364
-Polonnaruwa	361
-Ampara	322
-Nuwaraeliya	241
-Vavuniya	82
-Kilinochchi	50
-Mannar	47
-Mullaitivu	33
-Colombo	10085
-Gampaha	9093
-Matara	3451
-Kalutara	3250
-Ratnapura	3091
-Galle	2872
-Kandy	2732
-CMC	2251
-Hambantota	1420
-Kegalle	1329
-Kurunegala	1206
-Batticaloa	1111
-Puttalam	874
-Kalmunai	678
+district_id	district_name	n_cases
+LK-11	Colombo	10085
+LK-11-CMC	CMC	2251
+LK-12	Gampaha	9093
+LK-13	Kalutara	3250
+LK-13-NIHS	NIHS	488
+LK-21	Kandy	2732
+LK-22	Matale	534
+LK-23	Nuwaraeliya	241
+LK-31	Galle	2872
+LK-32	Matara	3451
+LK-33	Hambantota	1420
+LK-41	Jaffna	636
+LK-42	Kilinochchi	50
+LK-43	Mannar	47
+LK-44	Vavuniya	82
+LK-45	Mullaitivu	33
+LK-51	Batticaloa	1111
+LK-52	Ampara	322
+LK-52-Kalmunai	Kalmunai	678
+LK-53	Trincomalee	506
+LK-61	Kurunegala	1206
+LK-62	Puttalam	874
+LK-71	Anuradhapura	364
+LK-72	Polonnaruwa	361
+LK-81	Badulla	573
+LK-82	Monaragala	607
+LK-91	Ratnapura	3091
+LK-92	Kegalle	1329
