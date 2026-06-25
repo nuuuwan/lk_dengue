@@ -1,6 +1,7 @@
 # dengue (auto generate by build_inits.py)
 # flake8: noqa: F408
 
+from dengue.analysis import Deaths
 from dengue.ndcu_daily import NDCUDaily, NDCUDailyDistrictMixin
 from dengue.ndcu_doc import (NDCUDoc, NDCUDocBase, NDCUDocBuilderMixin,
                              NDCUDocCustomDataMixin, NDCUDocLoaderMixin,

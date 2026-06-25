@@ -1,3 +1,4 @@
+from dengue.analysis import Deaths
 from dengue.ndcu_daily import NDCUDaily
 from dengue.ndcu_weekly import NDCUWeekly
 from utils_future import File, Log, Time, TimeFormat
@@ -43,10 +44,24 @@ class ReadMe:
         return lines
 
     @staticmethod
+    def get_lines_for_deaths() -> list[str]:
+        Deaths.by_district()
+        lines = [
+            "## Deaths",
+            "",
+            f"![]({Deaths.chart_by_district()})",
+            "",
+        ]
+
+        lines.append("")
+        return lines
+
+    @staticmethod
     def build():
         lines = (
             ["# Dengue in Sri Lanka 🇱🇰", ""]
             + ReadMe.get_lines_for_header()
+            + ReadMe.get_lines_for_deaths()
             + ReadMe.get_lines_for_source_reports()
             + ReadMe.get_lines_for_footer()
         )
