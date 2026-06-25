@@ -42,3 +42,4 @@ class NDCUWeekly(
         self._build_high_risk_moh_areas_data()
         self._build_sentinel_hospitals_data()
         self._build_deaths_by_age_and_sex_data()
+        self._build_deaths_by_district_data()

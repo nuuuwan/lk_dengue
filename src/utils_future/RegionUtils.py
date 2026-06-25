@@ -34,5 +34,6 @@ class RegionUtils:
             #
             "CMC": "LK-11-CMC",
             "NIHS": "LK-13-NIHS",
+            "NIHS Kalutara": "LK-13-NIHS",
             "Kalmunai": "LK-52-Kalmunai",
         }.get(name, name)
