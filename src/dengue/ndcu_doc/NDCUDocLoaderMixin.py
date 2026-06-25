@@ -26,7 +26,7 @@ class NDCUDocLoaderMixin:
 
     @classmethod
     @abstractmethod
-    def _parse_date_str(cls, pdf_text_lines: list[str]) -> str:
+    def _parse_date_str(cls, lines: list[str]) -> str:
         pass
 
     @classmethod
