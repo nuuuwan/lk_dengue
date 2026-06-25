@@ -6,3 +6,5 @@ from dengue.ndcu_weekly_update.NDCUWeeklyUpdateCasesByDistrictDataMixin import \
     NDCUWeeklyUpdateCasesByDistrictDataMixin
 from dengue.ndcu_weekly_update.NDCUWeeklyUpdateHighRiskMOHAreasDataMixin import \
     NDCUWeeklyUpdateHighRiskMOHAreasDataMixin
+from dengue.ndcu_weekly_update.NDCUWeeklyUpdateSentinelHospitalsDataMixin import \
+    NDCUWeeklyUpdateSentinelHospitalsDataMixin

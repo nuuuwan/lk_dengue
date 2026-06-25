@@ -3,6 +3,8 @@ from dengue.ndcu_weekly_update.NDCUWeeklyUpdateCasesByDistrictDataMixin import \
     NDCUWeeklyUpdateCasesByDistrictDataMixin
 from dengue.ndcu_weekly_update.NDCUWeeklyUpdateHighRiskMOHAreasDataMixin import \
     NDCUWeeklyUpdateHighRiskMOHAreasDataMixin
+from dengue.ndcu_weekly_update.NDCUWeeklyUpdateSentinelHospitalsDataMixin import \
+    NDCUWeeklyUpdateSentinelHospitalsDataMixin
 from utils_future import Log, TimeFormat
 
 log = Log("NDCUWeeklyUpdate")
@@ -12,6 +14,7 @@ class NDCUWeeklyUpdate(
     NDCUDoc,
     NDCUWeeklyUpdateCasesByDistrictDataMixin,
     NDCUWeeklyUpdateHighRiskMOHAreasDataMixin,
+    NDCUWeeklyUpdateSentinelHospitalsDataMixin,
 ):
 
     @classmethod
@@ -31,3 +34,4 @@ class NDCUWeeklyUpdate(
     def build_custom_data(self):
         self._build_cases_by_district_data()
         self._build_high_risk_moh_areas_data()
+        self._build_sentinel_hospitals_data()
