@@ -12,8 +12,7 @@ class ReadMe:
 
     @staticmethod
     def get_lines_for_header() -> list[str]:
-        # ![LastUpdated](https://img.shields.io/badge/last_updated-2026--06--25_06:58:43-green)
-        time_str = TimeFormat.TIME.format(Time.now())
+        time_str = TimeFormat.DATE.format(Time.now())
         time_str = time_str.replace("-", "--").replace(" ", "_")
         return [
             "![Last Updated](https://img.shields.io/badge/"
