@@ -6,6 +6,7 @@
 
 ![](images/deaths_by_region_2026-06-14.png)
 
+
 ## Appendix: Source Reports
 
 ### [National Dengue Control Unit - Daily Update](data/NDCUDaily)
