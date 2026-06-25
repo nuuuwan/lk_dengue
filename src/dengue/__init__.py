@@ -11,3 +11,4 @@ from dengue.ndcu_weekly import (NDCUWeekly, NDCUWeeklyCasesByDistrictMixin,
                                 NDCUWeeklyHighRiskMOHAreasMixin,
                                 NDCUWeeklySentinelHospitalsMixin)
 from dengue.NDCUScraper import NDCUScraper
+from dengue.readme import ReadMe
