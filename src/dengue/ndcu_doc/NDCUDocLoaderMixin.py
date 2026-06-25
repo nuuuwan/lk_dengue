@@ -61,3 +61,10 @@ class NDCUDocLoaderMixin:
                 doc.build(doc.pdf_file)
                 return doc
         return None
+
+    @classmethod
+    def latest(cls):
+        docs = cls.list()
+        if docs:
+            return docs[0]
+        return None
