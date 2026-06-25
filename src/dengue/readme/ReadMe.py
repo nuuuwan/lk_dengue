@@ -94,7 +94,18 @@ class ReadMe:
                     int(d["n_this_year_this_week"])
                     - int(d["n_this_year_last_week"])
                 ),
-                "Additional Cases this week (compared to Last Week)",
+                "Additional Cases this week (compared to last week)",
+                "orange",
+                "green",
+            ),
+            (
+                NDCUWeekly,
+                lambda latest: latest.cases_by_district_file,
+                lambda d: (
+                    int(d["n_this_year_this_week"])
+                    - int(d["n_last_year_this_week"])
+                ),
+                "Additional Cases this week (compared to this week, last year)",
                 "orange",
                 "green",
             ),
