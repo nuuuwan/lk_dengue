@@ -114,23 +114,15 @@ class Deaths:
                 xy=(centroid.x, centroid.y + gap_y),
                 ha="center",
                 va="center",
-                fontsize=7,
+                fontsize=6,
                 color="black",
             )
             ax.annotate(
-                f"{n_deaths} deaths" if n_deaths > 1 else f"{n_deaths} death",
+                f"{n_deaths}",
                 xy=(centroid.x, centroid.y),
                 ha="center",
                 va="center",
-                fontsize=9,
-                color="black",
-            )
-            ax.annotate(
-                f"({row['n_deaths_per_100K']:.1f}/100K)",
-                xy=(centroid.x, centroid.y - gap_y),
-                ha="center",
-                va="center",
-                fontsize=7,
+                fontsize=12,
                 color="black",
             )
 
