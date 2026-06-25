@@ -9,7 +9,7 @@ class NDCUDocBase(ABC):
     pdf_url: str
 
     def __str__(self):
-        return f"{self.__class__.__name__}({self.pdf_url})"
+        return f"{self.__class__.__name__}({self.date_str})"
 
     @property
     def year_str(self) -> str:
@@ -19,11 +19,16 @@ class NDCUDocBase(ABC):
     def month_str(self) -> str:
         return self.date_str[:7]
 
+    @classmethod
+    def get_dir_class(cls) -> str:
+        dir_class = os.path.join("data", cls.__name__)
+        os.makedirs(dir_class, exist_ok=True)
+        return dir_class
+
     @property
     def dir_data(self) -> str:
         dir_data = os.path.join(
-            "data",
-            self.__class__.__name__,
+            self.get_dir_class(),
             self.year_str,
             self.month_str,
             self.date_str,
