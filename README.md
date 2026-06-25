@@ -1,8 +1,8 @@
 # Dengue in Sri Lanka 🇱🇰
 
-Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.gov.lk/) Website.
-
 ![Last Updated](https://img.shields.io/badge/last_updated-2026--06--25-green)
+
+Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.gov.lk/) Website.
 
 ## Cases this week
 
