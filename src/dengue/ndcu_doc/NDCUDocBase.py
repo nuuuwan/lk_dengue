@@ -1,5 +1,5 @@
 import os
-from abc import ABC
+from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
 
@@ -42,3 +42,8 @@ class NDCUDocBase(ABC):
             "date_str": self.date_str,
             "pdf_url": self.pdf_url,
         }
+
+    @classmethod
+    @abstractmethod
+    def get_full_name(cls) -> str:
+        pass

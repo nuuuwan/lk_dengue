@@ -22,6 +22,9 @@ class NDCUWeekly(
     NDCUWeeklyDeathsByAgeAndSexMixin,
     NDCUWeeklyDeathsByDistrictMixin,
 ):
+    @classmethod
+    def get_full_name(cls) -> str:
+        return "National Dengue Control Unit - Weekly Update"
 
     @classmethod
     def _parse_date_str(cls, lines: list[str]) -> str:

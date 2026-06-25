@@ -8,6 +8,10 @@ log = Log("NDCUDaily")
 class NDCUDaily(NDCUDoc, NDCUDailyDistrictMixin):
 
     @classmethod
+    def get_full_name(cls) -> str:
+        return "National Dengue Control Unit - Daily Update"
+
+    @classmethod
     def _parse_date_str(cls, lines: list[str]) -> str:
         for line in lines:
             if "as of" in line.lower():
