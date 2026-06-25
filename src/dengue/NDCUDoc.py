@@ -4,7 +4,7 @@ import tempfile
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
-from utils_future import WWW, Log, PDFFile
+from utils_future import WWW, JSONFile, Log, PDFFile
 
 log = Log("NDCUDoc")
 
@@ -53,9 +53,8 @@ class NDCUDoc(ABC):
     def _parse_date_str(cls, lines: list[str]) -> str:
         pass
 
-    @classmethod
-    def from_pdf_url(cls, pdf_url: str):
-        log.debug(f"{pdf_url=}")
+    @staticmethod
+    def _download_pdf(pdf_url):
         temp_dir = os.path.join(tempfile.gettempdir(), "dengue")
         os.makedirs(temp_dir, exist_ok=True)
         temp_pdf_file = PDFFile(
@@ -63,12 +62,26 @@ class NDCUDoc(ABC):
         )
         WWW(pdf_url).download_binary(temp_pdf_file.path)
         log.debug(f"Downloaded {pdf_url} to {temp_pdf_file}")
-        date_str = cls._parse_date_str(temp_pdf_file.get_text_lines())
-        self = cls(date_str=date_str, pdf_url=pdf_url)
+        return temp_pdf_file
 
+    def metadata_file(self) -> str:
+        return JSONFile(os.path.join(self.dir_data, "metadata.json"))
+
+    def build(self, temp_pdf_file):
         shutil.copy(
             temp_pdf_file.path,
             self.pdf_file.path,
         )
         log.info(f"Wrote {self.pdf_file}")
+
+        self.metadata_file().write(self.to_dict)
+        log.info(f"Wrote {self.metadata_file()}")
+
+    @classmethod
+    def from_pdf_url(cls, pdf_url: str):
+        log.debug(f"{pdf_url=}")
+        temp_pdf_file = cls._download_pdf(pdf_url)
+        date_str = cls._parse_date_str(temp_pdf_file.get_text_lines())
+        self = cls(date_str=date_str, pdf_url=pdf_url)
+        self.build(temp_pdf_file)
         return self
