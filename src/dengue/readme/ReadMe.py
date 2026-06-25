@@ -11,7 +11,9 @@ class ReadMe:
 
     def get_lines_for_source_reports(self) -> list[str]:
         lines = [
-            "## Source Reports",
+            "---",
+            "",
+            "## Appendix: Source Reports",
             "",
         ]
         for doc_class in self.DOC_CLASS_LIST:
