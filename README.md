@@ -2,6 +2,11 @@
 
 ![Last Updated](https://img.shields.io/badge/last_updated-2026--06--25-green)
 
+## Cases this week
+
+![](images/cases-this-week_by_region_2026-06-14.png)
+
+
 ## Deaths in 2026
 
 ![](images/deaths-in-2026_by_region_2026-06-14.png)
