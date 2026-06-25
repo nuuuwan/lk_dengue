@@ -189,15 +189,15 @@ As of 2026-06-14
 | BH - Dambulla | 2 | 4 |
 | BH - Mirigama | 3 | 4 |
 
-## Appendix: Source Reports
+## Appendix: Source Reports & Extracted Data
 
 ### [National Dengue Control Unit - Daily Update](data/NDCUDaily)
 
-- [2026-06-23](data/NDCUDaily/2026/2026-06/2026-06-23/original.pdf)
+- [2026-06-23](data/NDCUDaily/2026/2026-06/2026-06-23)
 
 ### [National Dengue Control Unit - Weekly Update](data/NDCUWeekly)
 
-- [2026-06-14](data/NDCUWeekly/2026/2026-06/2026-06-14/original.pdf)
+- [2026-06-14](data/NDCUWeekly/2026/2026-06/2026-06-14)
 
 ![Maintainer](https://img.shields.io/badge/maintainer-nuuuwan-red)
 ![MadeWith](https://img.shields.io/badge/made_with-python-blue)
