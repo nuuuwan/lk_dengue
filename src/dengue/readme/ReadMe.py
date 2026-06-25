@@ -1,4 +1,4 @@
-from dengue.analysis import Deaths
+from dengue.analysis import Chart, Deaths
 from dengue.ndcu_daily import NDCUDaily
 from dengue.ndcu_weekly import NDCUWeekly
 from utils_future import File, Log, Time, TimeFormat
@@ -44,11 +44,16 @@ class ReadMe:
 
     @staticmethod
     def get_lines_for_deaths() -> list[str]:
-        Deaths.by_district()
+        deaths_by_district = Deaths.by_district()
+        deaths_by_district_image_path = Chart.chart_metric_by_region(
+            date_str=deaths_by_district["date_str"],
+            id_to_metric=deaths_by_district["district_id_to_n_deaths"],
+            metric_label="deaths",
+        )
         lines = [
             "## Deaths in 2026",
             "",
-            f"![]({Deaths.chart_by_district()})",
+            f"![]({deaths_by_district_image_path})",
             "",
         ]
 

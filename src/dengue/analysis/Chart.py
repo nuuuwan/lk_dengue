@@ -3,14 +3,14 @@ import os
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 
-from dengue.ndcu_weekly import NDCUWeekly
-from utils_future import File, GeoUtils, Log, RegionUtils
-
-log = Log("Deaths")
+from dengue.analysis.Deaths import log
+from utils_future import File, GeoUtils, RegionUtils
 
 
 class Chart:
     DIR_IMAGES = "images"
+    FIG_SIZE = (10, 10)
+    DPI = 90
 
     @staticmethod
     def chart_metric_by_region(
@@ -39,7 +39,7 @@ class Chart:
             "white_red", ["white", "darkred"]
         )
 
-        fig, ax = plt.subplots(1, 1, figsize=(8, 10))
+        fig, ax = plt.subplots(1, 1, figsize=Chart.FIG_SIZE)
         gdf.plot(
             column="metric_per_100k",
             ax=ax,
@@ -85,28 +85,7 @@ class Chart:
 
         os.makedirs(Chart.DIR_IMAGES, exist_ok=True)
 
-        plt.savefig(image_path, dpi=300)
+        plt.savefig(image_path, dpi=Chart.DPI)
         plt.close("all")
         log.info(f"Wrote  {File(image_path)}")
         return image_path
-
-
-class Deaths:
-
-    @classmethod
-    def by_district(cls):
-        latest_weekly = NDCUWeekly.latest()
-        deaths_by_district = latest_weekly.deaths_by_district_file.read()
-
-        district_id_to_n_deaths = {}
-        for d in deaths_by_district:
-            district_id = d["district_id"][:5]
-            n_deaths = int(d["n_deaths"])
-            if district_id not in district_id_to_n_deaths:
-                district_id_to_n_deaths[district_id] = 0
-            district_id_to_n_deaths[district_id] += n_deaths
-
-        return dict(
-            date_str=latest_weekly.date_str,
-            district_id_to_n_deaths=district_id_to_n_deaths,
-        )
