@@ -42,7 +42,46 @@ class MOH:
 
     @classmethod
     @cache
+    def name_idx(cls) -> dict[str, "MOH"]:
+        return {moh.region_name: moh for moh in cls.list()}
+
+    @classmethod
+    @cache
+    def from_name(cls, name: str) -> "MOH":
+
+        name = {
+            "Kandy MC": "Kandy Four Gravets & Gangawata Korale",
+            "MC-Galle": "Galle Four Gravets",
+            "Pugoda(Dompe)": "Dompe",
+            "Pasbage": "Pasbage Korale",
+            # -----------------------
+            # Added to Unknown
+            # -----------------------
+            # - Egodauyana
+            # - Gothatuwa
+            # - Kesbewa
+            # - Millaniya
+            # - NIHS
+            # - Wadduwa
+            # - Gampola
+            # - Thalathuoya
+            # - Waththegama
+            # - Kurunduwaththa
+            # - Werellagama
+            # - Deniyaya
+            # - Morawaka
+            # - Madampe
+        }.get(name, name)
+
+        return cls.name_idx().get(name)
+
+    @classmethod
+    @cache
     def from_name_fuzzy(cls, name: str) -> "MOH":
+        from_name = cls.from_name(name)
+        if from_name:
+            return from_name
+
         name_lower = name.lower()
         moh_and_ration = []
         for moh in cls.list():

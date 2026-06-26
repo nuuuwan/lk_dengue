@@ -172,6 +172,9 @@ class ReadMe:
 
             moh = MOH.from_name_fuzzy(d["moh_area_name"])
 
+            if not moh:
+                print(" " * 4 + f'"{d["moh_area_name"]}": "",')
+
             return {
                 "ID": moh.region_id if moh else "⚠️ Unknown",
                 "District": d["district_name"],

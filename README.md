@@ -48,7 +48,7 @@ As of 2026-06-14
 | LK-12-Wattala | Gampaha | Wattala | 46 | 75 |
 | LK-13-Bandaragama | Kalutara | Bandaragama | 54 | 75 |
 | LK-31-Bope-Poddala | Galle | Bope Poddala | 41 | 72 |
-| ⚠️ Unknown | Kandy | Kandy MC | 52 | 71 |
+| LK-21-Kandy-Four-Gravets-&-Gangawata-Korale | Kandy | Kandy MC | 52 | 71 |
 | LK-32-Weligama | Matara | Weligama | 26 | 69 |
 | LK-11-Nugegoda | Colombo | Nugegoda | 31 | 66 |
 | LK-11-Piliyandala | Colombo | Piliyandala | 20 | 66 |
@@ -63,8 +63,8 @@ As of 2026-06-14
 | ⚠️ Unknown | Colombo | D3-CMC | 22 | 45 |
 | LK-21-Yatinuwara | Kandy | Yatinuwara | 42 | 45 |
 | LK-12-Minuwangoda | Gampaha | Minuwangoda | 47 | 44 |
-| ⚠️ Unknown | Galle | MC-Galle | 10 | 40 |
-| ⚠️ Unknown | Gampaha | Pugoda(Dompe) | 26 | 39 |
+| LK-31-Galle-Four-Gravets | Galle | MC-Galle | 10 | 40 |
+| LK-12-Dompe | Gampaha | Pugoda(Dompe) | 26 | 39 |
 | ⚠️ Unknown | Kandy | Gampola | 17 | 39 |
 | LK-21-Ganga-Ihala-Korale | Kandy | Gangawata Korale | 23 | 39 |
 | LK-32-Akuressa | Matara | Akuressa | 12 | 39 |
@@ -109,7 +109,7 @@ As of 2026-06-14
 | ⚠️ Unknown | Colombo | D2A-CMC | 7 | 15 |
 | LK-33-Katuwana | Hambantota | Katuwana | 13 | 15 |
 | LK-13-Mathugama | Kalutara | Mathugama | 6 | 15 |
-| ⚠️ Unknown | Kandy | Pasbage | 21 | 15 |
+| LK-21-Pasbage-Korale | Kandy | Pasbage | 21 | 15 |
 | LK-32-Malimbada | Matara | Malimbada | 6 | 15 |
 | LK-91-Ayagama | Ratnapura | Ayagama | 11 | 15 |
 | LK-91-Ratnapura | Ratnapura | Ratnapura PS | 30 | 15 |
