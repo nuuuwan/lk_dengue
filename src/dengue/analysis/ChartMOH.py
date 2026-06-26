@@ -1,3 +1,4 @@
+import json
 import os
 
 import geopandas as gpd
@@ -9,6 +10,7 @@ from utils_future import File, Log
 log = Log("ChartMOH")
 
 MOH_GEO_PATH = os.path.join("moh_data", "geo", "moh.topojson")
+MOH_ENT_PATH = os.path.join("moh_data", "ent", "moh.json")
 
 
 class ChartMOH:
@@ -16,6 +18,16 @@ class ChartMOH:
     FIG_SIZE = (10, 10)
     DPI = 300
     N_TOP = 3
+
+    @staticmethod
+    def _get_moh_name_to_population():
+        with open(MOH_ENT_PATH, encoding="utf-8") as f:
+            data = json.load(f)
+        return {
+            d["region_name"].upper(): d["population"]
+            for d in data
+            if d.get("population")
+        }
 
     @staticmethod
     def _get_moh_gdf():
@@ -51,6 +63,12 @@ class ChartMOH:
         date_str = latest.date_str
 
         name_to_metric = ChartMOH._build_name_to_metric(d_list, get_metric)
+        name_to_population = ChartMOH._get_moh_name_to_population()
+        name_to_metric_per100k = {
+            name: metric / name_to_population[name] * 100_000
+            for name, metric in name_to_metric.items()
+            if metric is not None and name in name_to_population
+        }
 
         image_path = os.path.join(
             ChartMOH.DIR_IMAGES, f"{metric_id}_by_moh.png"
@@ -62,8 +80,11 @@ class ChartMOH:
         # MOH_N is uppercase in the topojson; match using uppercase
         # moh_area_name
         gdf["metric"] = gdf["MOH_N"].map(name_to_metric).fillna(0).astype(int)
+        gdf["metric_per_100k"] = gdf["MOH_N"].map(name_to_metric_per100k)
 
-        metric_values = [v for v in name_to_metric.values() if v is not None]
+        metric_values = [
+            v for v in name_to_metric_per100k.values() if v is not None
+        ]
         max_val = max(metric_values, default=1) or 1
         min_val = min(metric_values, default=-1) or -1
 
@@ -94,7 +115,7 @@ class ChartMOH:
 
         fig, ax = plt.subplots(1, 1, figsize=ChartMOH.FIG_SIZE)
         gdf.plot(
-            column="metric",
+            column="metric_per_100k",
             ax=ax,
             cmap=cmap,
             norm=norm,
@@ -109,13 +130,15 @@ class ChartMOH:
             sm,
             ax=ax,
             shrink=0.6,
-            label=metric_label,
+            label=f"{metric_label} per 100,000 people",
         )
 
         top_moh_rank = {
             name: rank + 1
             for rank, name in enumerate(
-                gdf.nlargest(ChartMOH.N_TOP, "metric")["MOH_N"].tolist()
+                gdf.nlargest(ChartMOH.N_TOP, "metric_per_100k")[
+                    "MOH_N"
+                ].tolist()
             )
         }
         for _, row in gdf.iterrows():
