@@ -1,3 +1,26 @@
+2026-06-26
+
+#Dengue in #SriLanka 🇱🇰 - 🔥 #HotSpots
+
+I added some MOH Region maps that give a more precise view of cases.
+
+There seem to be a few obvious 🔥 "Hot Spots":
+
+- #Matara MC MOH Area (Matara District)
+- #BopePoddala (#Galle)
+- #Maharagama (#Colombo)
+- #Biyagama (#Gampaha)
+
+For a fairer comparison, I normalize statistics by the population of the MOH areas. 
+
+More insights here: https://github.com/nuuuwan/lk_dengue
+
+
+
+...
+
+2026-06-25
+
 #Dengue in #SriLanka 🇱🇰
 
 I scraped some datasets from the National Dengue Control Unit. 
