@@ -2,9 +2,9 @@
 
 ## Unknown MOH Areaas
 
-- Egodauyana
-- Gothatuwa
-- Kesbewa
+- Egodauyana - split from Moratuwa?
+- Gothatuwa -
+- Kesbewa - From Piliyandala?
 - Millaniya
 - NIHS
 - Wadduwa
@@ -12,7 +12,6 @@
 - Thalathuoya
 - Waththegama
 - Kurunduwaththa
-- Pasbage- : - Pasbage Korale- ,
 - Werellagama
 - Deniyaya
 - Morawaka

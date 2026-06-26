@@ -2,7 +2,7 @@ utils-nuuuwan
 pypdf
 selenium
 bs4
-camelot
+camelot-py[cv]
 matplotlib
 geopandas
 rapidfuzz
