@@ -17,7 +17,6 @@ class ChartMOH:
     DIR_IMAGES = "images"
     FIG_SIZE = (10, 10)
     DPI = 300
-    N_TOP = 3
 
     @staticmethod
     def _get_moh_name_to_population():
@@ -147,27 +146,15 @@ class ChartMOH:
                 label=f"{metric_label} per 100,000 people",
             )
 
-            top_moh_rank = {
-                name: rank + 1
-                for rank, name in enumerate(
-                    district_gdf.nlargest(ChartMOH.N_TOP, "metric")[
-                        "MOH_N"
-                    ].tolist()
-                )
-            }
-
             bounds = district_gdf.total_bounds  # [minx, miny, maxx, maxy]
             gap_y = (bounds[3] - bounds[1]) * 0.03
 
             for _, row in district_gdf.iterrows():
-                if row["MOH_N"] not in top_moh_rank:
-                    continue
                 metric = int(row["metric"])
                 if metric == 0:
                     continue
                 centroid = row.geometry.centroid
-                rank = top_moh_rank[row["MOH_N"]]
-                moh_name = f"#{rank} {row['MOH_N'].title()}"
+                moh_name = row["MOH_N"].title()
                 ax.annotate(
                     (
                         f"{metric}"
