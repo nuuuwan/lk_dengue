@@ -3,7 +3,6 @@ import os
 from dengue.analysis import Chart, ChartMOH
 from dengue.ndcu_daily import NDCUDaily
 from dengue.ndcu_weekly import NDCUWeekly
-from moh import MOH
 from utils_future import File, Log, Markdown, Time, TimeFormat
 
 log = Log("ReadMe")
@@ -178,48 +177,16 @@ class ReadMe:
 
         d_list = latest.high_risk_moh_areas_file.read()
 
-        moh_to_d_list = {}
-        for d in d_list:
-            moh = MOH.from_name_fuzzy(d["moh_area_name"])
-            if not moh:
-                log.warning(f'Unknown MOH Area: "{d["moh_area_name"]}"')
-                continue
-            moh_id = moh.region_id
-            if moh_id not in moh_to_d_list:
-                moh_to_d_list[moh_id] = []
-            moh_to_d_list[moh_id].append(d)
-
-        aggr_d_list = []
-        for moh_id, d_list in moh_to_d_list.items():
-            moh = MOH.idx()[moh_id]
-            d0 = d_list[0]
-            population = moh.population
-            aggr_d = {
-                "moh_id": moh.region_id,
-                "moh_area_name": " & ".join(
-                    sorted(set(d["moh_area_name"] for d in d_list))
-                ),
-                "district_name": d0["district_name"],
-                "n_cases_last_week": sum(
-                    int(d["n_cases_last_week"]) for d in d_list
-                ),
-                "n_cases_this_week": sum(
-                    int(d["n_cases_this_week"]) for d in d_list
-                ),
-                "population": population,
-            }
-            aggr_d_list.append(aggr_d)
-
         def ramap(d):
             n_cases_last_week = int(d["n_cases_last_week"])
             n_cases_this_week = int(d["n_cases_this_week"])
 
             population = int(d["population"])
-            n_cases_last_week_per100k = (
-                n_cases_last_week / population * 100_000
+            n_cases_last_week_per_100k = round(
+                float(d["n_cases_last_week_per_100k"]), 1
             )
-            n_cases_this_week_per100k = (
-                n_cases_this_week / population * 100_000
+            n_cases_this_week_per_100k = round(
+                float(d["n_cases_this_week_per_100k"]), 1
             )
 
             delta = n_cases_this_week - n_cases_last_week
@@ -233,14 +200,14 @@ class ReadMe:
                 "Change": f"{emoji} {delta:+}",
                 "Population (2024 Census)": population,
                 "Cases Last Week per 100k": round(
-                    n_cases_last_week_per100k, 2
+                    n_cases_last_week_per_100k, 2
                 ),
                 "Cases This Week per 100k": round(
-                    n_cases_this_week_per100k, 2
+                    n_cases_this_week_per_100k, 2
                 ),
             }
 
-        d_list = [ramap(d) for d in aggr_d_list]
+        d_list = [ramap(d) for d in d_list]
         d_list = [d for d in d_list if d["Cases This Week"] > 0]
         d_list.sort(
             key=lambda x: (

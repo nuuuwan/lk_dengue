@@ -19,14 +19,20 @@ class ChartMOH:
     DPI = 300
 
     @staticmethod
-    def _get_moh_name_to_population():
+    def _get_moh_id_to_population():
         with open(MOH_ENT_PATH, encoding="utf-8") as f:
             data = json.load(f)
         return {
-            d["region_name"].upper(): d["population"]
+            d["region_id"]: d["population"]
             for d in data
             if d.get("population")
         }
+
+    @staticmethod
+    def _get_moh_name_to_id():
+        with open(MOH_ENT_PATH, encoding="utf-8") as f:
+            data = json.load(f)
+        return {d["region_name"].upper(): d["region_id"] for d in data}
 
     @staticmethod
     def _get_moh_gdf():
@@ -36,15 +42,15 @@ class ChartMOH:
         return gdf.to_crs(epsg=3857)
 
     @staticmethod
-    def _build_name_to_metric(d_list, get_metric):
-        name_to_metric = {}
+    def _build_id_to_metric(d_list, get_metric):
+        id_to_metric = {}
         for d in d_list:
-            moh_name = d["moh_area_name"].upper()
+            moh_id = d["moh_id"]
             n = get_metric(d)
-            if moh_name not in name_to_metric:
-                name_to_metric[moh_name] = 0
-            name_to_metric[moh_name] += n
-        return name_to_metric
+            if moh_id not in id_to_metric:
+                id_to_metric[moh_id] = 0
+            id_to_metric[moh_id] += n
+        return id_to_metric
 
     @staticmethod
     def chart_metric_by_moh(
@@ -61,23 +67,23 @@ class ChartMOH:
         d_list = get_file_from_latest(latest).read()
         date_str = latest.date_str
 
-        name_to_metric = ChartMOH._build_name_to_metric(d_list, get_metric)
-        name_to_population = ChartMOH._get_moh_name_to_population()
-        name_to_metric_per100k = {
-            name: metric / name_to_population[name] * 100_000
-            for name, metric in name_to_metric.items()
-            if metric is not None and name in name_to_population
+        id_to_metric = ChartMOH._build_id_to_metric(d_list, get_metric)
+        id_to_population = ChartMOH._get_moh_id_to_population()
+        id_to_metric_per_100k = {
+            moh_id: metric / id_to_population[moh_id] * 100_000
+            for moh_id, metric in id_to_metric.items()
+            if metric is not None and moh_id in id_to_population
         }
 
         gdf = ChartMOH._get_moh_gdf()
-        # MOH_N is uppercase in the topojson; match using uppercase
-        # moh_area_name
-        gdf["metric"] = gdf["MOH_N"].map(name_to_metric).fillna(0).astype(int)
-        gdf["metric_per_100k"] = gdf["MOH_N"].map(name_to_metric_per100k)
+        moh_name_to_id = ChartMOH._get_moh_name_to_id()
+        gdf["moh_id"] = gdf["MOH_N"].map(moh_name_to_id)
+        gdf["metric"] = gdf["moh_id"].map(id_to_metric).fillna(0).astype(int)
+        gdf["metric_per_100k"] = gdf["moh_id"].map(id_to_metric_per_100k)
 
         # Global color scale so all district charts are comparable
         metric_values = [
-            v for v in name_to_metric_per100k.values() if v is not None
+            v for v in id_to_metric_per_100k.values() if v is not None
         ]
         max_val = max(metric_values, default=1) or 1
         min_val = min(metric_values, default=-1) or -1
@@ -147,7 +153,7 @@ class ChartMOH:
             )
 
             bounds = district_gdf.total_bounds  # [minx, miny, maxx, maxy]
-            gap_y = (bounds[3] - bounds[1]) * 0.03
+            gap_y = (bounds[3] - bounds[1]) * 0.01
 
             for _, row in district_gdf.iterrows():
                 metric = int(row["metric"])

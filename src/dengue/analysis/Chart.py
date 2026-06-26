@@ -37,7 +37,7 @@ class Chart:
 
         id_to_name = RegionUtils.get_region_id_to_name()
         id_to_population = RegionUtils.get_region_id_to_population()
-        id_to_metric_per100k = {
+        id_to_metric_per_100k = {
             district_id: metric / id_to_population[district_id] * 100_000
             for district_id, metric in id_to_metric.items()
             if metric is not None
@@ -45,10 +45,10 @@ class Chart:
 
         gdf = GeoUtils.get_all_gdf()
         gdf["metric"] = gdf["id"].map(id_to_metric).fillna(0).astype(int)
-        gdf["metric_per_100k"] = gdf["id"].map(id_to_metric_per100k)
+        gdf["metric_per_100k"] = gdf["id"].map(id_to_metric_per_100k)
 
         metric_values = [
-            v for v in id_to_metric_per100k.values() if v is not None
+            v for v in id_to_metric_per_100k.values() if v is not None
         ]
         max_val = max(metric_values, default=1) or 1
         min_val = min(metric_values, default=-1) or -1

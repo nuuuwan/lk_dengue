@@ -42,6 +42,11 @@ class MOH:
 
     @classmethod
     @cache
+    def from_id(cls, region_id: str) -> "MOH":
+        return cls.idx().get(region_id)
+
+    @classmethod
+    @cache
     def name_idx(cls) -> dict[str, "MOH"]:
         return {moh.region_name: moh for moh in cls.list()}
 

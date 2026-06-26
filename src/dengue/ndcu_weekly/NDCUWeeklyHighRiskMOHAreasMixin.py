@@ -1,5 +1,6 @@
 import os
 
+from moh import MOH
 from utils_future import File, Log, Parse, RegionUtils, TSVFile
 
 log = Log("NDCUWeeklyHighRiskMOHAreasMixin")
@@ -64,6 +65,51 @@ class NDCUWeeklyHighRiskMOHAreasMixin:
         )
         return data, district_name
 
+    def _normalize(self, data_list):
+        # map
+        moh_to_data_list = {}
+        for d in data_list:
+            moh_name = d["moh_area_name"].upper()
+            moh = MOH.from_name_fuzzy(moh_name)
+            if not moh:
+                log.warning(f"Could not find MOH for {moh_name}")
+                continue
+            moh_id = moh.region_id
+            if moh_id not in moh_to_data_list:
+                moh_to_data_list[moh_id] = []
+            moh_to_data_list[moh_id].append(d)
+
+        # reduce
+        aggr_data_list = []
+        for moh_id, d_list in moh_to_data_list.items():
+            moh = MOH.from_id(moh_id)
+            d = dict(
+                moh_id=moh_id,
+                moh_area_name=" & ".join(
+                    sorted([d["moh_area_name"] for d in d_list])
+                ),
+                district_id=moh.district_id,
+                district_name=d_list[0]["district_name"],
+                n_cases_last_week=sum(d["n_cases_last_week"] for d in d_list),
+                n_cases_this_week=sum(d["n_cases_this_week"] for d in d_list),
+                population=moh.population,
+                n_cases_last_week_per_100k=(
+                    sum(d["n_cases_last_week"] for d in d_list)
+                    / moh.population
+                    * 100_000
+                ),
+                n_cases_this_week_per_100k=(
+                    sum(d["n_cases_this_week"] for d in d_list)
+                    / moh.population
+                    * 100_000
+                ),
+            )
+            aggr_data_list.append(d)
+        aggr_data_list.sort(
+            key=lambda x: (str(x["district_id"]), x["moh_area_name"])
+        )
+        return aggr_data_list
+
     def _build_high_risk_moh_areas_data(self):
         content = self._get_high_risk_moh_areas_raw_content()
         data_list = []
@@ -74,9 +120,7 @@ class NDCUWeeklyHighRiskMOHAreasMixin:
             if data is not None:
                 data_list.append(data)
 
-        data_list.sort(
-            key=lambda x: (str(x["district_id"]), x["moh_area_name"])
-        )
+        data_list = self._normalize(data_list)
         self.high_risk_moh_areas_file.write(data_list)
         log.info(
             f"Wrote {len(data_list)} rows to {self.high_risk_moh_areas_file}"
