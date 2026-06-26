@@ -23,7 +23,10 @@ class NDCUWeeklyDeathsByAgeAndSexMixin:
                     return content
         raise ValueError("No file with age and sex raw data")
 
-    def _build_deaths_by_age_and_sex_data(self):
+    def _build_deaths_by_age_and_sex_data(self, force):
+        if self.deaths_by_age_and_sex_file.exists and not force:
+            log.debug(f"{self.deaths_by_age_and_sex_file} exists")
+            return
         content = self._get_deaths_by_age_and_sex_raw_content()
         data_list = []
 

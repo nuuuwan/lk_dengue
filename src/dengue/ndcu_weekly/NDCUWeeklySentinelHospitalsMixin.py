@@ -24,7 +24,10 @@ class NDCUWeeklySentinelHospitalsMixin:
                     contents.append(content)
         return "\n".join(contents)
 
-    def _build_sentinel_hospitals_data(self):
+    def _build_sentinel_hospitals_data(self, force):
+        if self.sentinel_hospitals_file.exists and not force:
+            log.debug(f"{self.sentinel_hospitals_file} exists")
+            return
         content = self._get_sentinel_hospitals_raw_content()
         data_list = []
 

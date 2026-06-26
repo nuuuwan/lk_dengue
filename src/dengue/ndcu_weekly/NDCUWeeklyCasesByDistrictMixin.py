@@ -23,7 +23,10 @@ class NDCUWeeklyCasesByDistrictMixin:
 
         raise ValueError("Could not find cases_by_district table")
 
-    def _build_cases_by_district_data(self):
+    def _build_cases_by_district_data(self, force):
+        if self.cases_by_district_file.exists and not force:
+            log.debug(f"{self.cases_by_district_file} exists")
+            return
         content = self._get_cases_by_district_raw_table()
         data_list = []
         for line in content.splitlines()[4:]:

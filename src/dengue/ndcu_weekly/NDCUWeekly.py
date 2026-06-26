@@ -40,9 +40,9 @@ class NDCUWeekly(
                 return date_str
         raise ValueError("Could not find date_str")
 
-    def build_custom_data_inner(self):
-        self._build_cases_by_district_data()
-        self._build_high_risk_moh_areas_data()
-        self._build_sentinel_hospitals_data()
-        self._build_deaths_by_age_and_sex_data()
-        self._build_deaths_by_district_data()
+    def build_custom_data(self, force=False):
+        self._build_cases_by_district_data(force)
+        self._build_high_risk_moh_areas_data(force)
+        self._build_sentinel_hospitals_data(force)
+        self._build_deaths_by_age_and_sex_data(force)
+        self._build_deaths_by_district_data(force)
