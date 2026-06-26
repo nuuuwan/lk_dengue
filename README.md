@@ -26,6 +26,10 @@ Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.g
 
 ## Cases this week by MOH Region
 
+
+⚠️ These maps are based on 2020 MOH Region boundaries. Several MOH Regions created since lack public geographic data, so they have been merged with their parent regions. E.g., Kesbewa, formed by splitting the Piliyandala MOH Region, is shown combined as "Kesbewa & Piliyandala."
+
+
 ### Colombo
 
 ![Colombo](images/cases-this-week-by-moh-region_by_moh_colombo.png)

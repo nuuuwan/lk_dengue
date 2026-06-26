@@ -148,7 +148,17 @@ class ReadMe:
             positive_color="purple",
             negative_color="white",
         )
-        lines = ["## Cases this week by MOH Region", ""]
+
+        moh_data_disclaimer = """
+⚠️ These maps are based on 2020 MOH Region boundaries. Several MOH Regions created since lack public geographic data, so they have been merged with their parent regions. E.g., Kesbewa, formed by splitting the Piliyandala MOH Region, is shown combined as "Kesbewa & Piliyandala."
+"""
+
+        lines = [
+            "## Cases this week by MOH Region",
+            "",
+            moh_data_disclaimer,
+            "",
+        ]
         for image_path in image_paths:
             district_name = (
                 os.path.basename(image_path)
