@@ -1,6 +1,7 @@
 from dengue.analysis import Chart, ChartMOH
 from dengue.ndcu_daily import NDCUDaily
 from dengue.ndcu_weekly import NDCUWeekly
+from moh import MOH
 from utils_future import File, Log, Markdown, Time, TimeFormat
 
 log = Log("ReadMe")
@@ -169,7 +170,10 @@ class ReadMe:
             n_cases_last_week = int(d["n_cases_last_week"])
             n_cases_this_week = int(d["n_cases_this_week"])
 
+            moh = MOH.from_name_fuzzy(d["moh_area_name"])
+
             return {
+                "ID": moh.region_id if moh else "⚠️ Unknown",
                 "District": d["district_name"],
                 "MOH Area": d["moh_area_name"],
                 "Cases Last Week": n_cases_last_week,
