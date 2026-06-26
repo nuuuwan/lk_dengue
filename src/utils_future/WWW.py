@@ -62,7 +62,7 @@ class WWW:
 
     @property
     def temp_local_path(self):
-        dir_www = os.path.join(tempfile.gettempdir(), "www")
+        dir_www = os.path.join(tempfile.gettempdir(), "lk_dengue", "www")
         os.makedirs(dir_www, exist_ok=True)
         return os.path.join(dir_www, f"www.{self.url_md5}.{self.ext}")
 
