@@ -26,7 +26,49 @@ Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.g
 
 ## Cases this week by MOH Region
 
-![Cases this week by MOH Region](images/cases-this-week-by-moh-region_by_moh.png)
+### Batticaloa
+
+![Batticaloa](images/cases-this-week-by-moh-region_by_moh_batticaloa.png)
+
+### Colombo
+
+![Colombo](images/cases-this-week-by-moh-region_by_moh_colombo.png)
+
+### Galle
+
+![Galle](images/cases-this-week-by-moh-region_by_moh_galle.png)
+
+### Gampaha
+
+![Gampaha](images/cases-this-week-by-moh-region_by_moh_gampaha.png)
+
+### Hambantota
+
+![Hambantota](images/cases-this-week-by-moh-region_by_moh_hambantota.png)
+
+### Kalutara
+
+![Kalutara](images/cases-this-week-by-moh-region_by_moh_kalutara.png)
+
+### Kandy
+
+![Kandy](images/cases-this-week-by-moh-region_by_moh_kandy.png)
+
+### Kegalle
+
+![Kegalle](images/cases-this-week-by-moh-region_by_moh_kegalle.png)
+
+### Matara
+
+![Matara](images/cases-this-week-by-moh-region_by_moh_matara.png)
+
+### Polonnaruwa
+
+![Polonnaruwa](images/cases-this-week-by-moh-region_by_moh_polonnaruwa.png)
+
+### Ratnapura
+
+![Ratnapura](images/cases-this-week-by-moh-region_by_moh_ratnapura.png)
 
 ## Cases by MOH Regions
 

@@ -6,26 +6,34 @@ class RegionUtils:
             "Colombo": "LK-11",
             "Gampaha": "LK-12",
             "Kalutara": "LK-13",
+            #
             "Kandy": "LK-21",
             "Matale": "LK-22",
             "Nuwara Eliya": "LK-23",
+            #
             "Galle": "LK-31",
             "Matara": "LK-32",
             "Hambantota": "LK-33",
+            #
             "Jaffna": "LK-41",
-            "Kilinochchi": "LK-42",
-            "Mannar": "LK-43",
-            "Vavuniya": "LK-44",
-            "Mullaitivu": "LK-45",
+            "Mannar": "LK-42",
+            "Vavuniya": "LK-43",
+            "Mullaitivu": "LK-44",
+            "Kilinochchi": "LK-45",
+            #
             "Batticaloa": "LK-51",
-            "Ampara": "LK-52",
-            "Trincomalee": "LK-53",
+            "Trincomalee": "LK-52",
+            "Ampara": "LK-53",
+            #
             "Kurunegala": "LK-61",
             "Puttalam": "LK-62",
+            #
             "Anuradhapura": "LK-71",
             "Polonnaruwa": "LK-72",
+            #
             "Badulla": "LK-81",
             "Moneragala": "LK-82",
+            #
             "Ratnapura": "LK-91",
             "Kegalle": "LK-92",
             #

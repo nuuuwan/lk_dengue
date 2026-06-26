@@ -70,18 +70,13 @@ class ChartMOH:
             if metric is not None and name in name_to_population
         }
 
-        image_path = os.path.join(
-            ChartMOH.DIR_IMAGES, f"{metric_id}_by_moh.png"
-        )
-        if os.path.exists(image_path) and not force:
-            return image_path
-
         gdf = ChartMOH._get_moh_gdf()
         # MOH_N is uppercase in the topojson; match using uppercase
         # moh_area_name
         gdf["metric"] = gdf["MOH_N"].map(name_to_metric).fillna(0).astype(int)
         gdf["metric_per_100k"] = gdf["MOH_N"].map(name_to_metric_per100k)
 
+        # Global color scale so all district charts are comparable
         metric_values = [
             v for v in name_to_metric_per100k.values() if v is not None
         ]
@@ -113,97 +108,119 @@ class ChartMOH:
             )
             norm = Normalize(vmin=min_val, vmax=0)
 
-        fig, ax = plt.subplots(1, 1, figsize=ChartMOH.FIG_SIZE)
-        gdf.plot(
-            column="metric_per_100k",
-            ax=ax,
-            cmap=cmap,
-            norm=norm,
-            edgecolor="grey",
-            linewidth=0.3,
-            missing_kwds={"color": "lightgrey", "label": "No data"},
-        )
-
-        sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
-        sm.set_array([])
-        plt.colorbar(
-            sm,
-            ax=ax,
-            shrink=0.6,
-            label=f"{metric_label} per 100,000 people",
-        )
-
-        top_moh_rank = {
-            name: rank + 1
-            for rank, name in enumerate(
-                gdf.nlargest(ChartMOH.N_TOP, "metric_per_100k")[
-                    "MOH_N"
-                ].tolist()
-            )
-        }
-        for _, row in gdf.iterrows():
-            if row["MOH_N"] not in top_moh_rank:
-                continue
-            metric = int(row["metric"])
-            if metric == 0:
-                continue
-            centroid = row.geometry.centroid
-            rank = top_moh_rank[row["MOH_N"]]
-            moh_name = f"#{rank} {row['MOH_N'].title()}"
-            gap_y = 2400
-            ax.annotate(
-                (
-                    f"{metric}"
-                    if "Additional" not in metric_label
-                    else f"{metric:+}"
-                ),
-                xy=(centroid.x, centroid.y + gap_y),
-                ha="center",
-                va="center",
-                fontsize=8,
-                color="black",
-            )
-            ax.annotate(
-                moh_name,
-                xy=(centroid.x, centroid.y - gap_y),
-                ha="center",
-                va="center",
-                fontsize=6,
-                color="black",
-            )
-
-        ax.annotate(
-            metric_label,
-            xy=(0.5, 1.04),
-            xycoords="axes fraction",
-            ha="center",
-            va="bottom",
-            fontsize=18,
-        )
-        ax.annotate(
-            f"as of {date_str}",
-            xy=(0.5, 1.01),
-            xycoords="axes fraction",
-            ha="center",
-            va="bottom",
-            fontsize=12,
-            color="grey",
-        )
-        ax.annotate(
-            f"Source: {Doc.get_source_url()}",
-            xy=(0.5, 0.01),
-            xycoords="axes fraction",
-            ha="center",
-            va="bottom",
-            fontsize=12,
-            color="grey",
-        )
-        ax.axis("off")
-        plt.tight_layout()
-
         os.makedirs(ChartMOH.DIR_IMAGES, exist_ok=True)
+        image_paths = []
 
-        plt.savefig(image_path, dpi=ChartMOH.DPI)
-        plt.close("all")
-        log.info(f"Wrote  {File(image_path)}")
-        return image_path
+        for district_name in sorted(gdf["DISTRICT_N"].unique()):
+            district_gdf = gdf[gdf["DISTRICT_N"] == district_name].copy()
+
+            # Skip districts with no data
+            if district_gdf["metric"].sum() == 0:
+                continue
+
+            district_slug = district_name.lower().replace(" ", "-")
+            image_path = os.path.join(
+                ChartMOH.DIR_IMAGES,
+                f"{metric_id}_by_moh_{district_slug}.png",
+            )
+            if os.path.exists(image_path) and not force:
+                image_paths.append(image_path)
+                continue
+
+            _, ax = plt.subplots(1, 1, figsize=ChartMOH.FIG_SIZE)
+            district_gdf.plot(
+                column="metric_per_100k",
+                ax=ax,
+                cmap=cmap,
+                norm=norm,
+                edgecolor="grey",
+                linewidth=0.3,
+                missing_kwds={"color": "lightgrey", "label": "No data"},
+            )
+
+            sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
+            sm.set_array([])
+            plt.colorbar(
+                sm,
+                ax=ax,
+                shrink=0.6,
+                label=f"{metric_label} per 100,000 people",
+            )
+
+            top_moh_rank = {
+                name: rank + 1
+                for rank, name in enumerate(
+                    district_gdf.nlargest(ChartMOH.N_TOP, "metric")[
+                        "MOH_N"
+                    ].tolist()
+                )
+            }
+
+            bounds = district_gdf.total_bounds  # [minx, miny, maxx, maxy]
+            gap_y = (bounds[3] - bounds[1]) * 0.03
+
+            for _, row in district_gdf.iterrows():
+                if row["MOH_N"] not in top_moh_rank:
+                    continue
+                metric = int(row["metric"])
+                if metric == 0:
+                    continue
+                centroid = row.geometry.centroid
+                rank = top_moh_rank[row["MOH_N"]]
+                moh_name = f"#{rank} {row['MOH_N'].title()}"
+                ax.annotate(
+                    (
+                        f"{metric}"
+                        if "Additional" not in metric_label
+                        else f"{metric:+}"
+                    ),
+                    xy=(centroid.x, centroid.y + gap_y),
+                    ha="center",
+                    va="center",
+                    fontsize=8,
+                    color="black",
+                )
+                ax.annotate(
+                    moh_name,
+                    xy=(centroid.x, centroid.y - gap_y),
+                    ha="center",
+                    va="center",
+                    fontsize=6,
+                    color="black",
+                )
+
+            ax.annotate(
+                f"{metric_label} - {district_name.title()}",
+                xy=(0.5, 1.04),
+                xycoords="axes fraction",
+                ha="center",
+                va="bottom",
+                fontsize=18,
+            )
+            ax.annotate(
+                f"as of {date_str}",
+                xy=(0.5, 1.01),
+                xycoords="axes fraction",
+                ha="center",
+                va="bottom",
+                fontsize=12,
+                color="grey",
+            )
+            ax.annotate(
+                f"Source: {Doc.get_source_url()}",
+                xy=(0.5, 0.01),
+                xycoords="axes fraction",
+                ha="center",
+                va="bottom",
+                fontsize=12,
+                color="grey",
+            )
+            ax.axis("off")
+            plt.tight_layout()
+
+            plt.savefig(image_path, dpi=ChartMOH.DPI)
+            plt.close("all")
+            log.info(f"Wrote  {File(image_path)}")
+            image_paths.append(image_path)
+
+        return image_paths

@@ -1,3 +1,5 @@
+import os
+
 from dengue.analysis import Chart, ChartMOH
 from dengue.ndcu_daily import NDCUDaily
 from dengue.ndcu_weekly import NDCUWeekly
@@ -137,7 +139,7 @@ class ReadMe:
 
     @staticmethod
     def get_lines_for_chart_moh() -> list[str]:
-        image_path = ChartMOH.chart_metric_by_moh(
+        image_paths = ChartMOH.chart_metric_by_moh(
             Doc=NDCUWeekly,
             get_file_from_latest=(
                 lambda latest: latest.high_risk_moh_areas_file
@@ -147,12 +149,22 @@ class ReadMe:
             positive_color="purple",
             negative_color="white",
         )
-        return [
-            "## Cases this week by MOH Region",
-            "",
-            f"![Cases this week by MOH Region]({image_path})",
-            "",
-        ]
+        lines = ["## Cases this week by MOH Region", ""]
+        for image_path in image_paths:
+            district_name = (
+                os.path.basename(image_path)
+                .replace("cases-this-week-by-moh-region_by_moh_", "")
+                .replace(".png", "")
+                .replace("-", " ")
+                .title()
+            )
+            lines += [
+                f"### {district_name}",
+                "",
+                f"![{district_name}]({image_path})",
+                "",
+            ]
+        return lines
 
     @staticmethod
     def get_lines_for_tables_moh_regions() -> list[str]:
