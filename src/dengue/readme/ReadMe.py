@@ -144,7 +144,7 @@ class ReadMe:
             ),
             get_metric=lambda d: int(d["n_cases_this_week"]),
             metric_label="Cases this week by MOH Region",
-            positive_color="orange",
+            positive_color="purple",
             negative_color="white",
         )
         return [
@@ -184,7 +184,9 @@ class ReadMe:
             population = moh.population
             aggr_d = {
                 "moh_id": moh.region_id,
-                "moh_area_name": d0["moh_area_name"],
+                "moh_area_name": " & ".join(
+                    sorted(set(d["moh_area_name"] for d in d_list))
+                ),
                 "district_name": d0["district_name"],
                 "n_cases_last_week": sum(
                     int(d["n_cases_last_week"]) for d in d_list
@@ -207,11 +209,6 @@ class ReadMe:
             n_cases_this_week_per100k = (
                 n_cases_this_week / population * 100_000
             )
-
-            moh = MOH.from_name_fuzzy(d["moh_area_name"])
-
-            if not moh:
-                print(" " * 4 + f'"{d["moh_area_name"]}": "",')
 
             delta = n_cases_this_week - n_cases_last_week
             emoji = "🟢" if delta < 0 else "🔴" if delta > 0 else "⚪️"

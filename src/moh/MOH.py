@@ -57,23 +57,22 @@ class MOH:
             "MC-Galle": "Galle Four Gravets",
             "Pugoda(Dompe)": "Dompe",
             "Pasbage": "Pasbage Korale",
+            "Gampola": "Udapalatha",
+            "Thalathuoya": "Pathahewaheta",
+            "Waththegama": "Pathadumbara",
+            "Kurunduwaththa": "Ganga Ihala Korale",
+            "Werellagama": "Harispattuwa",
+            "Morawaka": "Pitabeddara",
+            "Deniyaya": "Kotapola",
             # -----------------------
-            # Added to Unknown
+            # The following MOH areas are new, but do not have Geo data.
+            # We will merge them into their previous MOH areas for now.
             # -----------------------
-            # - Egodauyana
-            # - Gothatuwa
-            # - Kesbewa
-            # - Millaniya
-            # - NIHS
-            # - Wadduwa
-            # - Gampola
-            # - Thalathuoya
-            # - Waththegama
-            # - Kurunduwaththa
-            # - Werellagama
-            # - Deniyaya
-            # - Morawaka
-            # - Madampe
+            "Egodauyana": "Moratuwa",
+            "Gothatuwa": "Kolonnawa",
+            "Kesbewa": "Piliyandala",
+            "Millaniya": "Agalawatta",
+            "Madampe": "Chilaw",
         }.get(name, name)
 
         return cls.name_idx().get(name)
