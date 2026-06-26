@@ -74,12 +74,14 @@ class ChartMOH:
             for moh_id, metric in id_to_metric.items()
             if metric is not None and moh_id in id_to_population
         }
+        id_to_name = {d["moh_id"]: d["moh_area_name"] for d in d_list}
 
         gdf = ChartMOH._get_moh_gdf()
         moh_name_to_id = ChartMOH._get_moh_name_to_id()
         gdf["moh_id"] = gdf["MOH_N"].map(moh_name_to_id)
         gdf["metric"] = gdf["moh_id"].map(id_to_metric).fillna(0).astype(int)
         gdf["metric_per_100k"] = gdf["moh_id"].map(id_to_metric_per_100k)
+        gdf["moh_name"] = gdf["moh_id"].map(id_to_name)
 
         # Global color scale so all district charts are comparable
         metric_values = [
@@ -116,7 +118,12 @@ class ChartMOH:
         os.makedirs(ChartMOH.DIR_IMAGES, exist_ok=True)
         image_paths = []
 
-        for district_name in sorted(gdf["DISTRICT_N"].unique()):
+        district_totals = (
+            gdf.groupby("DISTRICT_N")["metric"]
+            .sum()
+            .sort_values(ascending=False)
+        )
+        for district_name in district_totals.index:
             district_gdf = gdf[gdf["DISTRICT_N"] == district_name].copy()
 
             # Skip districts with no data
@@ -153,14 +160,14 @@ class ChartMOH:
             )
 
             bounds = district_gdf.total_bounds  # [minx, miny, maxx, maxy]
-            gap_y = (bounds[3] - bounds[1]) * 0.01
+            gap_y = (bounds[3] - bounds[1]) * 0.001
 
             for _, row in district_gdf.iterrows():
                 metric = int(row["metric"])
                 if metric == 0:
                     continue
                 centroid = row.geometry.centroid
-                moh_name = row["MOH_N"].title()
+                moh_name = row["moh_name"].replace(" & ", " \n& ")
                 ax.annotate(
                     (
                         f"{metric}"
@@ -169,7 +176,7 @@ class ChartMOH:
                     ),
                     xy=(centroid.x, centroid.y + gap_y),
                     ha="center",
-                    va="center",
+                    va="bottom",
                     fontsize=8,
                     color="black",
                 )
@@ -177,7 +184,7 @@ class ChartMOH:
                     moh_name,
                     xy=(centroid.x, centroid.y - gap_y),
                     ha="center",
-                    va="center",
+                    va="top",
                     fontsize=6,
                     color="black",
                 )

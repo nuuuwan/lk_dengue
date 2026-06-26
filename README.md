@@ -26,29 +26,17 @@ Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.g
 
 ## Cases this week by MOH Region
 
-### Anuradhapura
-
-![Anuradhapura](images/cases-this-week-by-moh-region_by_moh_anuradhapura.png)
-
-### Batticaloa
-
-![Batticaloa](images/cases-this-week-by-moh-region_by_moh_batticaloa.png)
-
 ### Colombo
 
 ![Colombo](images/cases-this-week-by-moh-region_by_moh_colombo.png)
-
-### Galle
-
-![Galle](images/cases-this-week-by-moh-region_by_moh_galle.png)
 
 ### Gampaha
 
 ![Gampaha](images/cases-this-week-by-moh-region_by_moh_gampaha.png)
 
-### Hambantota
+### Matara
 
-![Hambantota](images/cases-this-week-by-moh-region_by_moh_hambantota.png)
+![Matara](images/cases-this-week-by-moh-region_by_moh_matara.png)
 
 ### Kalutara
 
@@ -58,21 +46,33 @@ Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.g
 
 ![Kandy](images/cases-this-week-by-moh-region_by_moh_kandy.png)
 
-### Kegalle
+### Galle
 
-![Kegalle](images/cases-this-week-by-moh-region_by_moh_kegalle.png)
-
-### Matara
-
-![Matara](images/cases-this-week-by-moh-region_by_moh_matara.png)
-
-### Polonnaruwa
-
-![Polonnaruwa](images/cases-this-week-by-moh-region_by_moh_polonnaruwa.png)
+![Galle](images/cases-this-week-by-moh-region_by_moh_galle.png)
 
 ### Ratnapura
 
 ![Ratnapura](images/cases-this-week-by-moh-region_by_moh_ratnapura.png)
+
+### Hambantota
+
+![Hambantota](images/cases-this-week-by-moh-region_by_moh_hambantota.png)
+
+### Kegalle
+
+![Kegalle](images/cases-this-week-by-moh-region_by_moh_kegalle.png)
+
+### Anuradhapura
+
+![Anuradhapura](images/cases-this-week-by-moh-region_by_moh_anuradhapura.png)
+
+### Batticaloa
+
+![Batticaloa](images/cases-this-week-by-moh-region_by_moh_batticaloa.png)
+
+### Polonnaruwa
+
+![Polonnaruwa](images/cases-this-week-by-moh-region_by_moh_polonnaruwa.png)
 
 ## Cases by MOH Regions
 
