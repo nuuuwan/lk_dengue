@@ -49,6 +49,9 @@ class MOH:
     @cache
     def from_name(cls, name: str) -> "MOH":
 
+        if "-CMC" in name:
+            return MOH.name_idx().get("CMC")
+
         name = {
             "Kandy MC": "Kandy Four Gravets & Gangawata Korale",
             "MC-Galle": "Galle Four Gravets",

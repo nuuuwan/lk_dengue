@@ -166,28 +166,76 @@ class ReadMe:
 
         d_list = latest.high_risk_moh_areas_file.read()
 
+        moh_to_d_list = {}
+        for d in d_list:
+            moh = MOH.from_name_fuzzy(d["moh_area_name"])
+            if not moh:
+                log.warning(f'Unknown MOH Area: "{d["moh_area_name"]}"')
+                continue
+            moh_id = moh.region_id
+            if moh_id not in moh_to_d_list:
+                moh_to_d_list[moh_id] = []
+            moh_to_d_list[moh_id].append(d)
+
+        aggr_d_list = []
+        for moh_id, d_list in moh_to_d_list.items():
+            moh = MOH.idx()[moh_id]
+            d0 = d_list[0]
+            population = moh.population
+            aggr_d = {
+                "moh_id": moh.region_id,
+                "moh_area_name": d0["moh_area_name"],
+                "district_name": d0["district_name"],
+                "n_cases_last_week": sum(
+                    int(d["n_cases_last_week"]) for d in d_list
+                ),
+                "n_cases_this_week": sum(
+                    int(d["n_cases_this_week"]) for d in d_list
+                ),
+                "population": population,
+            }
+            aggr_d_list.append(aggr_d)
+
         def ramap(d):
             n_cases_last_week = int(d["n_cases_last_week"])
             n_cases_this_week = int(d["n_cases_this_week"])
+
+            population = int(d["population"])
+            n_cases_last_week_per100k = (
+                n_cases_last_week / population * 100_000
+            )
+            n_cases_this_week_per100k = (
+                n_cases_this_week / population * 100_000
+            )
 
             moh = MOH.from_name_fuzzy(d["moh_area_name"])
 
             if not moh:
                 print(" " * 4 + f'"{d["moh_area_name"]}": "",')
 
+            delta = n_cases_this_week - n_cases_last_week
+            emoji = "🟢" if delta < 0 else "🔴" if delta > 0 else "⚪️"
+
             return {
-                "ID": moh.region_id if moh else "⚠️ Unknown",
                 "District": d["district_name"],
                 "MOH Area": d["moh_area_name"],
                 "Cases Last Week": n_cases_last_week,
                 "Cases This Week": n_cases_this_week,
+                "Change": f"{emoji} {delta:+}",
+                "Population (2024 Census)": population,
+                "Cases Last Week per 100k": round(
+                    n_cases_last_week_per100k, 2
+                ),
+                "Cases This Week per 100k": round(
+                    n_cases_this_week_per100k, 2
+                ),
             }
 
-        d_list = [ramap(d) for d in d_list]
+        d_list = [ramap(d) for d in aggr_d_list]
         d_list = [d for d in d_list if d["Cases This Week"] > 0]
         d_list.sort(
             key=lambda x: (
-                -x["Cases This Week"],
+                -x["Cases This Week per 100k"],
                 x["District"],
                 x["MOH Area"],
             )
