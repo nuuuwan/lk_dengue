@@ -40,7 +40,7 @@ class RegionUtils:
         return {v: k for k, v in RegionUtils.get_region_name_to_id().items()}
 
     @staticmethod
-    def get_region_id_to_from_name(name: str):
+    def get_region_id_from_name(name: str):
         name = {
             "Monaragala": "Moneragala",
             "Nuwaraeliya": "Nuwara Eliya",

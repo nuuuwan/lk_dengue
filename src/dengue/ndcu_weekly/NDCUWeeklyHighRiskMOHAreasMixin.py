@@ -56,7 +56,7 @@ class NDCUWeeklyHighRiskMOHAreasMixin:
         n_cases_last_week = Parse.int(tokens[1])
         n_cases_this_week = Parse.int(tokens[2])
         data = dict(
-            district_id=RegionUtils.get_region_id_to_name(district_name),
+            district_id=RegionUtils.get_region_id_from_name(district_name),
             district_name=district_name,
             moh_area_name=moh_area_name,
             n_cases_last_week=n_cases_last_week,

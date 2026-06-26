@@ -33,7 +33,9 @@ class NDCUWeeklyDeathsByDistrictMixin:
                 district_name = tokens[i_col * 2].strip()
                 if not district_name:
                     continue
-                district_id = RegionUtils.get_region_id_to_name(district_name)
+                district_id = RegionUtils.get_region_id_from_name(
+                    district_name
+                )
                 n_deaths = Parse.int(tokens[i_col * 2 + 1])
                 data = dict(
                     district_id=district_id,
