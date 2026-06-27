@@ -31,7 +31,7 @@ class WWW:
         }
         T_TIMEOUT = 120
         T_SELENIUM_WAIT = 1
-        MAX_RETRIES = 5
+        MAX_RETRIES = 1
 
     def __init__(
         self,
