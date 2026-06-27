@@ -246,6 +246,8 @@ As of 2026-06-14
 ### [National Dengue Control Unit - Weekly Update](data/NDCUWeekly)
 
 - [2026-06-14](data/NDCUWeekly/2026/2026-06/2026-06-14)
+- [2026-05-24](data/NDCUWeekly/2026/2026-05/2026-05-24)
+- [2026-05-10](data/NDCUWeekly/2026/2026-05/2026-05-10)
 
 ![Maintainer](https://img.shields.io/badge/maintainer-nuuuwan-red)
 ![MadeWith](https://img.shields.io/badge/made_with-python-blue)
