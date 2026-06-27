@@ -1,0 +1,9 @@
+age_group	n_deaths_male	n_deaths_female
+0-14	1	2
+15-24	0	1
+25-34	1	0
+35-44	0	4
+45 - 54	0	1
+55 - 64	0	1
+> 64	1	4
+Total	3	13

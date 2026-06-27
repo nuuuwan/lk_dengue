@@ -1,5 +1,5 @@
-from dengue import NDCUScraper, ReadMe
+from dengue import NDCUScraperBackpopulator, ReadMe
 
 if __name__ == "__main__":
-    NDCUScraper.backpopulate()
+    NDCUScraperBackpopulator.backpopulate()
     ReadMe.build()
