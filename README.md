@@ -82,13 +82,13 @@ Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.g
 
 ![Anuradhapura](images/cases-this-week-by-moh-region_by_moh_lk-71.png)
 
-### Nuwara Eliya
-
-![Nuwara Eliya](images/cases-this-week-by-moh-region_by_moh_lk-23.png)
-
 ### Batticaloa
 
 ![Batticaloa](images/cases-this-week-by-moh-region_by_moh_lk-51.png)
+
+### Nuwara Eliya
+
+![Nuwara Eliya](images/cases-this-week-by-moh-region_by_moh_lk-23.png)
 
 ### Polonnaruwa
 
