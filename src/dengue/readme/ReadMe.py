@@ -1,4 +1,5 @@
 import os
+import shutil
 
 from dengue.analysis import Chart, ChartMOH
 from dengue.ndcu_daily import NDCUDaily
@@ -272,6 +273,7 @@ class ReadMe:
 
     @staticmethod
     def build():
+        shutil.rmtree(Chart.DIR_IMAGES)
         lines = (
             [
                 "# Dengue in Sri Lanka 🇱🇰",
