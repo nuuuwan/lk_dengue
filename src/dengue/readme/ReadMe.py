@@ -3,7 +3,7 @@ import os
 from dengue.analysis import Chart, ChartMOH
 from dengue.ndcu_daily import NDCUDaily
 from dengue.ndcu_weekly import NDCUWeekly
-from utils_future import File, Log, Markdown, Time, TimeFormat
+from utils_future import File, Log, Markdown, RegionUtils, Time, TimeFormat
 
 log = Log("ReadMe")
 
@@ -160,13 +160,12 @@ class ReadMe:
             "",
         ]
         for image_path in image_paths:
-            district_name = (
+            district_id = (
                 os.path.basename(image_path)
                 .replace("cases-this-week-by-moh-region_by_moh_", "")
                 .replace(".png", "")
-                .replace("-", " ")
-                .title()
-            )
+            ).upper()
+            district_name = RegionUtils.get_region_id_to_name()[(district_id)]
             lines += [
                 f"### {district_name}",
                 "",

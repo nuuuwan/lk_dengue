@@ -30,73 +30,69 @@ Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.g
 ⚠️ These maps are based on 2020 MOH Region boundaries. Several MOH Regions created since lack public geographic data, so they have been merged with their parent regions. E.g., Kesbewa, formed by splitting the Piliyandala MOH Region, is shown combined as "Kesbewa & Piliyandala."
 
 
-### Lk 11
+### Colombo
 
-![Lk 11](images/cases-this-week-by-moh-region_by_moh_lk-11.png)
+![Colombo](images/cases-this-week-by-moh-region_by_moh_lk-11.png)
 
-### Lk 12
+### Gampaha
 
-![Lk 12](images/cases-this-week-by-moh-region_by_moh_lk-12.png)
+![Gampaha](images/cases-this-week-by-moh-region_by_moh_lk-12.png)
 
-### Lk 13
+### Kalutara
 
-![Lk 13](images/cases-this-week-by-moh-region_by_moh_lk-13.png)
+![Kalutara](images/cases-this-week-by-moh-region_by_moh_lk-13.png)
 
-### Lk 21
+### Kandy
 
-![Lk 21](images/cases-this-week-by-moh-region_by_moh_lk-21.png)
+![Kandy](images/cases-this-week-by-moh-region_by_moh_lk-21.png)
 
-### Lk 32
+### Matara
 
-![Lk 32](images/cases-this-week-by-moh-region_by_moh_lk-32.png)
+![Matara](images/cases-this-week-by-moh-region_by_moh_lk-32.png)
 
-### Lk 31
+### Galle
 
-![Lk 31](images/cases-this-week-by-moh-region_by_moh_lk-31.png)
+![Galle](images/cases-this-week-by-moh-region_by_moh_lk-31.png)
 
-### Lk 33
+### Hambantota
 
-![Lk 33](images/cases-this-week-by-moh-region_by_moh_lk-33.png)
+![Hambantota](images/cases-this-week-by-moh-region_by_moh_lk-33.png)
 
-### Lk 62
+### Puttalam
 
-![Lk 62](images/cases-this-week-by-moh-region_by_moh_lk-62.png)
+![Puttalam](images/cases-this-week-by-moh-region_by_moh_lk-62.png)
 
-### Lk 92
+### Kegalle
 
-![Lk 92](images/cases-this-week-by-moh-region_by_moh_lk-92.png)
+![Kegalle](images/cases-this-week-by-moh-region_by_moh_lk-92.png)
 
-### Lk 91
+### Ratnapura
 
-![Lk 91](images/cases-this-week-by-moh-region_by_moh_lk-91.png)
+![Ratnapura](images/cases-this-week-by-moh-region_by_moh_lk-91.png)
 
-### None
+### Kurunegala
 
-![None](images/cases-this-week-by-moh-region_by_moh_none.png)
+![Kurunegala](images/cases-this-week-by-moh-region_by_moh_lk-61.png)
 
-### Lk 61
+### Badulla
 
-![Lk 61](images/cases-this-week-by-moh-region_by_moh_lk-61.png)
+![Badulla](images/cases-this-week-by-moh-region_by_moh_lk-81.png)
 
-### Lk 81
+### Anuradhapura
 
-![Lk 81](images/cases-this-week-by-moh-region_by_moh_lk-81.png)
+![Anuradhapura](images/cases-this-week-by-moh-region_by_moh_lk-71.png)
 
-### Lk 71
+### Nuwara Eliya
 
-![Lk 71](images/cases-this-week-by-moh-region_by_moh_lk-71.png)
+![Nuwara Eliya](images/cases-this-week-by-moh-region_by_moh_lk-23.png)
 
-### Lk 51
+### Batticaloa
 
-![Lk 51](images/cases-this-week-by-moh-region_by_moh_lk-51.png)
+![Batticaloa](images/cases-this-week-by-moh-region_by_moh_lk-51.png)
 
-### Lk 23
+### Polonnaruwa
 
-![Lk 23](images/cases-this-week-by-moh-region_by_moh_lk-23.png)
-
-### Lk 72
-
-![Lk 72](images/cases-this-week-by-moh-region_by_moh_lk-72.png)
+![Polonnaruwa](images/cases-this-week-by-moh-region_by_moh_lk-72.png)
 
 ## Cases by MOH Regions
 

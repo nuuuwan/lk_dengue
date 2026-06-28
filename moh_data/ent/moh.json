@@ -2584,81 +2584,81 @@
     "population": 62255
   },
   {
-    "region_id": "None-Badalkumbura",
+    "region_id": "LK-82-Badalkumbura",
     "region_name": "Badalkumbura",
-    "district_id": "None",
+    "district_id": "LK-82",
     "centroid_lat": 6.869996,
     "centroid_lng": 81.216909,
     "population": 46595
   },
   {
-    "region_id": "None-Bibila",
+    "region_id": "LK-82-Bibila",
     "region_name": "Bibila",
-    "district_id": "None",
+    "district_id": "LK-82",
     "centroid_lat": 7.189265,
     "centroid_lng": 81.296898,
     "population": 47266
   },
   {
-    "region_id": "None-Buttala",
+    "region_id": "LK-82-Buttala",
     "region_name": "Buttala",
-    "district_id": "None",
+    "district_id": "LK-82",
     "centroid_lat": 6.662513,
     "centroid_lng": 81.296545,
     "population": 60606
   },
   {
-    "region_id": "None-Kataragama",
+    "region_id": "LK-82-Kataragama",
     "region_name": "Kataragama",
-    "district_id": "None",
+    "district_id": "LK-82",
     "centroid_lat": 6.496256,
     "centroid_lng": 81.393894,
     "population": 18158
   },
   {
-    "region_id": "None-Madulla",
+    "region_id": "LK-82-Madulla",
     "region_name": "Madulla",
-    "district_id": "None",
+    "district_id": "LK-82",
     "centroid_lat": 7.159405,
     "centroid_lng": 81.429897,
     "population": 36446
   },
   {
-    "region_id": "None-Monaragala",
+    "region_id": "LK-82-Monaragala",
     "region_name": "Monaragala",
-    "district_id": "None",
+    "district_id": "LK-82",
     "centroid_lat": 6.931444,
     "centroid_lng": 81.327096,
     "population": 101565
   },
   {
-    "region_id": "None-Sevanagala",
+    "region_id": "LK-82-Sevanagala",
     "region_name": "Sevanagala",
-    "district_id": "None",
+    "district_id": "LK-82",
     "centroid_lat": 6.378146,
     "centroid_lng": 80.933656,
     "population": 49376
   },
   {
-    "region_id": "None-Siyambalanduwa",
+    "region_id": "LK-82-Siyambalanduwa",
     "region_name": "Siyambalanduwa",
-    "district_id": "None",
+    "district_id": "LK-82",
     "centroid_lat": 6.851006,
     "centroid_lng": 81.526668,
     "population": 63055
   },
   {
-    "region_id": "None-Thanamalwila",
+    "region_id": "LK-82-Thanamalwila",
     "region_name": "Thanamalwila",
-    "district_id": "None",
+    "district_id": "LK-82",
     "centroid_lat": 6.495955,
     "centroid_lng": 81.001728,
     "population": 31238
   },
   {
-    "region_id": "None-Wellawaya",
+    "region_id": "LK-82-Wellawaya",
     "region_name": "Wellawaya",
-    "district_id": "None",
+    "district_id": "LK-82",
     "centroid_lat": 6.6128,
     "centroid_lng": 81.123399,
     "population": 73280
