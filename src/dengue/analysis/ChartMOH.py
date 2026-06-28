@@ -217,7 +217,7 @@ class ChartMOH:
         metric_label,
         positive_color,
         negative_color,
-        force=True,
+        force=False,
     ):
         metric_id = metric_label.lower().replace(" ", "-")
         latest = Doc.latest()

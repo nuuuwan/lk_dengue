@@ -22,7 +22,7 @@ class Chart:
         metric_label,
         positive_color,
         negative_color,
-        force=True,
+        force=False,
     ):
         metric_id = metric_label.lower().replace(" ", "-")
         data = DataGetter.generic(Doc, get_file_from_latest, get_metric)
