@@ -5,7 +5,7 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap, Normalize
 
-from utils_future import File, Log
+from utils_future import File, Log, RegionUtils
 
 log = Log("ChartMOH")
 
@@ -33,6 +33,12 @@ class ChartMOH:
         with open(MOH_ENT_PATH, encoding="utf-8") as f:
             data = json.load(f)
         return {d["region_name"].upper(): d["region_id"] for d in data}
+
+    @staticmethod
+    def _get_moh_id_to_district_id():
+        with open(MOH_ENT_PATH, encoding="utf-8") as f:
+            data = json.load(f)
+        return {d["region_id"]: d["district_id"] for d in data}
 
     @staticmethod
     def _get_moh_gdf():
@@ -68,7 +74,9 @@ class ChartMOH:
     def _build_annotated_gdf(id_to_metric, id_to_metric_per_100k, id_to_name):
         gdf = ChartMOH._get_moh_gdf()
         moh_name_to_id = ChartMOH._get_moh_name_to_id()
-        gdf["moh_id"] = gdf["MOH_N"].map(moh_name_to_id)
+        gdf["moh_id"] = gdf["MOH_N"].str.upper().map(moh_name_to_id)
+        moh_id_to_district_id = ChartMOH._get_moh_id_to_district_id()
+        gdf["district_id"] = gdf["moh_id"].map(moh_id_to_district_id)
         gdf["metric"] = gdf["moh_id"].map(id_to_metric).fillna(0).astype(int)
         gdf["metric_per_100k"] = gdf["moh_id"].map(id_to_metric_per_100k)
         gdf["moh_name"] = gdf["moh_id"].map(id_to_name)
@@ -219,6 +227,7 @@ class ChartMOH:
         id_to_metric, id_to_metric_per_100k, id_to_name = (
             ChartMOH._build_metric_data(d_list, get_metric)
         )
+
         gdf = ChartMOH._build_annotated_gdf(
             id_to_metric, id_to_metric_per_100k, id_to_name
         )
@@ -232,16 +241,19 @@ class ChartMOH:
         os.makedirs(ChartMOH.DIR_IMAGES, exist_ok=True)
         image_paths = []
         district_totals = (
-            gdf.groupby("DISTRICT_N")["metric"]
+            gdf.groupby("district_id")["metric"]
             .sum()
             .sort_values(ascending=False)
         )
+        id_to_name_map = RegionUtils.get_region_id_to_name()
 
-        for district_name in district_totals.index:
-            district_gdf = gdf[gdf["DISTRICT_N"] == district_name].copy()
+        for district_id in district_totals.index:
+            district_gdf = gdf[gdf["district_id"] == district_id].copy()
             if district_gdf["metric"].sum() == 0:
+                log.debug(f"No data for district: {district_id}")
                 continue
-            district_slug = district_name.lower().replace(" ", "-")
+            district_name = id_to_name_map.get(district_id, district_id)
+            district_slug = district_id.lower()
             image_path = os.path.join(
                 ChartMOH.DIR_IMAGES, f"{metric_id}_by_moh_{district_slug}.png"
             )
