@@ -250,7 +250,7 @@ class ChartMOH:
         for district_id in district_totals.index:
             district_gdf = gdf[gdf["district_id"] == district_id].copy()
             if district_gdf["metric"].sum() == 0:
-                log.debug(f"No data for district: {district_id}")
+                log.warning(f"No data for district: {district_id}")
                 continue
             district_name = id_to_name_map.get(district_id, district_id)
             district_slug = district_id.lower()

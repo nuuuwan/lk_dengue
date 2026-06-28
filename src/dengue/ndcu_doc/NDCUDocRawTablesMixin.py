@@ -22,6 +22,6 @@ class NDCUDocRawTablesMixin:
 
     def build_raw_tables(self, force=False):
         if self._has_tables() and not force:
-            log.debug(f"{self.dir_tables} exists")
+
             return
         self.pdf_file.build_raw_tables(self.dir_tables)

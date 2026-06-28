@@ -14,8 +14,8 @@ class NDCUDocPDFMixin:
 
     def write_pdf(self, temp_pdf_file, force=False):
         if self.pdf_file.exists:
-            log.debug(f"{self.pdf_file} exists")
             return
+
         shutil.copy(
             temp_pdf_file.path,
             self.pdf_file.path,

@@ -236,6 +236,21 @@ As of 2026-06-21
 | LRH | 43 | 56 |
 | DGH - Gampaha | 37 | 54 |
 | TH - Kurunegala | 40 | 53 |
+| TH - Kalutara | 43 | 52 |
+| DGH - Horana | 40 | 45 |
+| BH - Tangalle | 32 | 38 |
+| BH - Kamburupitiya | 29 | 37 |
+| DGH - Avissawella | 32 | 36 |
+| BH - Marawila | 9 | 27 |
+| PGH - Badulla | 22 | 27 |
+| DGH - Hambantota | 13 | 24 |
+| TH - Kuliyapitiya | 20 | 23 |
+| DGH - Embilipitiya | 12 | 22 |
+| BH - Balangoda | 15 | 21 |
+| BH - Gampola | 15 | 19 |
+| BH - Minuwangoda | 13 | 19 |
+| BH - Wathupitiwala | 12 | 19 |
+| BH - Kahawatta | 14 | 18 |
 | DGH - Chilaw | 18 | 18 |
 | DGH - Monaragala | 5 | 18 |
 | BH - Karawanella | 11 | 17 |

@@ -12,7 +12,6 @@ class NDCUDocMetadataMixin:
 
     def write_metadata(self, force=False):
         if not force and self.metadata_file.exists:
-            log.debug(f"{self.metadata_file} exists")
             return
         self.metadata_file.write(self.to_dict)
         log.info(f"Wrote {self.metadata_file}")

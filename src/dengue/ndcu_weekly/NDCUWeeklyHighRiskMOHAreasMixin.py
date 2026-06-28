@@ -112,7 +112,7 @@ class NDCUWeeklyHighRiskMOHAreasMixin:
 
     def _build_high_risk_moh_areas_data(self, force):
         if self.high_risk_moh_areas_file.exists and not force:
-            log.debug(f"{self.high_risk_moh_areas_file} exists")
+
             return
         content = self._get_high_risk_moh_areas_raw_content()
         data_list = []

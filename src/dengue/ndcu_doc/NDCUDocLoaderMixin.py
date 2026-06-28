@@ -15,13 +15,14 @@ class NDCUDocLoaderMixin:
     def from_pdf_url_hot(cls, pdf_url: str, force=False):
         self = cls.from_pdf_url(pdf_url)
         if self is not None and not force:
-            log.debug(f"{self} exists")
             return self
 
         temp_pdf_file = cls._download_pdf(pdf_url)
         date_str = cls._parse_date_str(temp_pdf_file.get_text_lines())
         self = cls(date_str=date_str, pdf_url=pdf_url)
-        self.build(temp_pdf_file)
+        self.write_pdf(temp_pdf_file)
+        self.write_metadata()
+        self.build(force)
         return self
 
     @classmethod
@@ -58,7 +59,6 @@ class NDCUDocLoaderMixin:
         docs = cls.list()
         for doc in docs:
             if doc.pdf_url == pdf_url:
-                doc.build(doc.pdf_file)
                 return doc
         return None
 

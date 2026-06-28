@@ -25,7 +25,7 @@ class NDCUWeeklyCasesByDistrictMixin:
 
     def _build_cases_by_district_data(self, force):
         if self.cases_by_district_file.exists and not force:
-            log.debug(f"{self.cases_by_district_file} exists")
+
             return
         content = self._get_cases_by_district_raw_table()
         data_list = []

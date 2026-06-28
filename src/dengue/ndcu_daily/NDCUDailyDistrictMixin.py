@@ -49,11 +49,9 @@ class NDCUDailyDistrictMixin:
 
     def _build_district_data(self, force):
         if self.district_data_file.exists and not force:
-            log.debug(f"{self.district_data_file} exists")
             return
 
         tables = self._get_district_raw_tables()
-        log.debug(f"Found {len(tables)} district tables")
 
         data_list = []
         for d in tables[0] + tables[1]:

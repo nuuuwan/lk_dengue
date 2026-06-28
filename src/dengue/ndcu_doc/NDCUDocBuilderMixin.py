@@ -1,7 +1,11 @@
 class NDCUDocBuilderMixin:
 
-    def build(self, temp_pdf_file):
-        self.write_metadata()
-        self.write_pdf(temp_pdf_file)
-        self.build_raw_tables()
-        self.build_custom_data()
+    def build(self, force):
+        self.build_raw_tables(force)
+        self.build_custom_data(force)
+
+    @classmethod
+    def build_all(cls, force=False):
+        docs = cls.list()
+        for doc in docs:
+            doc.build(force=force)
