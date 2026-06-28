@@ -10,7 +10,7 @@ class NDCUDocMetadataMixin:
     def metadata_file(self) -> str:
         return JSONFile(os.path.join(self.dir_data, "metadata.json"))
 
-    def build_metadata(self, force=False):
+    def write_metadata(self, force=False):
         if not force and self.metadata_file.exists:
             log.debug(f"{self.metadata_file} exists")
             return

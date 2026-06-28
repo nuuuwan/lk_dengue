@@ -12,7 +12,7 @@ class NDCUDocPDFMixin:
     def pdf_file(self) -> PDFFile:
         return PDFFile(os.path.join(self.dir_data, "original.pdf"))
 
-    def build_pdf(self, temp_pdf_file, force=False):
+    def write_pdf(self, temp_pdf_file, force=False):
         if self.pdf_file.exists:
             log.debug(f"{self.pdf_file} exists")
             return
