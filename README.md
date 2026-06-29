@@ -70,6 +70,10 @@ Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.g
 
 ![Ratnapura](images/cases-this-week-by-moh-region_by_moh_lk-91.png)
 
+### Moneragala
+
+![Moneragala](images/cases-this-week-by-moh-region_by_moh_lk-82.png)
+
 ### Kurunegala
 
 ![Kurunegala](images/cases-this-week-by-moh-region_by_moh_lk-61.png)
@@ -82,13 +86,13 @@ Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.g
 
 ![Anuradhapura](images/cases-this-week-by-moh-region_by_moh_lk-71.png)
 
-### Batticaloa
-
-![Batticaloa](images/cases-this-week-by-moh-region_by_moh_lk-51.png)
-
 ### Nuwara Eliya
 
 ![Nuwara Eliya](images/cases-this-week-by-moh-region_by_moh_lk-23.png)
+
+### Batticaloa
+
+![Batticaloa](images/cases-this-week-by-moh-region_by_moh_lk-51.png)
 
 ### Polonnaruwa
 

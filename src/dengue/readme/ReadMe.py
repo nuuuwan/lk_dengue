@@ -273,7 +273,7 @@ class ReadMe:
 
     @staticmethod
     def build():
-        shutil.rmtree(Chart.DIR_IMAGES)
+        shutil.rmtree(Chart.DIR_IMAGES, ignore_errors=True)
         lines = (
             [
                 "# Dengue in Sri Lanka 🇱🇰",
