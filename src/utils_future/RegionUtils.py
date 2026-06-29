@@ -22,8 +22,8 @@ class RegionUtils:
             "Kilinochchi": "LK-45",
             #
             "Batticaloa": "LK-51",
-            "Trincomalee": "LK-52",
-            "Ampara": "LK-53",
+            "Ampara": "LK-52",
+            "Trincomalee": "LK-53",
             #
             "Kurunegala": "LK-61",
             "Puttalam": "LK-62",
