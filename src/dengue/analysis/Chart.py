@@ -108,9 +108,9 @@ class Chart:
             gap_y = 4000
             ax.annotate(
                 (
-                    f"{metric}"
+                    f"{metric:,}"
                     if "Additional" not in metric_label
-                    else f"{metric:+}"
+                    else f"{metric:+,}"
                 ),
                 xy=(centroid.x, centroid.y + gap_y),
                 ha="center",
