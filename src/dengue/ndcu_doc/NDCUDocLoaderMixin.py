@@ -1,4 +1,5 @@
 import os
+import shutil
 from abc import abstractmethod
 
 from utils_future import JSONFile, Log
@@ -34,6 +35,8 @@ class NDCUDocLoaderMixin:
     def list(cls):
         docs = []
         for dir_year in os.listdir(cls.get_dir_class()):
+            if dir_year == "latest":
+                continue
             for dir_month in os.listdir(
                 os.path.join(cls.get_dir_class(), dir_year)
             ):
@@ -68,3 +71,18 @@ class NDCUDocLoaderMixin:
         if docs:
             return docs[0]
         return None
+
+    @classmethod
+    def dir_latest(cls) -> str:
+        dir_latest = os.path.join(cls.get_dir_class(), "latest")
+        os.makedirs(dir_latest, exist_ok=True)
+        return dir_latest
+
+    @classmethod
+    def update_latest(cls):
+        latest_doc = cls.latest()
+        dir_data_latest = latest_doc.dir_data
+        dir_latest = cls.dir_latest()
+        shutil.rmtree(dir_latest)
+        shutil.copytree(dir_data_latest, dir_latest)
+        log.info(f"Copied {dir_data_latest} to {dir_latest}")
