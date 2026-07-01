@@ -9,8 +9,12 @@ class NDCUScraper:
     URL = "https://www.dengue.health.gov.lk/#latest-update"
 
     @classmethod
+    def get_soup(cls):
+        return WWW(cls.URL, t_selenium_wait=10).soup(with_selenium=True)
+
+    @classmethod
     def scrape(cls) -> str:
-        soup = WWW(cls.URL).soup()
+        soup = cls.get_soup()
         pdf_links = soup.find_all(
             "a", href=lambda href: href and href.endswith(".pdf")
         )

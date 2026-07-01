@@ -1,13 +1,15 @@
+import base64
 import os
 import ssl
 import tempfile
 import time
+from urllib.parse import urlparse
 
 import requests
 import urllib3
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
 from utils_base import File, Hash, Log
 
 log = Log("WWW")
@@ -103,15 +105,70 @@ class WWW:
         temp_file.write(content)
         return content
 
-    def read_with_selenium(self):
+    @staticmethod
+    def _build_driver():
         options = Options()
-        options.add_argument("-headless")
-        driver = webdriver.Firefox(options=options)
+        options.add_argument("--headless=new")
+        options.add_argument("--window-size=1920,1080")
+        options.add_argument("--disable-blink-features=AutomationControlled")
+        options.add_argument(
+            "--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/125.0.0.0 Safari/537.36"
+        )
+        options.add_experimental_option(
+            "excludeSwitches", ["enable-automation"]
+        )
+        options.add_experimental_option("useAutomationExtension", False)
+        driver = webdriver.Chrome(options=options)
+        driver.execute_cdp_cmd(
+            "Page.addScriptToEvaluateOnNewDocument",
+            {
+                "source": "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
+            },
+        )
+        return driver
+
+    def read_with_selenium(self):
+        driver = self._build_driver()
         driver.get(self.url)
         time.sleep(self.t_selenium_wait)
         content = driver.page_source
         driver.quit()
         return content
+
+    def download_binary_with_selenium(self, file_path) -> str:
+        """Download a binary file via Chrome, bypassing bot-challenge pages.
+
+        Navigates to the domain root first to solve the JS challenge, then
+        uses in-browser fetch() to retrieve the file — both steps run inside
+        the same Chrome session so cookies/TLS fingerprints are consistent.
+        """
+        parsed = urlparse(self.url)
+        domain_root = f"{parsed.scheme}://{parsed.netloc}/"
+        driver = self._build_driver()
+        driver.get(domain_root)
+        time.sleep(self.t_selenium_wait)
+        result = driver.execute_async_script(
+            """
+            var url = arguments[0], done = arguments[1];
+            fetch(url)
+                .then(r => r.blob())
+                .then(blob => {
+                    var fr = new FileReader();
+                    fr.onload = function() { done(fr.result.split(',')[1]); };
+                    fr.readAsDataURL(blob);
+                })
+                .catch(function() { done(null); });
+            """,
+            self.url,
+        )
+        driver.quit()
+        if result is None:
+            raise ValueError(f"Browser fetch failed for {self.url}")
+        with open(file_path, "wb") as f:
+            f.write(base64.b64decode(result))
+        return file_path
 
     def read(self, with_selenium=False) -> str:
         return (

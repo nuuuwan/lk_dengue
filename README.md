@@ -268,6 +268,7 @@ As of 2026-06-21
 
 ### [National Dengue Control Unit - Daily Update](data/NDCUDaily)
 
+- [2026-06-30](data/NDCUDaily/2026/2026-06/2026-06-30)
 - [2026-06-29](data/NDCUDaily/2026/2026-06/2026-06-29)
 - [2026-06-28](data/NDCUDaily/2026/2026-06/2026-06-28)
 - [2026-06-27](data/NDCUDaily/2026/2026-06/2026-06-27)
