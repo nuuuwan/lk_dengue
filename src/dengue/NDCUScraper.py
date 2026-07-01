@@ -17,11 +17,9 @@ class NDCUScraper:
         weekly_update_links = [
             link for link in pdf_links if "weekly" in link["href"].lower()
         ]
-        if weekly_update_links:
-            NDCUWeekly.from_pdf_url_hot(pdf_url=weekly_update_links[0]["href"])
+        NDCUWeekly.from_pdf_url_hot(pdf_url=weekly_update_links[0]["href"])
 
         daily_update_links = [
             link for link in pdf_links if "daily" in link["href"].lower()
         ]
-        if daily_update_links:
-            NDCUDaily.from_pdf_url_hot(pdf_url=daily_update_links[0]["href"])
+        NDCUDaily.from_pdf_url_hot(pdf_url=daily_update_links[0]["href"])
