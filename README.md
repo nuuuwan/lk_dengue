@@ -1,6 +1,6 @@
 # Dengue in Sri Lanka 🇱🇰
 
-![Last Updated](https://img.shields.io/badge/last_updated-2026--07--17-green)
+![Last Updated](https://img.shields.io/badge/last_updated-2026--07--18-green)
 
 Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.gov.lk/) Website.
 
@@ -54,10 +54,6 @@ Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.g
 
 ![Kegalle](images/cases-this-week-by-moh-region_by_moh_lk-92.png)
 
-### Kurunegala
-
-![Kurunegala](images/cases-this-week-by-moh-region_by_moh_lk-61.png)
-
 ### Puttalam
 
 ![Puttalam](images/cases-this-week-by-moh-region_by_moh_lk-62.png)
@@ -66,208 +62,203 @@ Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.g
 
 ![Badulla](images/cases-this-week-by-moh-region_by_moh_lk-81.png)
 
-### Ampara
+### Kurunegala
 
-![Ampara](images/cases-this-week-by-moh-region_by_moh_lk-52.png)
-
-### Matale
-
-![Matale](images/cases-this-week-by-moh-region_by_moh_lk-22.png)
+![Kurunegala](images/cases-this-week-by-moh-region_by_moh_lk-61.png)
 
 ### Moneragala
 
 ![Moneragala](images/cases-this-week-by-moh-region_by_moh_lk-82.png)
 
-### Batticaloa
-
-![Batticaloa](images/cases-this-week-by-moh-region_by_moh_lk-51.png)
-
 ### Polonnaruwa
 
 ![Polonnaruwa](images/cases-this-week-by-moh-region_by_moh_lk-72.png)
 
-### Anuradhapura
+### Ampara
 
-![Anuradhapura](images/cases-this-week-by-moh-region_by_moh_lk-71.png)
+![Ampara](images/cases-this-week-by-moh-region_by_moh_lk-52.png)
 
-### Trincomalee
+### Batticaloa
 
-![Trincomalee](images/cases-this-week-by-moh-region_by_moh_lk-53.png)
+![Batticaloa](images/cases-this-week-by-moh-region_by_moh_lk-51.png)
 
 ### Nuwara Eliya
 
 ![Nuwara Eliya](images/cases-this-week-by-moh-region_by_moh_lk-23.png)
 
+### Vavuniya
+
+![Vavuniya](images/cases-this-week-by-moh-region_by_moh_lk-43.png)
+
+### Hambantota
+
+![Hambantota](images/cases-this-week-by-moh-region_by_moh_lk-33.png)
+
+### Matale
+
+![Matale](images/cases-this-week-by-moh-region_by_moh_lk-22.png)
+
+### Jaffna
+
+![Jaffna](images/cases-this-week-by-moh-region_by_moh_lk-41.png)
+
 ## Cases by MOH Regions
 
-As of 2026-07-05
+As of 2026-07-12
 
 | District | MOH Area | Cases Last Week | Cases This Week | Change | Population (2024 Census) | Cases Last Week per 100k | Cases This Week per 100k |
 | --- | --- | ---: | ---: | --- | ---: | ---: | ---: |
-| Gampaha | Kelaniya | 220 | 229 | 🔴 +9 | 133755 | 164.5 | 171.2 |
-| Colombo | Maharagama | 173 | 251 | 🔴 +78 | 155965 | 110.9 | 160.9 |
-| Colombo | Boralesgamuwa | 59 | 88 | 🔴 +29 | 59240 | 99.6 | 148.5 |
-| Gampaha | Biyagama | 259 | 303 | 🔴 +44 | 207155 | 125.0 | 146.3 |
-| Kalutara | Gangawata Korale & Kurunduwaththa | 39 | 77 | 🔴 +38 | 53141 | 73.4 | 144.9 |
-| Gampaha | Ja-Ela | 160 | 176 | 🔴 +16 | 137864 | 116.1 | 127.7 |
-| Gampaha | Wattala | 139 | 189 | 🔴 +50 | 166517 | 83.5 | 113.5 |
-| Colombo | Nugegoda | 41 | 77 | 🔴 +36 | 75256 | 54.5 | 102.3 |
-| Gampaha | Seeduwa | 163 | 119 | 🟢 -44 | 119832 | 136.0 | 99.3 |
-| Gampaha | Ragama | 48 | 80 | 🔴 +32 | 82930 | 57.9 | 96.5 |
-| Colombo | Battaramulla | 56 | 84 | 🔴 +28 | 87511 | 64.0 | 96.0 |
-| Gampaha | Negombo | 145 | 111 | 🟢 -34 | 132907 | 109.1 | 83.5 |
-| Colombo | Kaduwela | 156 | 140 | 🟢 -16 | 190407 | 81.9 | 73.5 |
-| Kalutara | Bandaragama | 52 | 91 | 🔴 +39 | 124133 | 41.9 | 73.3 |
-| Gampaha | Mahara | 160 | 165 | 🔴 +5 | 226214 | 70.7 | 72.9 |
-| Colombo | Egodauyana & Moratuwa | 58 | 115 | 🔴 +57 | 160199 | 36.2 | 71.8 |
-| Colombo | Gothatuwa & Kolonnawa | 126 | 153 | 🔴 +27 | 214070 | 58.9 | 71.5 |
-| Colombo | Kesbewa & Piliyandala | 84 | 144 | 🔴 +60 | 204301 | 41.1 | 70.5 |
-| Kalutara | Kandy MC | 73 | 105 | 🔴 +32 | 152397 | 47.9 | 68.9 |
-| Ratnapura | Kiriella | 8 | 23 | 🔴 +15 | 33631 | 23.8 | 68.4 |
-| Puttalam | Wennappuwa | 59 | 44 | 🟢 -15 | 64768 | 91.1 | 67.9 |
-| Batticaloa | Akkaraipathu | 7 | 25 | 🔴 +18 | 37173 | 18.8 | 67.3 |
-| Kalutara | Horana | 70 | 90 | 🔴 +20 | 133685 | 52.4 | 67.3 |
-| Ratnapura | Rathnapura MC | 10 | 28 | 🔴 +18 | 42633 | 23.5 | 65.7 |
-| Colombo | Kahathuduwa | 37 | 65 | 🔴 +28 | 101625 | 36.4 | 64.0 |
-| Colombo | Pitakotte | 21 | 38 | 🔴 +17 | 61468 | 34.2 | 61.8 |
-| Gampaha | Katana | 95 | 76 | 🟢 -19 | 123983 | 76.6 | 61.3 |
-| Kalutara | Yatinuwara | 78 | 68 | 🟢 -10 | 113769 | 68.6 | 59.8 |
-| Colombo | Homagama | 90 | 106 | 🔴 +16 | 179146 | 50.2 | 59.2 |
-| Colombo | Padukka | 20 | 43 | 🔴 +23 | 73014 | 27.4 | 58.9 |
-| Ratnapura | Kahawatta | 18 | 23 | 🔴 +5 | 42896 | 42.0 | 53.6 |
-| Colombo | Rathmalana | 17 | 47 | 🔴 +30 | 88063 | 19.3 | 53.4 |
-| Gampaha | Minuwangoda | 90 | 103 | 🔴 +13 | 197883 | 45.5 | 52.1 |
-| Colombo | Dehiwala | 51 | 48 | 🟢 -3 | 93815 | 54.4 | 51.2 |
-| Kalutara | Udunuwara | 36 | 36 | ⚪️ +0 | 70803 | 50.8 | 50.8 |
-| Gampaha | Gampaha | 57 | 102 | 🔴 +45 | 201818 | 28.2 | 50.5 |
-| Kalutara | Werellagama | 26 | 48 | 🔴 +22 | 95757 | 27.2 | 50.1 |
-| Kalutara | Menikhinna | 25 | 32 | 🔴 +7 | 67384 | 37.1 | 47.5 |
-| Trincomalee | Kanthale | 1 | 24 | 🔴 +23 | 50840 | 2.0 | 47.2 |
-| Gampaha | Pugoda(Dompe) | 69 | 75 | 🔴 +6 | 169223 | 40.8 | 44.3 |
-| Kalutara | Gampola | 36 | 48 | 🔴 +12 | 109092 | 33.0 | 44.0 |
-| Colombo | CMC & D1-CMC & D2A-CMC & D2B-CMC & D3-CMC & D4-CMC & D5-CMC | 138 | 222 | 🔴 +84 | 508408 | 27.1 | 43.7 |
-| Ratnapura | Kalawana | 20 | 22 | 🔴 +2 | 50753 | 39.4 | 43.3 |
-| Kalutara | Ingiriya | 22 | 25 | 🔴 +3 | 58361 | 37.7 | 42.8 |
-| Ratnapura | Eheliyagoda | 13 | 31 | 🔴 +18 | 74071 | 17.6 | 41.9 |
-| Kalutara | Pasbage | 31 | 27 | 🟢 -4 | 65553 | 47.3 | 41.2 |
-| Matale | Yatawatta | 1 | 13 | 🔴 +12 | 32415 | 3.1 | 40.1 |
-| Ratnapura | Pelmadulla | 22 | 37 | 🔴 +15 | 93818 | 23.4 | 39.4 |
-| Kurunegala | Polgahawela | 3 | 25 | 🔴 +22 | 66736 | 4.5 | 37.5 |
-| Kalutara | Doluwa | 14 | 20 | 🔴 +6 | 53535 | 26.2 | 37.4 |
-| Puttalam | Nattandiya | 16 | 24 | 🔴 +8 | 65500 | 24.4 | 36.6 |
-| Colombo | Hanwella | 46 | 43 | 🟢 -3 | 122128 | 37.7 | 35.2 |
-| Badulla | Badulla | 30 | 29 | 🟢 -1 | 83033 | 36.1 | 34.9 |
-| Kegalle | Dehiovita | 31 | 29 | 🟢 -2 | 84967 | 36.5 | 34.1 |
-| Kalutara | Waththegama | 18 | 32 | 🔴 +14 | 96889 | 18.6 | 33.0 |
-| Ratnapura | Ratnapura PS | 16 | 25 | 🔴 +9 | 78533 | 20.4 | 31.8 |
-| Monaragala | Bibile | 10 | 15 | 🔴 +5 | 47266 | 21.2 | 31.7 |
-| Kegalle | Kegalle | 9 | 30 | 🔴 +21 | 95033 | 9.5 | 31.6 |
-| Gampaha | Aththanagalla | 53 | 62 | 🔴 +9 | 199017 | 26.6 | 31.2 |
-| Puttalam | Chilaw & Madampe | 31 | 34 | 🔴 +3 | 112633 | 27.5 | 30.2 |
-| Kalutara | Kundasale | 23 | 22 | 🟢 -1 | 73586 | 31.3 | 29.9 |
-| Matale | Rattota | 11 | 16 | 🔴 +5 | 53650 | 20.5 | 29.8 |
-| Ratnapura | Elapatha | 5 | 11 | 🔴 +6 | 36867 | 13.6 | 29.8 |
-| Ratnapura | Kuruvita | 15 | 29 | 🔴 +14 | 97966 | 15.3 | 29.6 |
-| Badulla | Mahiyanganaya | 7 | 13 | 🔴 +6 | 44103 | 15.9 | 29.5 |
-| Nuwara Eliya | Ambagamuwa | 8 | 24 | 🔴 +16 | 82685 | 9.7 | 29.0 |
-| Ratnapura | Godakawela | 25 | 23 | 🟢 -2 | 81754 | 30.6 | 28.1 |
-| Ampara | Uhana | 12 | 18 | 🔴 +6 | 64683 | 18.6 | 27.8 |
-| Polonnaruwa | Medirigiriya | 1 | 20 | 🔴 +19 | 72482 | 1.4 | 27.6 |
-| Kalutara | Thalathuoya | 14 | 16 | 🔴 +2 | 59835 | 23.4 | 26.7 |
-| Anuradhapura | Thalawa | 9 | 15 | 🔴 +6 | 60237 | 14.9 | 24.9 |
-| Gampaha | Divulapitiya | 51 | 39 | 🟢 -12 | 158286 | 32.2 | 24.6 |
-| Kegalle | Warakapola | 27 | 29 | 🔴 +2 | 117967 | 22.9 | 24.6 |
-| Kegalle | Bulathkohupitiya | 14 | 11 | 🟢 -3 | 45237 | 30.9 | 24.3 |
-| Kurunegala | Galgamuwa | 3 | 21 | 🔴 +18 | 90076 | 3.3 | 23.3 |
-| Kegalle | Yatiyanthota | 17 | 14 | 🟢 -3 | 62255 | 27.3 | 22.5 |
-| Batticaloa | Batticaloa | 18 | 19 | 🔴 +1 | 85114 | 21.1 | 22.3 |
-| Puttalam | Dankotuwa | 19 | 14 | 🟢 -5 | 62873 | 30.2 | 22.3 |
-| Gampaha | Meerigama | 29 | 39 | 🔴 +10 | 176309 | 16.4 | 22.1 |
-| Ratnapura | Nivithigala | 13 | 13 | ⚪️ +0 | 59442 | 21.9 | 21.9 |
-| Ampara | Damana | 8 | 10 | 🔴 +2 | 48364 | 16.5 | 20.7 |
-| Kegalle | Mawanella | 48 | 26 | 🟢 -22 | 126026 | 38.1 | 20.6 |
-| Kalutara | Madurawala | 18 | 19 | 🔴 +1 | 92889 | 19.4 | 20.5 |
-| Puttalam | Mahawewa | 2 | 10 | 🔴 +8 | 48833 | 4.1 | 20.5 |
-| Kurunegala | Udubaddawa | 11 | 11 | ⚪️ +0 | 54466 | 20.2 | 20.2 |
-| Matale | Ukuwela | 8 | 14 | 🔴 +6 | 72313 | 11.1 | 19.4 |
-| Ampara | Dehiattakandiya | 8 | 13 | 🔴 +5 | 67274 | 11.9 | 19.3 |
-| Kurunegala | Kurunegala | 6 | 17 | 🔴 +11 | 88638 | 6.8 | 19.2 |
-| Kalutara | Mathugama | 7 | 25 | 🔴 +18 | 130571 | 5.4 | 19.1 |
-| Kalutara | Medadumbara | 8 | 12 | 🔴 +4 | 64539 | 12.4 | 18.6 |
-| Kurunegala | Mallawapitiya | 12 | 11 | 🟢 -1 | 59491 | 20.2 | 18.5 |
-| Kalutara | Bulathsinhala | 10 | 12 | 🔴 +2 | 65550 | 15.3 | 18.3 |
-| Badulla | Rideemaliyadda | 5 | 11 | 🔴 +6 | 60882 | 8.2 | 18.1 |
-| Puttalam | Anamaduwa | 9 | 11 | 🔴 +2 | 64436 | 14.0 | 17.1 |
-| Batticaloa | Chenkaladay | 6 | 13 | 🔴 +7 | 77192 | 7.8 | 16.8 |
-| Kegalle | Ruwanwella | 10 | 11 | 🔴 +1 | 65797 | 15.2 | 16.7 |
-| Kalutara | Poojapitiya | 11 | 10 | 🟢 -1 | 60316 | 18.2 | 16.6 |
-| Kegalle | Rambukkana | 7 | 14 | 🔴 +7 | 87055 | 8.0 | 16.1 |
-| Polonnaruwa | Hingurakoda | 15 | 12 | 🟢 -3 | 74862 | 20.0 | 16.0 |
-| Monaragala | Siyambalanduwa | 14 | 10 | 🟢 -4 | 63055 | 22.2 | 15.9 |
-| Ratnapura | Imbulpe | 1 | 10 | 🔴 +9 | 64555 | 1.5 | 15.5 |
-| Kurunegala | Alawwa | 11 | 10 | 🟢 -1 | 65689 | 16.7 | 15.2 |
-| Kurunegala | Polpithigama | 2 | 13 | 🔴 +11 | 86411 | 2.3 | 15.0 |
-| Kegalle | Galigamuwa | 5 | 11 | 🔴 +6 | 73778 | 6.8 | 14.9 |
-| Badulla | Uva Paranagama | 2 | 12 | 🔴 +10 | 82069 | 2.4 | 14.6 |
-| Ratnapura | Balangoda | 3 | 13 | 🔴 +10 | 88914 | 3.4 | 14.6 |
-| Monaragala | Monaragala | 9 | 14 | 🔴 +5 | 101565 | 8.9 | 13.8 |
-| Kurunegala | Pannala | 34 | 17 | 🟢 -17 | 135845 | 25.0 | 12.5 |
-| Badulla | Welimada | 1 | 13 | 🔴 +12 | 105510 | 0.9 | 12.3 |
-| Kurunegala | Panduwasnuwara | 5 | 11 | 🔴 +6 | 102976 | 4.9 | 10.7 |
-| Kurunegala | Ibbagamuwa | 7 | 10 | 🔴 +3 | 94167 | 7.4 | 10.6 |
-| Badulla | Hali Ela | 10 | 10 | ⚪️ +0 | 94792 | 10.5 | 10.5 |
-| Kurunegala | Kuliyapitiya | 18 | 15 | 🟢 -3 | 143810 | 12.5 | 10.4 |
-| Anuradhapura | Nuwaragam-Palatha | 4 | 10 | 🔴 +6 | 100781 | 4.0 | 9.9 |
+| Gampaha | Kelaniya | 237 | 256 | 🔴 +19 | 133755 | 177.2 | 191.4 |
+| Gampaha | Biyagama | 304 | 320 | 🔴 +16 | 207155 | 146.8 | 154.5 |
+| Colombo | Boralesgamuwa | 91 | 86 | 🟢 -5 | 59240 | 153.6 | 145.2 |
+| Colombo | Battaramulla | 86 | 121 | 🔴 +35 | 87511 | 98.3 | 138.3 |
+| Kandy | Gangawata Korale & Kurunduwaththa | 76 | 71 | 🟢 -5 | 53141 | 143.0 | 133.6 |
+| Colombo | Maharagama | 254 | 195 | 🟢 -59 | 155965 | 162.9 | 125.0 |
+| Gampaha | Ja-Ela | 179 | 169 | 🟢 -10 | 137864 | 129.8 | 122.6 |
+| Ratnapura | Rathnapura MC | 29 | 49 | 🔴 +20 | 42633 | 68.0 | 114.9 |
+| Puttalam | Wennappuwa | 45 | 64 | 🔴 +19 | 64768 | 69.5 | 98.8 |
+| Gampaha | Wattala | 175 | 153 | 🟢 -22 | 166517 | 105.1 | 91.9 |
+| Gampaha | Mahara | 173 | 200 | 🔴 +27 | 226214 | 76.5 | 88.4 |
+| Colombo | Nugegoda | 70 | 66 | 🟢 -4 | 75256 | 93.0 | 87.7 |
+| Gampaha | Negombo | 110 | 103 | 🟢 -7 | 132907 | 82.8 | 77.5 |
+| Colombo | Egodauyana & Moratuwa | 119 | 124 | 🔴 +5 | 160199 | 74.3 | 77.4 |
+| Colombo | Rathmalana | 55 | 68 | 🔴 +13 | 88063 | 62.5 | 77.2 |
+| Colombo | Pitakotte | 39 | 46 | 🔴 +7 | 61468 | 63.4 | 74.8 |
+| Gampaha | Seeduwa | 119 | 87 | 🟢 -32 | 119832 | 99.3 | 72.6 |
+| Colombo | Gothatuwa & Kolonnawa | 154 | 153 | 🟢 -1 | 214070 | 71.9 | 71.5 |
+| Ratnapura | Kiriella | 23 | 23 | ⚪️ +0 | 33631 | 68.4 | 68.4 |
+| Kandy | Yatinuwara | 68 | 77 | 🔴 +9 | 113769 | 59.8 | 67.7 |
+| Kandy | Kandy MC | 103 | 103 | ⚪️ +0 | 152397 | 67.6 | 67.6 |
+| Gampaha | Ragama | 78 | 56 | 🟢 -22 | 82930 | 94.1 | 67.5 |
+| Colombo | Kaduwela | 140 | 128 | 🟢 -12 | 190407 | 73.5 | 67.2 |
+| Gampaha | Katana | 77 | 82 | 🔴 +5 | 123983 | 62.1 | 66.1 |
+| Colombo | Kesbewa & Piliyandala | 143 | 121 | 🟢 -22 | 204301 | 70.0 | 59.2 |
+| Kandy | Werellagama | 47 | 56 | 🔴 +9 | 95757 | 49.1 | 58.5 |
+| Badulla | Badulla | 30 | 48 | 🔴 +18 | 83033 | 36.1 | 57.8 |
+| Kandy | Gampola | 45 | 63 | 🔴 +18 | 109092 | 41.2 | 57.7 |
+| Kalutara | Bandaragama | 91 | 71 | 🟢 -20 | 124133 | 73.3 | 57.2 |
+| Ratnapura | Kalawana | 18 | 29 | 🔴 +11 | 50753 | 35.5 | 57.1 |
+| Gampaha | Pugoda(Dompe) | 75 | 93 | 🔴 +18 | 169223 | 44.3 | 55.0 |
+| Kalutara | Horana | 91 | 70 | 🟢 -21 | 133685 | 68.1 | 52.4 |
+| Kandy | Udunuwara | 38 | 37 | 🟢 -1 | 70803 | 53.7 | 52.3 |
+| Colombo | CMC & D1-CMC & D2A-CMC & D2B-CMC & D3-CMC & D4-CMC & D5-CMC | 221 | 265 | 🔴 +44 | 508408 | 43.5 | 52.1 |
+| Gampaha | Gampaha | 98 | 104 | 🔴 +6 | 201818 | 48.6 | 51.5 |
+| Kandy | Hatharaliyadda | 7 | 16 | 🔴 +9 | 31141 | 22.5 | 51.4 |
+| Ratnapura | Ratnapura PS | 26 | 40 | 🔴 +14 | 78533 | 33.1 | 50.9 |
+| Ratnapura | Ayagama | 6 | 16 | 🔴 +10 | 31506 | 19.0 | 50.8 |
+| Colombo | Padukka | 33 | 36 | 🔴 +3 | 73014 | 45.2 | 49.3 |
+| Ratnapura | Nivithigala | 13 | 29 | 🔴 +16 | 59442 | 21.9 | 48.8 |
+| Colombo | Homagama | 112 | 86 | 🟢 -26 | 179146 | 62.5 | 48.0 |
+| Kandy | Bambaradeniya | 17 | 23 | 🔴 +6 | 47868 | 35.5 | 48.0 |
+| Ratnapura | Elapatha | 10 | 17 | 🔴 +7 | 36867 | 27.1 | 46.1 |
+| Gampaha | Minuwangoda | 100 | 91 | 🟢 -9 | 197883 | 50.5 | 46.0 |
+| Colombo | Dehiwala | 27 | 42 | 🔴 +15 | 93815 | 28.8 | 44.8 |
+| Kandy | Doluwa | 22 | 24 | 🔴 +2 | 53535 | 41.1 | 44.8 |
+| Kandy | Pasbage | 26 | 29 | 🔴 +3 | 65553 | 39.7 | 44.2 |
+| Kegalle | Mawanella | 23 | 54 | 🔴 +31 | 126026 | 18.3 | 42.8 |
+| Monaragala | Siyambalanduwa | 10 | 27 | 🔴 +17 | 63055 | 15.9 | 42.8 |
+| Colombo | Hanwella | 45 | 48 | 🔴 +3 | 122128 | 36.8 | 39.3 |
+| Puttalam | Chilaw & Madampe | 34 | 43 | 🔴 +9 | 112633 | 30.2 | 38.2 |
+| Puttalam | Nattandiya | 25 | 25 | ⚪️ +0 | 65500 | 38.2 | 38.2 |
+| Badulla | Uva Paranagama | 11 | 31 | 🔴 +20 | 82069 | 13.4 | 37.8 |
+| Kandy | Menikhinna | 34 | 25 | 🟢 -9 | 67384 | 50.5 | 37.1 |
+| Ratnapura | Kuruvita | 29 | 36 | 🔴 +7 | 97966 | 29.6 | 36.7 |
+| Batticaloa | Eravur | 5 | 14 | 🔴 +9 | 39491 | 12.7 | 35.5 |
+| Colombo | Kahathuduwa | 66 | 36 | 🟢 -30 | 101625 | 64.9 | 35.4 |
+| Kegalle | Dehiovita | 32 | 30 | 🟢 -2 | 84967 | 37.7 | 35.3 |
+| Ampara | Ampara | 8 | 13 | 🔴 +5 | 37604 | 21.3 | 34.6 |
+| Ratnapura | Eheliyagoda | 32 | 25 | 🟢 -7 | 74071 | 43.2 | 33.8 |
+| Gampaha | Aththanagalla | 59 | 67 | 🔴 +8 | 199017 | 29.6 | 33.7 |
+| Kegalle | Yatiyanthota | 14 | 21 | 🔴 +7 | 62255 | 22.5 | 33.7 |
+| Puttalam | Dankotuwa | 14 | 19 | 🔴 +5 | 62873 | 22.3 | 30.2 |
+| Kandy | Thalathuoya | 16 | 18 | 🔴 +2 | 59835 | 26.7 | 30.1 |
+| Kandy | Poojapitiya | 11 | 18 | 🔴 +7 | 60316 | 18.2 | 29.8 |
+| Ratnapura | Pelmadulla | 38 | 28 | 🟢 -10 | 93818 | 40.5 | 29.8 |
+| Nuwara Eliya | Nawathispane | 8 | 11 | 🔴 +3 | 40193 | 19.9 | 27.4 |
+| Kalutara | Walasmulla | 21 | 13 | 🟢 -8 | 47869 | 43.9 | 27.2 |
+| Ratnapura | Kolonna | 7 | 13 | 🔴 +6 | 48237 | 14.5 | 27.0 |
+| Ampara | Uhana | 18 | 17 | 🟢 -1 | 64683 | 27.8 | 26.3 |
+| Kurunegala | Kurunegala & MC Kurunegala | 24 | 23 | 🟢 -1 | 88638 | 27.1 | 25.9 |
+| Kandy | Waththegama | 31 | 25 | 🟢 -6 | 96889 | 32.0 | 25.8 |
+| Polonnaruwa | Medirigiriya | 20 | 18 | 🟢 -2 | 72482 | 27.6 | 24.8 |
+| Kurunegala | Polpithigama | 14 | 21 | 🔴 +7 | 86411 | 16.2 | 24.3 |
+| Ratnapura | Imbulpe | 10 | 15 | 🔴 +5 | 64555 | 15.5 | 23.2 |
+| Jaffna | Tellippalai | 2 | 10 | 🔴 +8 | 45794 | 4.4 | 21.8 |
+| Kandy | Kundasale | 22 | 16 | 🟢 -6 | 73586 | 29.9 | 21.7 |
+| Kalutara | Bulathsinhala | 12 | 14 | 🔴 +2 | 65550 | 18.3 | 21.4 |
+| Kegalle | Ruwanwella | 12 | 14 | 🔴 +2 | 65797 | 18.2 | 21.3 |
+| Badulla | Welimada | 13 | 22 | 🔴 +9 | 105510 | 12.3 | 20.9 |
+| Ampara | Damana | 10 | 10 | ⚪️ +0 | 48364 | 20.7 | 20.7 |
+| Kegalle | Warakapola | 29 | 24 | 🟢 -5 | 117967 | 24.6 | 20.3 |
+| Gampaha | Meerigama | 39 | 35 | 🟢 -4 | 176309 | 22.1 | 19.9 |
+| Badulla | Rideemaliyadda | 13 | 12 | 🟢 -1 | 60882 | 21.4 | 19.7 |
+| Polonnaruwa | Thamankaduwa | 6 | 17 | 🔴 +11 | 89110 | 6.7 | 19.1 |
+| Batticaloa | Batticaloa | 20 | 16 | 🟢 -4 | 85114 | 23.5 | 18.8 |
+| Kandy | Medadumbara | 12 | 12 | ⚪️ +0 | 64539 | 18.6 | 18.6 |
+| Kurunegala | Galgamuwa | 21 | 16 | 🟢 -5 | 90076 | 23.3 | 17.8 |
+| Kurunegala | Pannala | 18 | 24 | 🔴 +6 | 135845 | 13.3 | 17.7 |
+| Gampaha | Divulapitiya | 38 | 27 | 🟢 -11 | 158286 | 24.0 | 17.1 |
+| Kurunegala | Alawwa | 10 | 11 | 🔴 +1 | 65689 | 15.2 | 16.7 |
+| Polonnaruwa | Hingurakoda | 12 | 12 | ⚪️ +0 | 74862 | 16.0 | 16.0 |
+| Badulla | Hali Ela | 10 | 15 | 🔴 +5 | 94792 | 10.5 | 15.8 |
+| Monaragala | Monaragala | 11 | 16 | 🔴 +5 | 101565 | 10.8 | 15.8 |
+| Nuwara Eliya | Ambagamuwa | 25 | 12 | 🟢 -13 | 82685 | 30.2 | 14.5 |
+| Vavuniy | Vavuniya | 4 | 17 | 🔴 +13 | 116991 | 3.4 | 14.5 |
+| Kegalle | Rambukkana | 14 | 12 | 🟢 -2 | 87055 | 16.1 | 13.8 |
+| Matale | Ukuwela | 14 | 10 | 🟢 -4 | 72313 | 19.4 | 13.8 |
+| Monaragala | wellawaya | 7 | 10 | 🔴 +3 | 73280 | 9.6 | 13.6 |
+| Ratnapura | Balangoda | 13 | 11 | 🟢 -2 | 88914 | 14.6 | 12.4 |
+| Ratnapura | Embilipitiya | 5 | 10 | 🔴 +5 | 159438 | 3.1 | 6.3 |
 
 ## Cases by Hospitals
 
-As of 2026-07-05
+As of 2026-07-12
 
 | Hospital | Cases Last Week | Cases This Week |
 | --- | ---: | ---: |
-| NIID | 212 | 212 |
-| TH-Matara | 197 | 197 |
-| TH - Colombo South | 159 | 175 |
-| DGH - Negambo | 164 | 170 |
-| NHSL | 153 | 152 |
-| TH - Colombo North | 137 | 142 |
-| NH - Galle | 109 | 123 |
-| NH - Kandy | 93 | 107 |
-| BH - Panadura | 82 | 86 |
-| TH - Ratnapura | 80 | 84 |
-| DGH - Gampaha | 79 | 81 |
-| TH - Peradeniya | 87 | 75 |
-| LRH | 61 | 74 |
-| TH - Kalutara | 62 | 61 |
-| BH - Tangalle | 56 | 58 |
-| TH - Kurunegala | 71 | 57 |
-| DGH - Horana | 58 | 47 |
-| BH - Kamburupitiya | 47 | 38 |
-| BH - Marawila | 35 | 38 |
-| BH - Balapitiya | 20 | 36 |
-| PGH - Badulla | 33 | 35 |
-| DGH - Awissawella | 36 | 34 |
-| BH - Balangoda | 30 | 31 |
-| BH - Wathupitiwala | 25 | 31 |
-| BH - Gampola | 31 | 29 |
-|  | 26 | 27 |
-|  | 26 | 27 |
-|  | 26 | 27 |
-| DGH - Hambantota | 30 | 26 |
-| TH - Kuliyapitiya | 26 | 26 |
-| BH - Minuwangoda | 18 | 24 |
-| BH - Kahawatta | 18 | 22 |
-| DGH - Kegalle | 11 | 22 |
-| BH - Nikaweratiya | 7 | 21 |
-| TH - Anuradhapura | 29 | 21 |
-| BH - Warakapola | 17 | 20 |
-| DGH - Embilipitiya | 31 | 20 |
-| DGH - Matale | 20 | 20 |
-| DGH - Nawalapitiya | 18 | 20 |
-| DGH - Ampara | 22 | 19 |
+| NIID | 212 | 213 |
+| TH-Matara | 195 | 187 |
+| TH - Colombo South | 175 | 178 |
+| TH - Colombo North | 143 | 167 |
+| NHSL | 152 | 144 |
+| DGH - Negambo | 169 | 140 |
+| NH - Kandy | 107 | 102 |
+| NH - Galle | 122 | 101 |
+| BH - Panadura | 86 | 92 |
+| DGH - Gampaha | 81 | 79 |
+| LRH | 74 | 78 |
+| TH - Peradeniya | 75 | 77 |
+| TH - Kalutara | 61 | 71 |
+| TH - Ratnapura | 84 | 64 |
+| BH - Tangalle | 58 | 54 |
+| PGH - Badulla | 35 | 44 |
+| DGH - Horana | 47 | 43 |
+| BH - Gampola | 29 | 42 |
+| BH - Marawila | 38 | 39 |
+| BH - Kamburupitiya | 38 | 38 |
+| TH - Kuliyapitiya | 26 | 34 |
+| DGH - Awissawella | 34 | 33 |
+|  | 27 | 28 |
+|  | 27 | 28 |
+|  | 27 | 28 |
+| BH - Wathupitiwala | 31 | 28 |
+| DGH - Embilipitiya | 20 | 27 |
+| DGH - Kegalle | 20 | 26 |
+| BH - Minuwangoda | 22 | 25 |
+| BH - Balapitiya | 36 | 24 |
+| BH - Kahawatta | 22 | 23 |
+| DGH - Chilaw | 18 | 22 |
+| BH - Balangoda | 31 | 20 |
+| BH - Mahiyanganaya | 15 | 20 |
+| DGH - Monaragala | 13 | 20 |
+| DGH - Nawalapitiya | 20 | 20 |
+| DGH - Polonnaruwa | 17 | 20 |
+| BH - Mawanella | 14 | 19 |
 | BH - Dambadeniya | 18 | 18 |
-| DGH - Chilaw | 19 | 18 |
-| DGH - Polonnaruwa | 19 | 17 |
+| BH - Nikaweratiya | 21 | 18 |
+| DGH - Hambantota | 26 | 18 |
+| BH - Karawanella | 16 | 17 |
+| DGH - Matale | 20 | 17 |
 
 ## Appendix: Source Reports & Extracted Data
 
@@ -300,6 +291,7 @@ As of 2026-07-05
 
 ### [National Dengue Control Unit - Weekly Update](data/NDCUWeekly)
 
+- [2026-07-12](data/NDCUWeekly/2026/2026-07/2026-07-12)
 - [2026-07-05](data/NDCUWeekly/2026/2026-07/2026-07-05)
 - [2026-06-28](data/NDCUWeekly/2026/2026-06/2026-06-28)
 - [2026-06-21](data/NDCUWeekly/2026/2026-06/2026-06-21)
