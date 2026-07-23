@@ -4,6 +4,14 @@
 
 Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.gov.lk/) Website.
 
+## Weekly Cases – Trend (National)
+
+![Weekly Cases Trend](images/daily_cases_by_week_national.png)
+
+## Weekly Cases per 100k – Trend by District
+
+![Weekly Cases per 100k by District](images/daily_cases_per_100k_by_district.png)
+
 ## Cases this week
 
 ![Cases this week](images/cases-this-week_by_region.png)
@@ -16,9 +24,9 @@ Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.g
 
 ![Additional Cases this week (compared to this week, last year)](images/additional-cases-this-week-(compared-to-this-week,-last-year)_by_region.png)
 
-## Cumulative Deaths in 2026
+## Average Deaths per Day in 2026
 
-![Cumulative Deaths in 2026](images/cumulative-deaths-in-2026_by_region.png)
+![Average Deaths per Day in 2026](images/average-deaths-per-day-in-2026_by_region.png)
 
 ## Cumulative Cases in 2026
 

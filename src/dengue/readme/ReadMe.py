@@ -1,3 +1,4 @@
+import datetime
 import os
 import shutil
 
@@ -53,6 +54,7 @@ class ReadMe:
         metric_label,
         positive_color,
         negative_color,
+        annotation_formatter=None,
     ) -> list[str]:
         image_path = Chart.chart_metric_by_region(
             Doc=Doc,
@@ -61,6 +63,7 @@ class ReadMe:
             metric_label=metric_label,
             positive_color=positive_color,
             negative_color=negative_color,
+            annotation_formatter=annotation_formatter,
         )
         lines = [
             f"## {metric_label}",
@@ -73,6 +76,12 @@ class ReadMe:
 
     @staticmethod
     def get_lines_for_charts():
+        # Compute days elapsed in 2026 up to the latest weekly report
+        latest_weekly = NDCUWeekly.latest()
+        year_start = datetime.date(2026, 1, 1)
+        report_date = datetime.date.fromisoformat(latest_weekly.date_str)
+        days_elapsed = max(1, (report_date - year_start).days + 1)
+
         for (
             Doc,
             get_file_from_latest,
@@ -80,6 +89,7 @@ class ReadMe:
             metric_label,
             positive_color,
             negative_color,
+            annotation_formatter,
         ) in [
             (
                 NDCUWeekly,
@@ -88,6 +98,7 @@ class ReadMe:
                 "Cases this week",
                 "orange",
                 "white",
+                None,
             ),
             (
                 NDCUWeekly,
@@ -99,6 +110,7 @@ class ReadMe:
                 "Additional Cases this week (compared to last week)",
                 "orange",
                 "white",
+                None,
             ),
             (
                 NDCUWeekly,
@@ -110,14 +122,16 @@ class ReadMe:
                 "Additional Cases this week (compared to this week, last year)",
                 "orange",
                 "white",
+                None,
             ),
             (
                 NDCUWeekly,
                 lambda latest: latest.deaths_by_district_file,
-                lambda d: int(d["n_deaths"]),
-                "Cumulative Deaths in 2026",
+                lambda d, _de=days_elapsed: int(d["n_deaths"]) / _de,
+                "Average Deaths per Day in 2026",
                 "darkred",
                 "white",
+                lambda v: f"{v:.2f}",
             ),
             (
                 NDCUDaily,
@@ -126,6 +140,7 @@ class ReadMe:
                 "Cumulative Cases in 2026",
                 "darkorange",
                 "white",
+                None,
             ),
         ]:
             yield from ReadMe.get_lines_for_chart(
@@ -135,7 +150,32 @@ class ReadMe:
                 metric_label=metric_label,
                 positive_color=positive_color,
                 negative_color=negative_color,
+                annotation_formatter=annotation_formatter,
             )
+
+    @staticmethod
+    def get_lines_for_trend_charts() -> list[str]:
+        lines = []
+
+        image_path = Chart.chart_daily_cases_by_week()
+        if image_path:
+            lines += [
+                "## Weekly Cases – Trend (National)",
+                "",
+                f"![Weekly Cases Trend]({image_path})",
+                "",
+            ]
+
+        image_path = Chart.chart_daily_cases_per_100k_by_district()
+        if image_path:
+            lines += [
+                "## Weekly Cases per 100k – Trend by District",
+                "",
+                f"![Weekly Cases per 100k by District]({image_path})",
+                "",
+            ]
+
+        return lines
 
     @staticmethod
     def get_lines_for_chart_moh() -> list[str]:
@@ -286,6 +326,7 @@ class ReadMe:
                 + "(https://www.dengue.health.gov.lk/) Website.",
                 "",
             ]
+            + ReadMe.get_lines_for_trend_charts()
             + list(ReadMe.get_lines_for_charts())
             + ReadMe.get_lines_for_chart_moh()
             + ReadMe.get_lines_for_tables()
