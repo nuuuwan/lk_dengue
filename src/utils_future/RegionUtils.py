@@ -52,6 +52,7 @@ class RegionUtils:
         name = {
             "Monaragala": "Moneragala",
             "Nuwaraeliya": "Nuwara Eliya",
+            "Nuwar": "Nuwara Eliya",
         }.get(name, name)
         return RegionUtils.get_region_name_to_id().get(name, name)
 
