@@ -53,7 +53,11 @@ class RegionUtils:
             "Monaragala": "Moneragala",
             "Nuwaraeliya": "Nuwara Eliya",
             "Nuwar": "Nuwara Eliya",
-        }.get(name, name)
+            "NuwaraEliya": "Nuwara Eliya",
+        }.get(name)
+
+        if not name:
+            raise ValueError(f"Unknown region name: {name}")
         return RegionUtils.get_region_name_to_id().get(name, name)
 
     @staticmethod
