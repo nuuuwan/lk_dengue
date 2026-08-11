@@ -49,16 +49,17 @@ class RegionUtils:
 
     @staticmethod
     def get_region_id_from_name(name: str):
-        name = {
+        norm_name = {
             "Monaragala": "Moneragala",
             "Nuwaraeliya": "Nuwara Eliya",
             "Nuwar": "Nuwara Eliya",
             "NuwaraEliya": "Nuwara Eliya",
-        }.get(name)
+        }.get(name, name)
 
-        if not name:
+        region_id = RegionUtils.get_region_name_to_id().get(norm_name)
+        if not region_id:
             raise ValueError(f"Unknown region name: {name}")
-        return RegionUtils.get_region_name_to_id().get(name, name)
+        return region_id
 
     @staticmethod
     def get_region_id_to_population():
