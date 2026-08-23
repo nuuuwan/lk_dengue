@@ -54,6 +54,7 @@ class RegionUtils:
             "Nuwaraeliya": "Nuwara Eliya",
             "Nuwar": "Nuwara Eliya",
             "NuwaraEliya": "Nuwara Eliya",
+            "Colombo RDHS": "Colombo",
         }.get(name, name)
 
         region_id = RegionUtils.get_region_name_to_id().get(norm_name)
