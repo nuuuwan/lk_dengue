@@ -47,16 +47,21 @@ class RegionUtils:
     def get_region_id_to_name() -> dict[str, str]:
         return {v: k for k, v in RegionUtils.get_region_name_to_id().items()}
 
+
     @staticmethod
-    def get_region_id_from_name(name: str):
-        norm_name = {
+    def get_norm_name(name: str):
+        if 'RDHS' in name:
+            name = name.replace('RDHS', '').strip()
+        return {
             "Monaragala": "Moneragala",
             "Nuwaraeliya": "Nuwara Eliya",
             "Nuwar": "Nuwara Eliya",
             "NuwaraEliya": "Nuwara Eliya",
-            "Colombo RDHS": "Colombo",
         }.get(name, name)
 
+    @staticmethod
+    def get_region_id_from_name(name: str):
+        norm_name = RegionUtils.get_norm_name(name)
         region_id = RegionUtils.get_region_name_to_id().get(norm_name)
         if not region_id:
             raise ValueError(f"Unknown region name: {name}")
