@@ -1,6 +1,6 @@
 # Dengue in Sri Lanka 🇱🇰
 
-![Last Updated](https://img.shields.io/badge/last_updated-2026--09--12-green)
+![Last Updated](https://img.shields.io/badge/last_updated-2026--09--14-green)
 
 Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.gov.lk/) Website.
 
@@ -153,6 +153,7 @@ As of 2026-09-06
 
 ### [National Dengue Control Unit - Daily Update](data/NDCUDaily)
 
+- [2026-09-13](data/NDCUDaily/2026/2026-09/2026-09-13)
 - [2026-09-10](data/NDCUDaily/2026/2026-09/2026-09-10)
 - [2026-09-09](data/NDCUDaily/2026/2026-09/2026-09-09)
 - [2026-09-08](data/NDCUDaily/2026/2026-09/2026-09-08)
