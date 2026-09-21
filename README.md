@@ -46,113 +46,100 @@ Datasets scraped from [National Dengue Control Unit](https://www.dengue.health.g
 
 ![Kandy](images/cases-this-week-by-moh-region_by_moh_lk-21.png)
 
-### Gampaha
-
-![Gampaha](images/cases-this-week-by-moh-region_by_moh_lk-12.png)
-
-### Anuradhapura
-
-![Anuradhapura](images/cases-this-week-by-moh-region_by_moh_lk-71.png)
-
-### Matara
-
-![Matara](images/cases-this-week-by-moh-region_by_moh_lk-32.png)
-
 ### Kegalle
 
 ![Kegalle](images/cases-this-week-by-moh-region_by_moh_lk-92.png)
-
-### Ampara
-
-![Ampara](images/cases-this-week-by-moh-region_by_moh_lk-52.png)
-
-### Puttalam
-
-![Puttalam](images/cases-this-week-by-moh-region_by_moh_lk-62.png)
 
 ### Galle
 
 ![Galle](images/cases-this-week-by-moh-region_by_moh_lk-31.png)
 
+### Kalutara
+
+![Kalutara](images/cases-this-week-by-moh-region_by_moh_lk-13.png)
+
+### Puttalam
+
+![Puttalam](images/cases-this-week-by-moh-region_by_moh_lk-62.png)
+
 ## Cases by MOH Regions
 
-As of 2026-09-06
+As of 2026-09-13
 
 | District | MOH Area | Cases Last Week | Cases This Week | Change | Population (2024 Census) | Cases Last Week per 100k | Cases This Week per 100k |
 | --- | --- | ---: | ---: | --- | ---: | ---: | ---: |
-| Puttalam | Thirukkovil | 5 | 10 | 🔴 +5 | 28546 | 17.5 | 35.0 |
-| Kandy | Pasbage | 11 | 21 | 🔴 +10 | 65553 | 16.8 | 32.0 |
-| Anuradhapura | Thalawa | 1 | 14 | 🔴 +13 | 60237 | 1.7 | 23.2 |
-| Colombo | Pitakotte | 11 | 13 | 🔴 +2 | 61468 | 17.9 | 21.1 |
-| Kandy | Kandy MC | 29 | 32 | 🔴 +3 | 152397 | 19.0 | 21.0 |
-| Kegalle | Yatiyanthota | 15 | 11 | 🟢 -4 | 62255 | 24.1 | 17.7 |
-| Kandy | Waththegama | 8 | 16 | 🔴 +8 | 96889 | 8.3 | 16.5 |
-| Colombo | Battaramulla | 22 | 14 | 🟢 -8 | 87511 | 25.1 | 16.0 |
-| Kandy | Yatinuwara | 14 | 18 | 🔴 +4 | 113769 | 12.3 | 15.8 |
-| Puttalam | Wennappuwa | 13 | 10 | 🟢 -3 | 64768 | 20.1 | 15.4 |
-| Kandy | Kundasale | 10 | 11 | 🔴 +1 | 73586 | 13.6 | 14.9 |
-| Matara | Weligama | 7 | 11 | 🔴 +4 | 76136 | 9.2 | 14.4 |
-| Kandy | Udunuwara | 9 | 10 | 🔴 +1 | 70803 | 12.7 | 14.1 |
-| Colombo | Homagama | 25 | 23 | 🟢 -2 | 179146 | 14.0 | 12.8 |
-| Gampaha | Aththanagalla | 35 | 24 | 🟢 -11 | 199017 | 17.6 | 12.1 |
-| Colombo | Gothatuwa & Kolonnawa | 16 | 25 | 🔴 +9 | 214070 | 7.5 | 11.7 |
-| Colombo | Maharagama | 39 | 18 | 🟢 -21 | 155965 | 25.0 | 11.5 |
-| Colombo | Kaduwela | 32 | 21 | 🟢 -11 | 190407 | 16.8 | 11.0 |
-| Colombo | Hanwella | 17 | 13 | 🟢 -4 | 122128 | 13.9 | 10.6 |
-| Colombo | Piliyandala | 21 | 21 | ⚪️ +0 | 204301 | 10.3 | 10.3 |
-| Galle | MC-Galle | 15 | 10 | 🟢 -5 | 108321 | 13.8 | 9.2 |
-| Colombo | CMC & D3-CMC | 16 | 12 | 🟢 -4 | 508408 | 3.1 | 2.4 |
+| Kandy | Pasbage | 20 | 14 | 🟢 -6 | 65553 | 30.5 | 21.4 |
+| Colombo | Pitakotte | 13 | 13 | ⚪️ +0 | 61468 | 21.1 | 21.1 |
+| Kandy | Udunuwara | 10 | 14 | 🔴 +4 | 70803 | 14.1 | 19.8 |
+| Kandy | Kundasale | 11 | 13 | 🔴 +2 | 73586 | 14.9 | 17.7 |
+| Puttalam | Wennappuwa | 10 | 11 | 🔴 +1 | 64768 | 15.4 | 17.0 |
+| Kegalle | Ruwanwella | 6 | 11 | 🔴 +5 | 65797 | 9.1 | 16.7 |
+| Kandy | Kandy MC | 31 | 25 | 🟢 -6 | 152397 | 20.3 | 16.4 |
+| Colombo | Battaramulla | 15 | 14 | 🟢 -1 | 87511 | 17.1 | 16.0 |
+| Kandy | Werellagama | 7 | 15 | 🔴 +8 | 95757 | 7.3 | 15.7 |
+| Kandy | Waththegama | 16 | 15 | 🟢 -1 | 96889 | 16.5 | 15.5 |
+| Colombo | Maharagama | 18 | 24 | 🔴 +6 | 155965 | 11.5 | 15.4 |
+| Galle | MC-Galle | 10 | 16 | 🔴 +6 | 108321 | 9.2 | 14.8 |
+| Kandy | Yatinuwara | 18 | 16 | 🟢 -2 | 113769 | 15.8 | 14.1 |
+| Colombo | Hanwella | 13 | 14 | 🔴 +1 | 122128 | 10.6 | 11.5 |
+| Colombo | Dehiwala | 4 | 10 | 🔴 +6 | 93815 | 4.3 | 10.7 |
+| Kegalle | Warakapola | 9 | 12 | 🔴 +3 | 117967 | 7.6 | 10.2 |
+| Colombo | Kaduwela | 21 | 18 | 🟢 -3 | 190407 | 11.0 | 9.5 |
+| Kegalle | Mawanella | 8 | 12 | 🔴 +4 | 126026 | 6.3 | 9.5 |
+| Colombo | Piliyandala | 21 | 19 | 🟢 -2 | 204301 | 10.3 | 9.3 |
+| Kalutara | Panadura | 12 | 13 | 🔴 +1 | 249613 | 4.8 | 5.2 |
+| Colombo | Gothatuwa | 12 | 11 | 🟢 -1 | 214070 | 5.6 | 5.1 |
+| Colombo | CMC & D3-CMC | 10 | 10 | ⚪️ +0 | 508408 | 2.0 | 2.0 |
 
 ## Cases by Hospitals
 
-As of 2026-09-06
+As of 2026-09-13
 
 | Hospital | Cases Last Week | Cases This Week |
 | --- | ---: | ---: |
-|  | 0 | 3536 |
-|  | 0 | 3536 |
-|  | 0 | 3536 |
-| NIID | 40 | 37 |
-| NH – Kandy | 24 | 27 |
-| DGH – Negambo | 23 | 25 |
-| NHSL | 25 | 23 |
-| TH - Colombo North | 27 | 20 |
-| TH – Colombo South | 28 | 20 |
-| BH - Wathupitiwala | 15 | 18 |
-| TH – Peradeniya | 19 | 18 |
-| NH – Galle | 12 | 15 |
-| DGH - Avissawella | 14 | 14 |
-| DGH – Gampaha | 20 | 13 |
-| BH - Karawanella | 13 | 12 |
-| LRH | 17 | 12 |
-| DGH – Matara | 15 | 11 |
-| TH – Ratnapura | 14 | 11 |
-| DGH - Nawalapitiya | 7 | 10 |
-| TH – Kalutara | 14 | 10 |
-| TH - Anuradhapura | 7 | 9 |
-| BH – Tangalle | 7 | 8 |
+|  | 0 | 3637 |
+|  | 0 | 3637 |
+|  | 0 | 3637 |
+| NIID | 37 | 27 |
+| NH – Kandy | 27 | 26 |
+| TH – Colombo South | 20 | 25 |
+| NHSL | 23 | 24 |
+| TH – Peradeniya | 18 | 22 |
+| TH - Colombo North | 20 | 20 |
+| DGH – Gampaha | 13 | 18 |
+| DGH – Negambo | 25 | 18 |
+| NH – Galle | 15 | 18 |
+| LRH | 12 | 14 |
+| DGH – Matara | 11 | 13 |
+| BH - Wathupitiwala | 18 | 12 |
+| DGH - Avissawella | 14 | 12 |
+| TH – Kalutara | 10 | 12 |
+| TH – Kurunegala | 7 | 12 |
+| DGH - Nawalapitiya | 10 | 10 |
+| BH – Mawanella | 7 | 9 |
+| BH - Karawanella | 12 | 8 |
+| BH – Panadura | 6 | 8 |
 | PGH – Badulla | 8 | 8 |
-| BH – Mawanella | 6 | 7 |
-| TH – Kurunegala | 10 | 7 |
-| BH - Kamburupitiya | 7 | 6 |
-| BH – Gampola | 8 | 6 |
-| BH – Panadura | 11 | 6 |
-| DGH – Horana | 5 | 6 |
-| TH – Kuliyapitiya | 5 | 6 |
-| BH - Dambadeniya | 4 | 5 |
-| BH – Kalmunai North | 5 | 5 |
-| BH – Mirigama | 4 | 5 |
-| BH - Minuwangoda | 3 | 4 |
-| BH – Balangoda | 4 | 4 |
-| BH – Kahawatta | 4 | 4 |
-| DGH - Embilipitiya | 2 | 4 |
-| DGH – Ampara | 6 | 4 |
-| DGH – Matale | 5 | 4 |
+| BH – Kahawatta | 4 | 7 |
+| TH – Ratnapura | 11 | 7 |
+| BH – Balangoda | 4 | 6 |
+| BH – Kalmunai North | 5 | 6 |
+| BH – Marawila | 3 | 6 |
+| DGH – Matale | 4 | 6 |
+| TH – Anuradhapura | 9 | 6 |
+| BH - Gampola | 6 | 5 |
+| BH – Dambadeniya | 5 | 5 |
+| BH – Tangalle | 8 | 4 |
+| BH – Warakapola | 3 | 4 |
+| DGH – Embilipitiya | 4 | 4 |
+| DGH – Hambantota | 2 | 4 |
+| DGH – Kegalle | 3 | 4 |
 
 ## Appendix: Source Reports & Extracted Data
 
 ### [National Dengue Control Unit - Daily Update](data/NDCUDaily)
 
+- [2026-09-20](data/NDCUDaily/2026/2026-09/2026-09-20)
 - [2026-09-18](data/NDCUDaily/2026/2026-09/2026-09-18)
 - [2026-09-16](data/NDCUDaily/2026/2026-09/2026-09-16)
 - [2026-09-15](data/NDCUDaily/2026/2026-09/2026-09-15)
@@ -220,6 +207,7 @@ As of 2026-09-06
 
 ### [National Dengue Control Unit - Weekly Update](data/NDCUWeekly)
 
+- [2026-09-13](data/NDCUWeekly/2026/2026-09/2026-09-13)
 - [2026-09-06](data/NDCUWeekly/2026/2026-09/2026-09-06)
 - [2026-08-30](data/NDCUWeekly/2026/2026-08/2026-08-30)
 - [2026-08-23](data/NDCUWeekly/2026/2026-08/2026-08-23)
