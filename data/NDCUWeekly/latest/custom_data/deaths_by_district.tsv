@@ -1,11 +1,9 @@
 district_id	district_name	n_deaths
-LK-11	Colombo RDHS	15
-LK-11-CMC	CMC	1
-LK-12	Gampaha	12
-LK-13	Kalutara RDHS	6
+LK-11	Colombo	17
+LK-12	Gampaha	16
+LK-13	Kalutara	6
 LK-21	Kandy	5
 LK-22	Matale	1
-LK-23	NuwaraEliya	1
 LK-31	Galle	3
 LK-32	Matara	8
 LK-33	Hambantota	2

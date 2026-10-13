@@ -1,0 +1,27 @@
+district_id	district_name	n_last_year_last_week	n_last_year_this_week	n_this_year_last_week	n_this_year_this_week	cum_n_last_year	cum_n_this_year
+LK-11	Colombo	133	150	232	251	9886	23892
+LK-12	Gampaha	58	82	261	215	5834	21447
+LK-13	Kalutara	19	31	71	70	1745	7757
+LK-21	Kandy	42	33	161	156	3477	7779
+LK-22	Matale	16	14	30	52	908	1123
+LK-23	Nuwara Eliya	3	9	14	17	228	822
+LK-31	Galle	30	35	71	70	1848	5537
+LK-32	Matara	13	16	41	39	1300	6322
+LK-33	Hambantota	11	8	24	28	739	2668
+LK-41	Jaffna	14	12	23	33	873	1080
+LK-42	Mannar	0	4	0	1	129	96
+LK-43	Vavuniya	0	2	0	0	40	167
+LK-44	Mullaitivu	0	1	1	1	22	79
+LK-45	Kilinochchi	0	3	3	0	63	100
+LK-51	Batticaloa	13	16	16	25	1658	1620
+LK-52	Ampara	6	4	6	10	138	720
+LK-52-Kalmunai	Kalmunai	5	8	32	52	379	1292
+LK-53	Trincomalee	5	10	4	3	869	701
+LK-61	Kurunegala	12	7	27	43	1200	2852
+LK-62	Puttalam	4	5	25	10	552	2197
+LK-71	Anuradhapura	5	7	30	25	417	1076
+LK-72	Polonnaruwa	7	3	10	8	295	797
+LK-81	Badulla	9	8	18	16	623	1599
+LK-82	Monaragala	13	7	18	14	706	1277
+LK-91	Ratnapura	55	56	29	54	4406	5278
+LK-92	Kegalle	20	15	69	47	1152	3090
